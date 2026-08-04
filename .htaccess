@@ -1,7 +1,11 @@
 <IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
     RewriteEngine On
 
-    # Direct all incoming traffic to the public directory
-    RewriteCond %{REQUEST_URI} !^/public/
+    # Prevent infinite rewrite loop on shared hosting
+    RewriteCond %{ENV:REDIRECT_STATUS} ^$
     RewriteRule ^(.*)$ public/$1 [L]
 </IfModule>
