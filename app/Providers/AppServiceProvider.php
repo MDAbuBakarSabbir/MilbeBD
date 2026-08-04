@@ -2,6 +2,9 @@
 
 namespace App\Providers;
 
+use App\Models\OrderStatus;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +22,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        View::composer('layouts.backend.masterLay', function ($view) {
+            if (Schema::hasTable('order_statuses')) {
+                $view->with('orderStatus', OrderStatus::all());
+            } else {
+                $view->with('orderStatus', collect());
+            }
+        });
     }
 }

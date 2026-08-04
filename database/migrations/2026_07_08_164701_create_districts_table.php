@@ -11,13 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('system_a_p_i_s', function (Blueprint $table) {
+        Schema::create('districts', function (Blueprint $table) {
             $table->id();
-            $table->string('api_name');
-            $table->string('api_key')->nullable();
-            $table->string('api_secret')->nullable();
-            $table->string('api_url')->nullable();
-            $table->string('api_status')->default('Active');
+            $table->string('name');
+            $table->string('delivery_charge');
+            $table->enum('status', ['1', '0'])->default('1');
             $table->timestamps();
         });
     }
@@ -27,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('system_a_p_i_s');
+        Schema::dropIfExists('districts');
     }
 };

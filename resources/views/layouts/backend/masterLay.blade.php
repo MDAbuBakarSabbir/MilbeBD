@@ -1,6 +1,8 @@
+@php
+    $orderStatus = App\Models\OrderStatus::where('status', '1')->get();
+@endphp
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -127,66 +129,99 @@
         <!--**********************************
             Header start
         ***********************************-->
-        <div class="header">
+        <div class="header shadow-sm bg-white" style="transition: all 0.3s ease;">
             <div class="header-content">
                 <nav class="navbar navbar-expand">
                     <div class="collapse navbar-collapse justify-content-between">
+                        <!-- Search Bar -->
                         <div class="header-left">
-                            <div class="search_bar dropdown">
+                            <div class="search_bar d-none d-md-block">
+                                <form class="position-relative" style="width: 260px;">
+                                    <input class="form-control rounded-pill pl-4 pr-5 border-light bg-light" type="search" placeholder="Search orders..." aria-label="Search" style="height: 40px; font-size: 0.85rem; transition: all 0.3s ease;">
+                                    <button class="btn btn-link position-absolute right-0 top-0 text-muted mt-2 mr-3 p-0" type="submit" style="z-index: 4; border: none; background: transparent;">
+                                        <i class="mdi mdi-magnify" style="font-size: 1.2rem;"></i>
+                                    </button>
+                                </form>
+                            </div>
+                            <div class="search_bar dropdown d-block d-md-none">
                                 <span class="search_icon p-3 c-pointer" data-toggle="dropdown">
                                     <i class="mdi mdi-magnify"></i>
                                 </span>
-                                <div class="dropdown-menu p-0 m-0">
-                                    <form>
-                                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                                <div class="dropdown-menu p-2 m-0 shadow border-0" style="min-width: 250px;">
+                                    <form class="p-1">
+                                        <input class="form-control" type="search" placeholder="Search..." aria-label="Search">
                                     </form>
                                 </div>
                             </div>
                         </div>
-                        <div class="courier-balance">
-                            <span class=""><i class="ti-wallet"></i> Courier Balance: </span>
-                            <span class="">0</span>
+
+                        <!-- Courier Balance Widget -->
+                        <div class="courier-balance mx-3">
+                            <div class="d-flex align-items-center bg-light text-primary px-3 py-2 rounded-pill shadow-xs" style="border: 1px solid rgba(102, 126, 234, 0.15);">
+                                <i class="ti-wallet mr-2" style="font-size: 1.15rem; color: #667eea; line-height: 1;"></i>
+                                <span class="text-dark font-weight-medium mr-2 d-none d-sm-inline" style="font-size: 0.825rem; letter-spacing: 0.02em;">Courier Balance:</span>
+                                <span class="badge bg-primary text-white font-weight-bold px-2 py-1 rounded-pill" style="font-size: 0.8rem; background-color: #667eea !important;">0 ৳</span>
+                            </div>
                         </div>
+
+                        <!-- Header Right Controls -->
                         <ul class="navbar-nav header-right">
+                            <!-- Notification Dropdown -->
                             <li class="nav-item dropdown notification_dropdown">
-                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
-                                    <i class="mdi mdi-bell"></i>
-                                    <div class="pulse-css"></div>
+                                <a class="nav-link position-relative" href="#" role="button" data-toggle="dropdown" style="padding: 0.5rem 1rem;">
+                                    <i class="mdi mdi-bell text-secondary" style="font-size: 1.4rem;"></i>
+                                    <span class="position-absolute badge rounded-circle bg-danger text-white d-flex align-items-center justify-content-center" style="width: 16px; height: 16px; font-size: 0.65rem; top: 12px; right: 8px;">1</span>
+                                    <div class="pulse-css" style="top: 12px; right: 8px;"></div>
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <ul class="list-unstyled">
-                                        <li class="media dropdown-item">
-                                            <span class="success"><i class="ti-user"></i></span>
+                                <div class="dropdown-menu dropdown-menu-right shadow border-0 rounded-lg p-0" style="width: 300px; overflow: hidden;">
+                                    <div class="dropdown-header bg-primary text-white py-3 px-4 d-flex align-items-center justify-content-between">
+                                        <h6 class="text-white mb-0 font-weight-bold" style="font-size: 0.9rem;">Notifications</h6>
+                                        <span class="badge bg-white text-primary rounded-pill font-weight-bold" style="font-size: 0.75rem;">1 New</span>
+                                    </div>
+                                    <ul class="list-unstyled mb-0" style="max-height: 350px; overflow-y: auto;">
+                                        <li class="media dropdown-item d-flex align-items-center py-3 border-bottom border-light" style="cursor: pointer; white-space: normal;">
+                                            <span class="mr-3 bg-success-light text-success rounded-circle d-flex align-items-center justify-content-center" style="width: 38px; height: 38px; min-width: 38px; background-color: rgba(40, 167, 69, 0.1);">
+                                                <i class="ti-user" style="font-size: 1rem;"></i>
+                                            </span>
                                             <div class="media-body">
-                                                <a href="#">
-                                                    <p><strong>Martin</strong> has added a <strong>customer</strong> Successfully
-                                                    </p>
-                                                </a>
+                                                <p class="mb-0 text-dark" style="font-size: 0.8rem; line-height: 1.4;">
+                                                    <strong>Martin</strong> added a new <strong>customer</strong> successfully
+                                                </p>
+                                                <small class="text-muted mt-1 d-block" style="font-size: 0.7rem;">3:20 am</small>
                                             </div>
-                                            <span class="notify-time">3:20 am</span>
                                         </li>
                                     </ul>
-                                    <a class="all-notification" href="#">See all notifications <i
-                                            class="ti-arrow-right"></i></a>
+                                    <a class="all-notification text-center py-2 d-block bg-light font-weight-semibold text-primary" href="#" style="font-size: 0.8rem; text-decoration: none; border-top: 1px solid #f1f5f9;">
+                                        See all notifications <i class="ti-arrow-right ml-1"></i>
+                                    </a>
                                 </div>
                             </li>
+
+                            <!-- User Profile Dropdown -->
                             <li class="nav-item dropdown header-profile">
-                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
-                                    <i class="mdi mdi-account"></i>
+                                <a class="nav-link d-flex align-items-center py-2 px-3 ml-2 rounded-pill hover-bg-light" href="#" role="button" data-toggle="dropdown" style="transition: all 0.2s;">
+                                    <div class="user-avatar bg-primary-light text-primary rounded-circle d-flex align-items-center justify-content-center font-weight-bold shadow-sm" style="width: 35px; height: 35px; background-color: rgba(102, 126, 234, 0.1); color: #667eea;">
+                                        A
+                                    </div>
+                                    <span class="ml-2 d-none d-lg-inline-block text-dark font-weight-semibold" style="font-size: 0.85rem;">Admin</span>
                                 </a>
-                                <div class="dropdown-menu dropdown-menu-right">
-                                    <a href="./app-profile.html" class="dropdown-item">
-                                        <i class="icon-user"></i>
-                                        <span class="ml-2">Profile </span>
+                                <div class="dropdown-menu dropdown-menu-right shadow border-0 rounded-lg p-2 mt-2" style="min-width: 180px;">
+                                    <a href="./app-profile.html" class="dropdown-item py-2 px-3 rounded d-flex align-items-center">
+                                        <i class="icon-user text-primary mr-2" style="font-size: 0.95rem;"></i>
+                                        <span style="font-size: 0.825rem;">My Profile</span>
                                     </a>
-                                    <a href="./email-inbox.html" class="dropdown-item">
-                                        <i class="icon-envelope-open"></i>
-                                        <span class="ml-2">Inbox </span>
+                                    <a href="./email-inbox.html" class="dropdown-item py-2 px-3 rounded d-flex align-items-center">
+                                        <i class="icon-envelope-open text-success mr-2" style="font-size: 0.95rem;"></i>
+                                        <span style="font-size: 0.825rem;">Inbox</span>
                                     </a>
-                                    <a href="{{ route('logout') }}" class="dropdown-item">
-                                        <i class="icon-key"></i>
-                                        <span class="ml-2">Logout </span>
+                                    <hr class="my-2 border-light">
+                                    <a href="{{ route('logout') }}" class="dropdown-item py-2 px-3 rounded text-danger d-flex align-items-center" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        <i class="icon-key mr-2" style="font-size: 0.95rem;"></i>
+                                        <span style="font-size: 0.825rem; font-weight: 500;">Logout</span>
                                     </a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
                                 </div>
                             </li>
                         </ul>
@@ -212,19 +247,24 @@
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
                                 class="icon icon-app-store"></i><span class="nav-text">Orders</span></a>
                         <ul aria-expanded="false">
+                            <li><a href="{{ route('admin.pos.index') }}" class="font-weight-bold text-primary"><i class="mdi mdi-point-of-sale mr-1"></i> POS Terminal</a></li>
                             <li><a href="{{ route('admin.orders.create') }}">Create Orders</a></li>
+                            @foreach ($orderStatus as $orderS)
+                                <li><a href="{{ route('admin.orders.index', $orderS->id) }}">{{ $orderS->name }}</a></li>
+                            @endforeach
                             <li><a href="{{ route('admin.incomplete.view') }}">Incomplete Orders</a></li>
                         </ul>
                     </li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
                                 class="icon icon-app-store"></i><span class="nav-text">Website Settings</span></a>
                         <ul aria-expanded="false">
-                            <li><a href="">Courier API Settings</a></li>
-                            <li><a href="">SMS API Settings</a></li>
-                            <li><a href="">Payment API Settings</a></li>
-                            <li><a href="">Fraud API Settings</a></li>
+                            <li><a href="{{ route('admin.orderStatus.index') }}">General Web Settings</a></li>
+                            <li><a href="{{ route('admin.orderStatus.index') }}">Order Status Settings</a></li>
+                            <li><a href="{{ route('courier-apis.index') }}">Courier API Settings</a></li>
+                            <li><a href="{{ route('fraud-checkers.index') }}">Fraud API Settings</a></li>
+                            <li><a href="{{ route('admin.districts.index') }}">District Settings</a></li>
                         </ul>
-                    </li>
+                    </li>   
                 </ul>
             </div>
 
