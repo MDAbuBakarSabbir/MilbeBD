@@ -1,3 +1,7 @@
+@php
+    $pages = App\Models\Pages::where('status', '1')->get();
+@endphp
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +19,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- CSS Styles -->
     <style>
@@ -374,6 +378,274 @@
         .delivery-option-box:hover {
             border-color: var(--primary);
         }
+
+        /* Razor vs Mini Shaver Comparison Section */
+        .comparison-section {
+            background-color: #161619;
+            padding: 5rem 0;
+            color: #ffffff;
+        }
+
+        .comparison-title {
+            font-family: 'Hind Siliguri', 'Outfit', sans-serif;
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 2.5rem;
+        }
+
+        .comparison-container {
+            max-width: 760px;
+            margin: 0 auto;
+            background: #232327;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin: 0;
+        }
+
+        .comparison-table th,
+        .comparison-table td {
+            padding: 1.1rem 1rem;
+            text-align: center;
+            vertical-align: middle;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .comparison-table tr:last-child th,
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Column 1: Feature labels */
+        .comparison-table th.feature-col,
+        .comparison-table td.feature-col {
+            width: 38%;
+            background-color: #2b2b30;
+            text-align: left;
+            padding-left: 1.5rem;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.05rem;
+            font-family: 'Hind Siliguri', sans-serif;
+        }
+
+        /* Column 2: Normal Razor */
+        .comparison-table th.razor-col,
+        .comparison-table td.razor-col {
+            width: 31%;
+            background-color: #232327;
+            color: #94a3b8;
+        }
+
+        /* Column 3: Mini Shaver (Highlighted) */
+        .comparison-table th.shaver-col,
+        .comparison-table td.shaver-col {
+            width: 31%;
+            background-color: #351c1c;
+            color: #ff5252;
+        }
+
+        .comparison-header-icon {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .razor-header-icon {
+            background-color: #333338;
+            color: #94a3b8;
+        }
+
+        .shaver-header-icon {
+            background-color: #4a2222;
+            border: 2px solid #ff5252;
+            overflow: hidden;
+        }
+
+        .shaver-header-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .comparison-header-title {
+            font-family: 'Hind Siliguri', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .shaver-header-title {
+            color: #ff5252;
+        }
+
+        .razor-header-title {
+            color: #cbd5e1;
+        }
+
+        .cross-icon {
+            color: #818cf8;
+            color: #a1a1aa;
+            font-weight: 900;
+            font-size: 1.25rem;
+            line-height: 1;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .check-icon {
+            color: #ff5252;
+            font-weight: 900;
+            font-size: 1.25rem;
+            line-height: 1;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .razor-text {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            font-weight: 500;
+            font-family: 'Hind Siliguri', sans-serif;
+        }
+
+        .shaver-text {
+            color: #ff5252;
+            font-size: 0.95rem;
+            font-weight: 700;
+            font-family: 'Hind Siliguri', sans-serif;
+        }
+
+        @media (max-width: 576px) {
+            .comparison-title {
+                font-size: 1.5rem;
+            }
+            .comparison-table th,
+            .comparison-table td {
+                padding: 0.85rem 0.4rem;
+            }
+            .comparison-table th.feature-col,
+            .comparison-table td.feature-col {
+                padding-left: 0.75rem;
+                font-size: 0.85rem;
+            }
+            .razor-text, .shaver-text {
+                font-size: 0.8rem;
+            }
+            .comparison-header-icon {
+                width: 38px;
+                height: 38px;
+            }
+            .comparison-header-title {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Image Comparison Slider */
+        .compare-slider-section {
+            background-color: #161619;
+            padding: 2rem 0 6rem 0;
+        }
+        .compare-slider-title {
+            font-family: 'Hind Siliguri', 'Outfit', sans-serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 3rem;
+        }
+        .image-compare-wrapper {
+            position: relative;
+            max-width: 460px;
+            height: 550px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        .image-compare-wrapper img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .compare-overlay {
+            clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+            -webkit-clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+            z-index: 2;
+        }
+        .compare-slider-handle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 42px;
+            height: 42px;
+            background-color: #ff5252;
+            border: 3px solid #fff;
+            border-radius: 50%;
+            z-index: 5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 900;
+            pointer-events: none;
+            box-shadow: 0 0 15px rgba(0,0,0,0.4);
+        }
+        .compare-slider-handle::before {
+            content: '';
+            position: absolute;
+            top: -550px;
+            bottom: -550px;
+            left: 50%;
+            width: 2.5px;
+            background-color: #ff5252;
+            transform: translateX(-50%);
+            z-index: -1;
+        }
+        .compare-slider-input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            appearance: none;
+            -webkit-appearance: none;
+            opacity: 0;
+            z-index: 10;
+            cursor: ew-resize;
+            margin: 0;
+        }
+        .compare-slider-input::-webkit-slider-thumb {
+            appearance: none;
+            width: 42px;
+            height: 550px;
+            cursor: ew-resize;
+        }
+        .compare-slider-input::-moz-range-thumb {
+            width: 42px;
+            height: 550px;
+            cursor: ew-resize;
+            border: none;
+            background: transparent;
+        }
     </style>
 
     {{-- google tag start --}}
@@ -382,6 +654,24 @@
     {{-- facebook pixel start --}}
 
     {{-- facebook pixel end  --}}
+
+    <!-- Select2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <style>
+        .select2-container .select2-selection--single {
+            height: 58px;
+            padding: 0.75rem 0.5rem;
+            border: 1px solid #dee2e6;
+            border-radius: var(--bs-border-radius);
+        }
+        .select2-container--default .select2-selection--single .select2-selection__rendered {
+            line-height: 32px;
+            color: #495057;
+        }
+        .select2-container--default .select2-selection--single .select2-selection__arrow {
+            height: 56px;
+        }
+    </style>
 </head>
 <body>
 
@@ -492,6 +782,169 @@
                     <a href="#order-form-section" class="btn btn-premium btn-lg">
                         Order Now <i class="bi bi-chevron-right fs-6"></i>
                     </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Razor vs Mini Shaver Comparison Section -->
+    <section class="comparison-section" id="comparison">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="comparison-title text-center">সাধারণ রেজার কেন সমাধান নয়?</h2>
+            </div>
+            
+            <div class="comparison-container">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th class="feature-col"></th>
+                            <th class="razor-col">
+                                <div class="comparison-header-icon razor-header-icon">
+                                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M19.5 3h-15C3.67 3 3 3.67 3 4.5v1c0 .83.67 1.5 1.5 1.5h15c.83 0 1.5-.67 1.5-1.5v-1c0-.83-.67-1.5-1.5-1.5zm-1 4H5.5v2h13V7zM11 10h2v11h-2V10z"/>
+                                    </svg>
+                                </div>
+                                <h3 class="comparison-header-title razor-header-title">সাধারণ রেজার</h3>
+                            </th>
+                            <th class="shaver-col">
+                                <div class="comparison-header-icon shaver-header-icon">
+                                    <img src="{{ asset('assets/frontend/img/waterproof.png') }}" alt="মিনি শেভার">
+                                </div>
+                                <h3 class="comparison-header-title shaver-header-title">মিনি শেভার</h3>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="feature-col">কাটার ঝুঁকি</td>
+                            <td class="razor-col">
+                                <span class="cross-icon">✖</span>
+                                <div class="razor-text">প্রতিবার ভয়</div>
+                            </td>
+                            <td class="shaver-col">
+                                <span class="check-icon">✔</span>
+                                <div class="shaver-text">একদম নেই</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="feature-col">বল ও বগলে নিরাপদ</td>
+                            <td class="razor-col">
+                                <span class="cross-icon">✖</span>
+                                <div class="razor-text">কাটার ঝুঁকি</div>
+                            </td>
+                            <td class="shaver-col">
+                                <span class="check-icon">✔</span>
+                                <div class="shaver-text">শতভাগ নিরাপদ</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="feature-col">কালো দাগ / র‍্যাশ</td>
+                            <td class="razor-col">
+                                <span class="cross-icon">✖</span>
+                                <div class="razor-text">দাগ পড়ে</div>
+                            </td>
+                            <td class="shaver-col">
+                                <span class="check-icon">✔</span>
+                                <div class="shaver-text">পড়ে না</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="feature-col">ফোম / জেল লাগে</td>
+                            <td class="razor-col">
+                                <span class="cross-icon">✖</span>
+                                <div class="razor-text">লাগে</div>
+                            </td>
+                            <td class="shaver-col">
+                                <span class="check-icon">✔</span>
+                                <div class="shaver-text">লাগে না</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="feature-col">সময় লাগে</td>
+                            <td class="razor-col">
+                                <span class="cross-icon">✖</span>
+                                <div class="razor-text">১০-১৫ মিনিট</div>
+                            </td>
+                            <td class="shaver-col">
+                                <span class="check-icon">✔</span>
+                                <div class="shaver-text">৩০ সেকেন্ড</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="feature-col">খরচ</td>
+                            <td class="razor-col">
+                                <span class="cross-icon">✖</span>
+                                <div class="razor-text">প্রতি মাসে খরচ</div>
+                            </td>
+                            <td class="shaver-col">
+                                <span class="check-icon">✔</span>
+                                <div class="shaver-text">একবারই খরচ</div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Comparison Slider Section -->
+    <section class="compare-slider-section">
+        <div class="container text-center">
+            <h2 class="compare-slider-title text-white text-center">
+                স্লাইড করে <span style="color: #ff5252;">পার্থক্য</span> দেখুন
+            </h2>
+            
+            <div class="image-compare-wrapper" id="image-compare-wrapper">
+                <!-- BASE WRAPPER (After - Right Side) -->
+                <div class="w-100 h-100 position-absolute top-0 start-0 z-1">
+                    <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&auto=format&fit=crop&q=80" alt="After">
+                    <!-- Badge -->
+                    <div class="position-absolute p-3" style="top: 15px; right: 15px;">
+                        <span class="badge rounded-pill px-4 py-2 fs-6" style="background-color: #ff5252; font-family: 'Hind Siliguri', sans-serif;">পরে</span>
+                    </div>
+                    <!-- Tags -->
+                    <div class="position-absolute d-flex align-items-center gap-2" style="top: 40%; right: 15%;">
+                        <span class="badge rounded-pill px-3 py-2" style="background-color: #ff5252; font-family: 'Hind Siliguri', sans-serif; font-size: 0.9rem;">স্মুথ স্কিন</span>
+                        <span class="rounded-circle" style="width: 20px; height: 20px; background-color: rgba(255, 82, 82, 0.4); border: 4px solid #ff5252; box-shadow: 0 0 10px rgba(255,82,82,0.5);"></span>
+                    </div>
+                    <div class="position-absolute d-flex align-items-center gap-2" style="top: 60%; right: 25%;">
+                        <span class="badge rounded-pill px-3 py-2" style="background-color: #ff5252; font-family: 'Hind Siliguri', sans-serif; font-size: 0.9rem;">জ্বালা নেই</span>
+                        <span class="rounded-circle" style="width: 20px; height: 20px; background-color: rgba(255, 82, 82, 0.4); border: 4px solid #ff5252; box-shadow: 0 0 10px rgba(255,82,82,0.5);"></span>
+                    </div>
+                </div>
+
+                <!-- OVERLAY WRAPPER (Before - Left Side) -->
+                <div class="compare-overlay w-100 h-100 position-absolute top-0 start-0" id="compare-overlay">
+                    <img src="https://images.unsplash.com/photo-1616260787161-558e65842cda?w=800&auto=format&fit=crop&q=80" alt="Before">
+                    <!-- Badge -->
+                    <div class="position-absolute p-3" style="top: 15px; left: 15px;">
+                        <span class="badge rounded-pill px-4 py-2 fs-6" style="background-color: #3f3f46; border: 1px solid #52525b; font-family: 'Hind Siliguri', sans-serif;">আগে</span>
+                    </div>
+                    <!-- Tags -->
+                    <div class="position-absolute d-flex align-items-center gap-2" style="top: 35%; left: 15%;">
+                        <span class="rounded-circle" style="width: 20px; height: 20px; background-color: rgba(161, 161, 170, 0.4); border: 4px solid #a1a1aa; box-shadow: 0 0 10px rgba(161,161,170,0.5);"></span>
+                        <span class="badge bg-dark rounded-pill px-3 py-2 border border-secondary" style="font-family: 'Hind Siliguri', sans-serif; font-size: 0.9rem;">লালচে র‍্যাশ</span>
+                    </div>
+                </div>
+                
+                <div class="compare-slider-handle" id="compare-slider-handle">
+                    <i class="bi bi-chevron-left" style="font-size: 0.9rem; margin-right: -2px;"></i>
+                    <i class="bi bi-chevron-right" style="font-size: 0.9rem; margin-left: -2px;"></i>
+                </div>
+                
+                <input type="range" min="0" max="100" value="50" class="compare-slider-input" id="compare-slider-input">
+            </div>
+
+            <p class="text-secondary mt-4 mb-4" style="font-family: 'Hind Siliguri', sans-serif;">স্লাইডার ড্র্যাগ করে পার্থক্য দেখুন</p>
+
+            <!-- Bottom badges -->
+            <div class="d-flex justify-content-center gap-3 flex-wrap mt-2">
+                <div class="px-4 py-2 rounded-pill" style="border: 1px solid rgba(255, 82, 82, 0.5); background-color: #232327; color: #fff; font-family: 'Hind Siliguri', sans-serif; font-weight: 500;">
+                    <span style="color: #ff5252; font-weight: bold;" class="me-2">✔</span> কাটার ভয় নেই
+                </div>
+                <div class="px-4 py-2 rounded-pill" style="border: 1px solid rgba(255, 82, 82, 0.5); background-color: #232327; color: #fff; font-family: 'Hind Siliguri', sans-serif; font-weight: 500;">
+                    <span style="color: #ff5252; font-weight: bold;" class="me-2">✔</span> জ্বালা-পোড়া নেই
                 </div>
             </div>
         </div>
@@ -792,9 +1245,14 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="form-floating">
-                                        <input type="text" class="form-control" id="cityInput" name="city" placeholder="City" required>
-                                        <label for="cityInput"><i class="bi bi-building me-1"></i> City</label>
+                                    <div class="form-group">
+                                        <label for="cityInput" class="mb-1 text-muted" style="font-size: 0.9rem;"><i class="bi bi-building me-1"></i> City</label>
+                                        <select class="form-select select2" id="cityInput" name="city" required>
+                                            <option value="">Select City</option>
+                                            @foreach(\App\Models\District::where('status', 1)->get() as $district)
+                                                <option value="{{ $district->name }}" data-charge="{{ $district->delivery_charge }}">{{ $district->name }}</option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                             </div>
@@ -803,7 +1261,7 @@
                             <div class="billing-summary p-4 mb-4">
                                 <div class="d-flex justify-content-between mb-2">
                                     <span class="text-muted">Selected Product:</span>
-                                    <span class="fw-semibold text-dark text-wrap text-end" id="summary-product-name" style="max-width: 250px;">Milbe Sound Pro Headphones</span>
+                                    <span class="fw-semibold text-dark text-wrap text-end" id="summary-product-name" style="max-width: 250px;">Skin Friendly Mini Shaver</span>
                                 </div>
                                 <div class="d-flex justify-content-between mb-2">
                                     <span class="text-muted">Subtotal Price:</span>
@@ -817,22 +1275,6 @@
                                 <div class="d-flex justify-content-between">
                                     <span class="fw-bold fs-5 text-dark">Total Amount:</span>
                                     <strong class="fs-5 text-primary" id="summary-total-price">৳ 199</strong>
-                                </div>
-                            </div>
-                            
-                            <!-- Delivery Option Toggle -->
-                            <div class="delivery-option-box mb-4 d-flex align-items-center justify-content-between">
-                                <div class="d-flex align-items-center">
-                                    <i class="bi bi-truck text-primary fs-4 me-3"></i>
-                                    <div>
-                                        <label class="form-check-label fw-semibold mb-0" for="delivery-option">Free Delivery</label>
-                                        <small class="text-muted d-block">পণ্য হাতে পেয়ে মূল্য পরিশোধ করুন।
-
-</small>
-                                    </div>
-                                </div>
-                                <div class="form-check form-switch m-0">
-                                    <input class="form-check-input fs-4" type="checkbox" role="switch" name="free_delivery" checked id="delivery-option">
                                 </div>
                             </div>
 
@@ -857,20 +1299,19 @@
                         <i class="bi bi-lightning-charge-fill me-2 text-warning"></i>
                         MilbeBD
                     </a>
-                    <p class="text-muted pe-lg-5">
+                    <p class="pe-lg-5" style="color: rgba(255, 255, 255, 0.7);">
                         Your trusted portal for premium lifestyle and technical products. Experience stellar customer service, rapid delivery, and genuine quality guarantees.
                     </p>
                 </div>
-                <div class="col-lg-3 col-md-6" id="terms">
+                <div class="col-lg-3 col-md-6 text-center text-lg-start" id="terms">
                     <h5 class="text-white mb-3 fw-bold">Company & Policy</h5>
-                    <ul class="list-unstyled d-flex flex-column gap-2">
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#testimonials">Customer Reviews</a></li>
-                        <li><a href="#terms">Terms & Conditions</a></li>
-                        <li><a href="#privacy" id="privacy">Privacy Policy</a></li>
+                    <ul class="list-unstyled d-flex flex-column align-items-center align-items-lg-start gap-2">
+                        @foreach ($pages as $page)
+                        <li><a href="{{ route('front.page', $page->slug) }}">{{ $page->title ?? $page->name }}</a></li>
+                        @endforeach
                     </ul>
                 </div>
-                <div class="col-lg-4 col-md-6">
+                <div class="col-lg-4 col-md-6 text-center text-lg-start">
                     <h5 class="text-white mb-3 fw-bold">Contact & Support</h5>
                     <p class="mb-2"><i class="bi bi-telephone text-primary me-2"></i> +880 1234-567890</p>
                     <p class="mb-2"><i class="bi bi-envelope text-primary me-2"></i> support@milbebd.com</p>
@@ -878,7 +1319,6 @@
                     <div class="d-flex gap-3 justify-content-center justify-content-lg-start fs-5 mt-3">
                         <a href="#"><i class="bi bi-facebook"></i></a>
                         <a href="#"><i class="bi bi-instagram"></i></a>
-                        <a href="#"><i class="bi bi-twitter-x"></i></a>
                         <a href="#"><i class="bi bi-youtube"></i></a>
                     </div>
                 </div>
@@ -895,14 +1335,28 @@
         </div>
     </footer>
 
+    <!-- jQuery (CDN) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
     <!-- Bootstrap 5 Bundle JS (CDN) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Select2 JS (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     
     <!-- SweetAlert2 (CDN) -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Interactive Scripts -->
     <script>
+        $(document).ready(function() {
+            $('#cityInput').select2({
+                placeholder: 'Select City',
+                width: '100%'
+            }).on('change', function() {
+                recalculateInvoice();
+            });
+        });
         // Shrink/Fade Navbar on scroll
         window.addEventListener('scroll', function() {
             const navbar = document.querySelector('.navbar-custom');
@@ -1021,7 +1475,12 @@
             activeRow.querySelector('.row-total-price').textContent = `৳ ${subtotal.toFixed(2)}`;
 
             // Check delivery
-            let deliveryCharge = deliveryToggle.checked ? 0 : 15;
+            let citySelect = document.getElementById('cityInput');
+            let selectedOption = citySelect.options[citySelect.selectedIndex];
+            let deliveryCharge = 0;
+            if (selectedOption && selectedOption.dataset.charge) {
+                deliveryCharge = parseFloat(selectedOption.dataset.charge);
+            }
             let finalTotal = subtotal + deliveryCharge;
 
             // Update Summary
@@ -1119,6 +1578,20 @@
 
         // Initial trigger to configure correct initial states
         recalculateInvoice();
+
+        // Image Comparison Slider Logic
+        const compareSlider = document.getElementById('compare-slider-input');
+        const compareOverlay = document.getElementById('compare-overlay');
+        const compareHandle = document.getElementById('compare-slider-handle');
+
+        if (compareSlider && compareOverlay && compareHandle) {
+            compareSlider.addEventListener('input', function(e) {
+                const val = e.target.value;
+                compareOverlay.style.clipPath = `polygon(0 0, ${val}% 0, ${val}% 100%, 0 100%)`;
+                compareOverlay.style.webkitClipPath = `polygon(0 0, ${val}% 0, ${val}% 100%, 0 100%)`;
+                compareHandle.style.left = `${val}%`;
+            });
+        }
     </script>
 </body>
 </html>

@@ -1,10 +1,13 @@
 <?php
 
+use App\Http\Controllers\BlockedIpController;
 use App\Http\Controllers\DistrictController;
-use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\OrderStatusController;
+use App\Http\Controllers\PagesController;
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ReviewsController;
 use App\Http\Controllers\SystemAPIController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,24 +17,40 @@ Route::get('/', function () {
 
 // ------------------------------------------Frontend Routes Section----------------------------
 
-Route::controller(FrontendController::class)->group(function () {});
+Route::controller(PagesController::class)->group(function () {
+    Route::get('page/{slug}', 'showPage')->name('front.page');
+});
 
 // ------------------------------------------Admin Routes Section----------------------------
 
 Auth::routes();
 
-Route::get('/dashboard', [HomeController::class, 'index'])->name('dashboard');
+Route::controller(PagesController::class)->group(function () {
+    Route::get('admin/pages', 'index')->name('admin.pages.index');
+    Route::get('admin/pages/create', 'create')->name('admin.pages.create');
+    Route::post('admin/pages', 'store')->name('admin.pages.store');
+    Route::get('admin/pages/{id}/edit', 'edit')->name('admin.pages.edit');
+    Route::put('admin/pages/{id}', 'update')->name('admin.pages.update');
+    Route::delete('admin/pages/{id}', 'destroy')->name('admin.pages.destroy');
+    Route::post('admin/pages/status', 'status')->name('admin.pages.status');
+});
 
 Route::controller(OrdersController::class)->group(function () {
     Route::get('admin/orders', 'index')->name('admin.orders.index');
+    Route::get('admin/orders/status/{id}', 'statusIndex')->name('admin.orders.status');
     Route::get('admin/orders/create', 'create')->name('admin.orders.create');
-    Route::get('admin/pos', 'pos')->name('admin.pos.index');
     Route::post('admin/orders', 'adminStore')->name('admin.orders.store');
+    Route::post('admin/orders/steadfast-bulk', 'sendToSteadfastBulk')->name('admin.orders.steadfast.bulk');
     Route::get('admin/orders/{id}', 'show')->name('admin.orders.show');
     Route::get('admin/orders/{id}/edit', 'edit')->name('admin.orders.edit');
     Route::put('admin/orders/{id}', 'update')->name('admin.orders.update');
     Route::delete('admin/orders/{id}', 'destroy')->name('admin.orders.destroy');
     Route::get('admin/incomplete-orders', 'incompleteView')->name('admin.incomplete.view');
+});
+
+Route::controller(BlockedIpController::class)->group(function () {
+    Route::post('admin/ip-block', 'store')->name('ip_block.store');
+    Route::delete('admin/ip-block/{id}', 'destroy')->name('ip_block.destroy');
 });
 Route::controller(OrdersController::class)->group(function () {
     Route::post('orders', 'store')->name('orders.store');
@@ -66,4 +85,28 @@ Route::controller(DistrictController::class)->group(function () {
     Route::get('admin/districts/{id}/edit', 'edit')->name('admin.districts.edit');
     Route::put('admin/districts/{id}', 'update')->name('admin.districts.update');
     Route::delete('admin/districts/{id}', 'destroy')->name('admin.districts.destroy');
+});
+
+Route::controller(HomeController::class)->group(function () {
+    Route::get('/admin/dashboard', 'index')->name('dashboard');
+    Route::get('/admin/site-settings', 'siteSettings')->name('admin.siteSettings');
+    Route::post('/site-info-update', 'siteInfoUpdate')->name('admin.siteInfoUpdate');
+    Route::post('/site-header-logo-update', 'siteHeaderLogoUpdate')->name('admin.siteHeaderLogoUpdate');
+    Route::post('/site-footer-logo-update', 'siteFooterLogoUpdate')->name('admin.siteFooterLogoUpdate');
+    Route::post('/site-favicon-update', 'siteFaviconUpdate')->name('admin.siteFaviconUpdate');
+    Route::post('/pixel-gtag-update', 'pixelGtagUpdate')->name('admin.pixelGtagUpdate');
+});
+
+Route::controller(ReviewsController::class)->group(function () {
+    Route::get('admin/reviews', 'index')->name('admin.reviews.index');
+    Route::post('admin/reviews', 'store')->name('admin.reviews.store');
+    Route::get('admin/reviews/{id}/edit', 'edit')->name('admin.reviews.edit');
+    Route::put('admin/reviews/{id}', 'update')->name('admin.reviews.update');
+    Route::delete('admin/reviews/{id}', 'destroy')->name('admin.reviews.destroy');
+    Route::post('admin/reviews/status', 'status')->name('admin.reviews.status');
+});
+
+Route::controller(ProductController::class)->group(function () {
+    Route::get('admin/product', 'index')->name('admin.product.index');
+    Route::post('admin/product', 'store')->name('admin.product.store');
 });

@@ -10,14 +10,12 @@
     <title>Milbe BD | @yield('title')</title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/backend/images/favicon.png') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{{ asset('assets/backend/vendor/owl-carousel/css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/backend/vendor/owl-carousel/css/owl.theme.default.min.css') }}">
     <link href="{{ asset('assets/backend/vendor/jqvmap/css/jqvmap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/backend/css/style.css') }}" rel="stylesheet">
-
-
-
-</head>
+    @stack('styles')</head>
 
 <body>
 
@@ -240,25 +238,34 @@
             <div class="quixnav-scroll">
                 <ul class="metismenu" id="menu">
                     <li class="nav-label first">Main Menu</li>
-                    <li><a href="" aria-expanded="false"><i
+                    <li><a href="{{ route('dashboard') }}" aria-expanded="false"><i
                                 class="icon icon-single-04"></i><span class="nav-text">Dashboard</span></a>
                     </li>
                     <li class="nav-label">Operations</li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
                                 class="icon icon-app-store"></i><span class="nav-text">Orders</span></a>
                         <ul aria-expanded="false">
-                            <li><a href="{{ route('admin.pos.index') }}" class="font-weight-bold text-primary"><i class="mdi mdi-point-of-sale mr-1"></i> POS Terminal</a></li>
                             <li><a href="{{ route('admin.orders.create') }}">Create Orders</a></li>
+                            <li><a href="{{ route('admin.orders.index') }}">All Orders</a></li>
                             @foreach ($orderStatus as $orderS)
-                                <li><a href="{{ route('admin.orders.index', $orderS->id) }}">{{ $orderS->name }}</a></li>
+                                <li><a href="{{ route('admin.orders.status', $orderS->id) }}">{{ $orderS->name }}</a></li>
                             @endforeach
                             <li><a href="{{ route('admin.incomplete.view') }}">Incomplete Orders</a></li>
                         </ul>
                     </li>
+                    <li><a href="{{ route('admin.product.index') }}" aria-expanded="false"><i
+                                class="icon icon-single-04"></i><span class="nav-text">Product</span></a>
+                    </li>
+                    <li><a href="{{ route('admin.pages.index') }}" aria-expanded="false"><i
+                                class="icon icon-single-04"></i><span class="nav-text">Pages</span></a>
+                    </li>
+                    <li><a href="{{ route('admin.reviews.index') }}" aria-expanded="false"><i
+                                class="icon icon-single-04"></i><span class="nav-text">Customer Reviews</span></a>
+                    </li>
                     <li><a class="has-arrow" href="javascript:void()" aria-expanded="false"><i
                                 class="icon icon-app-store"></i><span class="nav-text">Website Settings</span></a>
                         <ul aria-expanded="false">
-                            <li><a href="{{ route('admin.orderStatus.index') }}">General Web Settings</a></li>
+                            <li><a href="{{ route('admin.siteSettings') }}">General Web Settings</a></li>
                             <li><a href="{{ route('admin.orderStatus.index') }}">Order Status Settings</a></li>
                             <li><a href="{{ route('courier-apis.index') }}">Courier API Settings</a></li>
                             <li><a href="{{ route('fraud-checkers.index') }}">Fraud API Settings</a></li>
@@ -295,7 +302,7 @@
         ***********************************-->
         <div class="footer">
             <div class="copyright">
-                <p>Copyright © Designed &amp; Developed by <a href="#" target="_blank">MilbeBD.com</a> 2026</p>
+                <p>Copyright © Designed &amp; Developed by <a href="https://www.facebook.com/sabalontech" target="_blank">SABALON TECH</a> 2026</p>
             </div>
         </div>
         <!--**********************************
@@ -349,7 +356,44 @@
 
 
     <script src="{{ asset('assets/backend/js/dashboard/dashboard-1.js') }}"></script>
-
+    
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        // Global Session Alerts
+        @if(session('success'))
+            Swal.fire({
+                toast: true, position: 'top-end', showConfirmButton: false, timer: 3000,
+                icon: 'success', title: "{{ session('success') }}"
+            });
+        @endif
+        @if(session('error'))
+            Swal.fire({
+                toast: true, position: 'top-end', showConfirmButton: false, timer: 3000,
+                icon: 'error', title: "{{ session('error') }}"
+            });
+        @endif
+        
+        // Global Delete Confirmation
+        function confirmDelete(e, form, message = 'Are you sure you want to delete this?') {
+            e.preventDefault();
+            Swal.fire({
+                title: 'Are you sure?',
+                text: message,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
+        }
+    </script>
+    
+    @stack('scripts')
 </body>
 
 </html>
