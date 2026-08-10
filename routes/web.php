@@ -15,6 +15,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Helper routes for server deployment
+Route::get('/optimize-clear', function() {
+    \Illuminate\Support\Facades\Artisan::call('optimize:clear');
+    return 'Optimize Cleared. <a href="/">Go to Home</a>';
+});
+
+Route::get('/migrate-force', function() {
+    \Illuminate\Support\Facades\Artisan::call('migrate', ['--force' => true]);
+    return 'Migration Done. <a href="/">Go to Home</a>';
+});
+
 // ------------------------------------------Frontend Routes Section----------------------------
 
 Route::controller(PagesController::class)->group(function () {
