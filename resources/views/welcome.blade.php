@@ -8,8 +8,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>MilbeBD | Premium Offers & Shop</title>
-    
+    <title>MilbeBD | Premium Skin Shaver</title>
+    <link rel="shortcut icon" href="{{ asset('assets/frontend/img/favicon.png') }}" type="image/x-icon">
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     
@@ -691,9 +691,8 @@
     <!-- Sticky Header/Navbar -->
     <nav class="navbar navbar-expand-lg sticky-top navbar-custom py-3">
         <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="#">
-                <i class="bi bi-lightning-charge-fill me-2"></i>
-                MilbeBD
+            <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
+                <img src="{{ asset('assets/frontend/img/logo.png') }}" alt="MilbeBD Logo" style="height: 55px; width: auto; object-fit: contain;">
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -793,7 +792,7 @@
                     </p>
 
                     <a href="#order-form-section" class="btn btn-premium btn-lg">
-                        Order Now <i class="bi bi-chevron-right fs-6"></i>
+                        এখনই অর্ডার করুন <i class="bi bi-chevron-right fs-6"></i>
                     </a>
                 </div>
             </div>
@@ -1054,7 +1053,7 @@
                     </p>
                     
                     <a href="#order-form-section" class="btn btn-premium btn-lg">
-                        Order Now <i class="bi bi-chevron-right fs-6"></i>
+                        এখনই অর্ডার করুন <i class="bi bi-chevron-right fs-6"></i>
                     </a>
                 </div>
                 <div class="col-lg-6 text-center order-1 order-lg-2">
@@ -1085,7 +1084,7 @@
                     </p>
                     
                     <a href="#order-form-section" class="btn btn-premium btn-lg">
-                        Order Now <i class="bi bi-chevron-right fs-6"></i>
+                        এখনই অর্ডার করুন <i class="bi bi-chevron-right fs-6"></i>
                     </a>
                 </div>
             </div>
@@ -1402,9 +1401,8 @@
         <div class="container">
             <div class="row gy-4 mb-5">
                 <div class="col-lg-5 text-center text-lg-start">
-                    <a class="footer-logo d-inline-flex align-items-center mb-3" href="#">
-                        <i class="bi bi-lightning-charge-fill me-2 text-warning"></i>
-                        MilbeBD
+                    <a class="footer-logo d-inline-flex align-items-center mb-3" href="{{ url('/') }}">
+                        <img src="{{ asset('assets/frontend/img/logo white.png') }}" alt="milbebd.com" style="height: 65px; width: auto; object-fit: contain;">
                     </a>
                     <p class="pe-lg-5" style="color: rgba(255, 255, 255, 0.7);">
                         Your trusted portal for premium lifestyle and technical products. Experience stellar customer service, rapid delivery, and genuine quality guarantees.
