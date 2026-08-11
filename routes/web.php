@@ -111,6 +111,7 @@ Route::controller(HomeController::class)->group(function () {
     Route::post('/site-header-logo-update', 'siteHeaderLogoUpdate')->name('admin.siteHeaderLogoUpdate');
     Route::post('/site-footer-logo-update', 'siteFooterLogoUpdate')->name('admin.siteFooterLogoUpdate');
     Route::post('/site-favicon-update', 'siteFaviconUpdate')->name('admin.siteFaviconUpdate');
+    Route::post('/site-contact-update', 'siteContactUpdate')->name('admin.siteContactUpdate');
     Route::post('/pixel-gtag-update', 'pixelGtagUpdate')->name('admin.pixelGtagUpdate');
 });
 

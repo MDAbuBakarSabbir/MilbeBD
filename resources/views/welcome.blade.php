@@ -1,5 +1,6 @@
 @php
     $pages = App\Models\Pages::where('status', '1')->get();
+    $settings = App\Models\Settings::first();
 @endphp
 
 <!DOCTYPE html>
@@ -1408,7 +1409,7 @@
                         <img src="{{ asset('assets/frontend/img/logo white.png') }}" alt="milbebd.com" style="height: 65px; width: auto; object-fit: contain;">
                     </a>
                     <p class="pe-lg-5" style="color: rgba(255, 255, 255, 0.7);">
-                        Your trusted portal for premium lifestyle and technical products. Experience stellar customer service, rapid delivery, and genuine quality guarantees.
+                        {{ $settings->site_description ?? 'Your trusted portal for premium lifestyle and technical products. Experience stellar customer service, rapid delivery, and genuine quality guarantees.' }}
                     </p>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center text-lg-start" id="terms">
@@ -1421,9 +1422,9 @@
                 </div>
                 <div class="col-lg-4 col-md-6 text-center text-lg-start">
                     <h5 class="text-white mb-3 fw-bold">Contact & Support</h5>
-                    <p class="mb-2"><i class="bi bi-telephone text-primary me-2"></i> +880 1234-567890</p>
-                    <p class="mb-2"><i class="bi bi-envelope text-primary me-2"></i> support@milbebd.com</p>
-                    <p class="mb-3"><i class="bi bi-geo-alt text-primary me-2"></i> Gulshan, Dhaka, Bangladesh</p>
+                    <p class="mb-2"><i class="bi bi-telephone text-primary me-2"></i> {{ $settings->phone ?? '+880 1234-567890' }}</p>
+                    <p class="mb-2"><i class="bi bi-envelope text-primary me-2"></i> {{ $settings->email ?? 'support@milbebd.com' }}</p>
+                    <p class="mb-3"><i class="bi bi-geo-alt text-primary me-2"></i> {{ $settings->address ?? 'Gulshan, Dhaka, Bangladesh' }}</p>
                     <div class="d-flex gap-3 justify-content-center justify-content-lg-start fs-5 mt-3">
                         <a href="#"><i class="bi bi-facebook"></i></a>
                         <a href="#"><i class="bi bi-instagram"></i></a>
@@ -1434,10 +1435,10 @@
             <hr class="border-secondary opacity-10">
             <div class="row align-items-center justify-content-between text-center text-md-start">
                 <div class="col-md-6 mb-3 mb-md-0">
-                    <p class="mb-0 text-muted">&copy; 2026 MilbeBD. All rights reserved.</p>
+                    <p class="mb-0 text-white">&copy; 2026 MilbeBD. All rights reserved.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <p class="mb-0 text-muted">Designed for maximum quality and trust.</p>
+                    <p class="mb-0 text-white">Designe and Developed by <a href="https://www.facebook.com/sabalontech" target="_blank" style="color: #2bbbad">SABALON TECH</a>.</p>
                 </div>
             </div>
         </div>

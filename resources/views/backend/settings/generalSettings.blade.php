@@ -181,7 +181,7 @@
 
     <div class="row">
         <!-- Left Column -->
-        <div class="col-xl-7 col-lg-6">
+        <div class="col-xl-6 col-lg-6">
             <!-- Website Information -->
             <div class="glass-card">
                 <div class="card-header-custom">
@@ -193,7 +193,7 @@
                     </h5>
                 </div>
                 <div class="card-body p-4">
-                    <form action="" method="POST">
+                    <form action="{{ route('admin.siteInfoUpdate') }}" method="POST">
                         @csrf
                         <div class="form-group">
                             <label for="site_name">Site Name</label>
@@ -214,7 +214,105 @@
                     </form>
                 </div>
             </div>
+        </div>
+        <div class="col-xl-6 col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Contact Details</h3>
+                </div>
+                <div class="card-body">
+                    <form action="{{ route('admin.siteContactUpdate') }}" method="POST">
+                        @csrf
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="number" class="form-control" id="phone" name="phone" value="{{ $settings['phone'] ?? '' }}" placeholder="Enter Your Phone Number">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="text" class="form-control" id="email" name="email" value="{{ $settings['email'] ?? '' }}" placeholder="Enter Your Email">
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input type="text" class="form-control" id="address" name="address" value="{{ $settings['address'] ?? '' }}" placeholder="Enter Your Address">
+                        </div>
+                        <button type="submit" class="btn btn-update"><i class="mdi mdi-content-save mr-2"></i>Save Contact Details</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mb-4">
+        <!-- Right Column -->
+        <div class="col-xl col-lg">
+            <!-- Brand Assets -->
+            <div class="glass-card h-100">
+                <div class="card-header-custom">
+                    <h5 class="card-title-custom">
+                        <div class="card-title-icon bg-light text-warning">
+                            <i class="mdi mdi-palette"></i>
+                        </div>
+                        Brand Assets
+                    </h5>
+                </div>
+                <div class="card-body p-4">
+                    <form action="" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="d-flex justify-content-between">
+                            <!-- Header Logo -->
+                            <div class="form-group mb-4">
+                                <label>Site Header Logo</label>
+                                <div class="file-upload-wrapper">
+                                    <div class="file-upload-btn {{ isset($settings['site_logo']) && $settings['site_logo'] ? 'has-image' : '' }}" id="btn_site_logo_header" style="{{ isset($settings['site_logo']) && $settings['site_logo'] ? 'background-image: url(' . asset('storage/' . $settings['site_logo']) . ');' : '' }}">
+                                        <div class="upload-content">
+                                            <i class="mdi mdi-cloud-upload text-primary" style="font-size: 2rem;"></i>
+                                            <h6 class="mt-2 font-weight-bold text-dark">Drag & Drop or Click</h6>
+                                            <p class="small mb-0">Recommended size: 200x60px (PNG, SVG)</p>
+                                        </div>
+                                    </div>
+                                    <input type="file" id="site_logo_header" name="site_logo" accept="image/*" onchange="previewImageInBox(this, 'btn_site_logo_header')">
+                                </div>
+                            </div>
+    
+                            <!-- Footer Logo -->
+                            <div class="form-group mb-4">
+                                <label>Site Footer Logo</label>
+                                <div class="file-upload-wrapper">
+                                    <div class="file-upload-btn {{ isset($settings['site_logo_footer']) && $settings['site_logo_footer'] ? 'has-image' : '' }}" id="btn_site_logo_footer" style="{{ isset($settings['site_logo_footer']) && $settings['site_logo_footer'] ? 'background-image: url(' . asset('storage/' . $settings['site_logo_footer']) . '); background-color: #2b2d42;' : '' }}">
+                                        <div class="upload-content">
+                                            <i class="mdi mdi-cloud-upload text-info" style="font-size: 2rem;"></i>
+                                            <h6 class="mt-2 font-weight-bold text-dark" style="{{ isset($settings['site_logo_footer']) && $settings['site_logo_footer'] ? 'color: #fff !important;' : '' }}">Drag & Drop or Click</h6>
+                                            <p class="small mb-0" style="{{ isset($settings['site_logo_footer']) && $settings['site_logo_footer'] ? 'color: #fff !important;' : '' }}">For dark backgrounds (PNG, SVG)</p>
+                                        </div>
+                                    </div>
+                                    <input type="file" id="site_logo_footer" name="site_logo_footer" accept="image/*" onchange="previewImageInBox(this, 'btn_site_logo_footer')">
+                                </div>
+                            </div>
+    
+                            <!-- Favicon -->
+                            <div class="form-group mb-4">
+                                <label>Site Favicon</label>
+                                <div class="file-upload-wrapper">
+                                    <div class="file-upload-btn {{ isset($settings['site_favicon']) && $settings['site_favicon'] ? 'has-image' : '' }}" id="btn_site_favicon" style="padding: 1rem; {{ isset($settings['site_favicon']) && $settings['site_favicon'] ? 'background-image: url(' . asset('storage/' . $settings['site_favicon']) . ');' : '' }}">
+                                        <div class="upload-content">
+                                            <i class="mdi mdi-image-size-select-actual text-success" style="font-size: 1.5rem;"></i>
+                                            <h6 class="mt-1 font-weight-bold text-dark" style="font-size: 0.9rem;">Upload Favicon (32x32)</h6>
+                                        </div>
+                                    </div>
+                                    <input type="file" id="site_favicon" name="site_favicon" accept="image/*" onchange="previewImageInBox(this, 'btn_site_favicon')">
+                                </div>
+                            </div>
+                        </div>
 
+                        <div class="mt-4 pt-2 border-top">
+                            <button type="submit" disabled class="btn btn-update"><i class="mdi mdi-content-save mr-2"></i>Save Brand Assets</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
             <!-- Meta Pixel & GTag -->
             <div class="glass-card">
                 <div class="card-header-custom">
@@ -254,83 +352,8 @@
                     </form>
                 </div>
             </div>
-        </div>
-
-        <!-- Right Column -->
-        <div class="col-xl-5 col-lg-6">
-            <!-- Brand Assets -->
-            <div class="glass-card h-100">
-                <div class="card-header-custom">
-                    <h5 class="card-title-custom">
-                        <div class="card-title-icon bg-light text-warning">
-                            <i class="mdi mdi-palette"></i>
-                        </div>
-                        Brand Assets
-                    </h5>
-                </div>
-                <div class="card-body p-4">
-                    <form action="" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        
-                        <!-- Header Logo -->
-                        <div class="form-group mb-4">
-                            <label>Site Header Logo</label>
-                            <div class="file-upload-wrapper">
-                                <div class="file-upload-btn {{ isset($settings['site_logo']) && $settings['site_logo'] ? 'has-image' : '' }}" id="btn_site_logo_header" style="{{ isset($settings['site_logo']) && $settings['site_logo'] ? 'background-image: url(' . asset('storage/' . $settings['site_logo']) . ');' : '' }}">
-                                    <div class="upload-content">
-                                        <i class="mdi mdi-cloud-upload text-primary" style="font-size: 2rem;"></i>
-                                        <h6 class="mt-2 font-weight-bold text-dark">Drag & Drop or Click</h6>
-                                        <p class="small mb-0">Recommended size: 200x60px (PNG, SVG)</p>
-                                    </div>
-                                </div>
-                                <input type="file" id="site_logo_header" name="site_logo" accept="image/*" onchange="previewImageInBox(this, 'btn_site_logo_header')">
-                            </div>
-                        </div>
-
-                        <!-- Footer Logo -->
-                        <div class="form-group mb-4">
-                            <label>Site Footer Logo</label>
-                            <div class="file-upload-wrapper">
-                                <div class="file-upload-btn {{ isset($settings['site_logo_footer']) && $settings['site_logo_footer'] ? 'has-image' : '' }}" id="btn_site_logo_footer" style="{{ isset($settings['site_logo_footer']) && $settings['site_logo_footer'] ? 'background-image: url(' . asset('storage/' . $settings['site_logo_footer']) . '); background-color: #2b2d42;' : '' }}">
-                                    <div class="upload-content">
-                                        <i class="mdi mdi-cloud-upload text-info" style="font-size: 2rem;"></i>
-                                        <h6 class="mt-2 font-weight-bold text-dark" style="{{ isset($settings['site_logo_footer']) && $settings['site_logo_footer'] ? 'color: #fff !important;' : '' }}">Drag & Drop or Click</h6>
-                                        <p class="small mb-0" style="{{ isset($settings['site_logo_footer']) && $settings['site_logo_footer'] ? 'color: #fff !important;' : '' }}">For dark backgrounds (PNG, SVG)</p>
-                                    </div>
-                                </div>
-                                <input type="file" id="site_logo_footer" name="site_logo_footer" accept="image/*" onchange="previewImageInBox(this, 'btn_site_logo_footer')">
-                            </div>
-                        </div>
-
-                        <!-- Favicon -->
-                        <div class="form-group mb-4">
-                            <label>Site Favicon</label>
-                            <div class="file-upload-wrapper">
-                                <div class="file-upload-btn {{ isset($settings['site_favicon']) && $settings['site_favicon'] ? 'has-image' : '' }}" id="btn_site_favicon" style="padding: 1rem; {{ isset($settings['site_favicon']) && $settings['site_favicon'] ? 'background-image: url(' . asset('storage/' . $settings['site_favicon']) . ');' : '' }}">
-                                    <div class="upload-content">
-                                        <i class="mdi mdi-image-size-select-actual text-success" style="font-size: 1.5rem;"></i>
-                                        <h6 class="mt-1 font-weight-bold text-dark" style="font-size: 0.9rem;">Upload Favicon (32x32)</h6>
-                                    </div>
-                                </div>
-                                <input type="file" id="site_favicon" name="site_favicon" accept="image/*" onchange="previewImageInBox(this, 'btn_site_favicon')">
-                            </div>
-                        </div>
-
-                        <div class="mt-4 pt-2 border-top">
-                            <button type="submit" class="btn btn-update"><i class="mdi mdi-content-save mr-2"></i>Save Brand Assets</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-lg">
-            <div class="card">
-                
-            </div>
-        </div>
-    </div>
+        </div>    
+    </div>  
 </div>
 
 <script>

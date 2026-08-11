@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Orders;
+use App\Models\Settings;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
@@ -40,52 +42,67 @@ class HomeController extends Controller
 
     public function siteSettings()
     {
-        return view('backend.settings.generalSettings');
+        $settings = Settings::first() ?? new Settings;
+
+        return view('backend.settings.generalSettings', compact('settings'));
     }
 
     public function siteInfoUpdate(Request $request)
     {
-        $settings = Settings::first();
+        $settings = Settings::first() ?? new Settings;
         $settings->site_name = $request->site_name;
         $settings->site_description = $request->site_description;
+        $settings->sitetag = $request->sitetag;
         $settings->save();
 
-        return redirect()->back()->with('success', 'Site information updated successfully!');
+        return redirect()->route('admin.siteSettings')->with('success', 'Site information updated successfully!');
+    }
+
+    public function siteContactUpdate(Request $request)
+    {
+        $settings = Settings::first() ?? new Settings;
+        $settings->phone = $request->phone;
+        $settings->email = $request->email;
+        $settings->address = $request->address;
+        $settings->save();
+
+        return redirect()->route('admin.siteSettings')->with('success', 'Contact details updated successfully!');
     }
 
     public function siteFaviconUpdate(Request $request)
     {
-        $settings = Settings::first();
+        $settings = Settings::first() ?? new Settings;
         $settings->site_favicon = $request->site_favicon;
         $settings->save();
 
-        return redirect()->back()->with('success', 'Site favicon updated successfully!');
+        return redirect()->route('admin.siteSettings')->with('success', 'Site favicon updated successfully!');
     }
 
     public function siteHeaderLogoUpdate(Request $request)
     {
-        $settings = Settings::first();
-        $settings->header_logo = $request->header_logo;
+        $settings = Settings::first() ?? new Settings;
+        $settings->site_logo = $request->site_logo;
         $settings->save();
 
-        return redirect()->back()->with('success', 'Site header logo updated successfully!');
+        return redirect()->route('admin.siteSettings')->with('success', 'Site header logo updated successfully!');
     }
 
     public function siteFooterLogoUpdate(Request $request)
     {
-        $settings = Settings::first();
-        $settings->footer_logo = $request->footer_logo;
+        $settings = Settings::first() ?? new Settings;
+        $settings->site_logo_footer = $request->site_logo_footer;
         $settings->save();
 
-        return redirect()->back()->with('success', 'Site footer logo updated successfully!');
+        return redirect()->route('admin.siteSettings')->with('success', 'Site footer logo updated successfully!');
     }
 
     public function pixelGtagUpdate(Request $request)
     {
-        $settings = Settings::first();
-        $settings->pixel_gtag = $request->pixel_gtag;
+        $settings = Settings::first() ?? new Settings;
+        $settings->meta_pixel = $request->meta_pixel;
+        $settings->google_analytics = $request->google_analytics;
         $settings->save();
 
-        return redirect()->back()->with('success', 'Pixel and gtag updated successfully!');
+        return redirect()->route('admin.siteSettings')->with('success', 'Pixel and gtag updated successfully!');
     }
 }
