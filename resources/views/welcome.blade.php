@@ -795,6 +795,29 @@
             </div>
             
             <div class="comparison-container">
+                <style>
+                    .comparison-table .shaver-col .shaver-text,
+                    .comparison-table .shaver-col .check-icon,
+                    .comparison-table .shaver-header-title,
+                    .comparison-table .shaver-header-icon {
+                        color: #10b981 !important;
+                    }
+                    .comparison-table tbody .shaver-col .shaver-text,
+                    .comparison-table tbody .shaver-col .check-icon {
+                        font-weight: 600;
+                    }
+                    
+                    .comparison-table .razor-col .razor-text,
+                    .comparison-table .razor-col .cross-icon,
+                    .comparison-table .razor-header-title,
+                    .comparison-table .razor-header-icon {
+                        color: #ff5252 !important;
+                    }
+                    .comparison-table tbody .razor-col .razor-text,
+                    .comparison-table tbody .razor-col .cross-icon {
+                        font-weight: 600;
+                    }
+                </style>
                 <table class="comparison-table">
                     <thead>
                         <tr>
@@ -1563,7 +1586,9 @@
         });
 
         // Handle delivery switch toggle event
-        deliveryToggle.addEventListener('change', recalculateInvoice);
+        if (deliveryToggle) {
+            deliveryToggle.addEventListener('change', recalculateInvoice);
+        }
 
         // Handle color radio selection changes
         const colorRadioInputs = document.querySelectorAll('input[name="product_color"]');

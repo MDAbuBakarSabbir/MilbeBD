@@ -9,6 +9,7 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReviewsController;
 use App\Http\Controllers\SystemAPIController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -16,13 +17,15 @@ Route::get('/', function () {
 });
 
 // Helper routes for server deployment
-Route::get('/optimize-clear', function() {
-    \Illuminate\Support\Facades\Artisan::call('optimize:clear');
+Route::get('/optimize-clear', function () {
+    Artisan::call('optimize:clear');
+
     return 'Optimize Cleared. <a href="/">Go to Home</a>';
 });
 
-Route::get('/migrate-force', function() {
-    \Illuminate\Support\Facades\Artisan::call('migrate', ['--force' => true]);
+Route::get('/migrate-force', function () {
+    Artisan::call('migrate', ['--force' => true]);
+
     return 'Migration Done. <a href="/">Go to Home</a>';
 });
 
