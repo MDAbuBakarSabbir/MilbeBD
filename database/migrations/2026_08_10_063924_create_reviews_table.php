@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('product')->nullable();
             $table->string('image');
+            $table->string('name');
+            $table->text('review');
             $table->enum('status', ['1', '0'])->default('1');
             $table->timestamps();
         });

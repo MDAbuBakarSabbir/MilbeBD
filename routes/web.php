@@ -12,8 +12,11 @@ use App\Http\Controllers\SystemAPIController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
+use App\Models\Product;
+
 Route::get('/', function () {
-    return view('welcome');
+    $product = Product::first();
+    return view('welcome', compact('product'));
 });
 
 // Helper routes for server deployment
@@ -122,5 +125,5 @@ Route::controller(ReviewsController::class)->group(function () {
 
 Route::controller(ProductController::class)->group(function () {
     Route::get('admin/product', 'index')->name('admin.product.index');
-    Route::post('admin/product', 'store')->name('admin.product.store');
+    Route::put('admin/product/{id}', 'update')->name('admin.product.update');
 });

@@ -30,4 +30,28 @@ class ProductController extends Controller
 
         return redirect()->route('admin.product.index')->with('success', 'Product created successfully');
     }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'title' => 'required',
+            'regular_price' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        $product = Product::findOrFail($id);
+        $product->title = $request->title;
+        $product->regular_price = $request->regular_price;
+        $product->discounted_price = $request->discounted_price;
+        
+        if ($request->hasFile('image')) {
+            $imageName = time().'.'.$request->image->extension();  
+            $request->image->move(public_path('image/product'), $imageName);
+            $product->image = $imageName;
+        }
+
+        $product->save();
+
+        return redirect()->route('admin.product.index')->with('success', 'Product updated successfully');
+    }
 }

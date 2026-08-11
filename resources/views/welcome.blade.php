@@ -34,11 +34,13 @@
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        body {
+        html, body {
             font-family: 'Inter', sans-serif;
             background-color: var(--light);
             color: #334155;
             overflow-x: hidden;
+            width: 100%;
+            max-width: 100vw;
             scroll-behavior: smooth;
         }
 
@@ -172,6 +174,17 @@
         .btn-premium:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(79, 70, 229, 0.4);
+        }
+
+        @keyframes pulse-confirm {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.7); }
+            50% { transform: scale(1.03); box-shadow: 0 0 0 15px rgba(236, 72, 153, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(236, 72, 153, 0); }
+        }
+
+        .btn-confirm {
+            animation: pulse-confirm 2s infinite;
+            justify-content: center;
         }
 
         /* Testimonials Carousel */
@@ -381,27 +394,27 @@
 
         /* Razor vs Mini Shaver Comparison Section */
         .comparison-section {
-            background-color: #161619;
+            background-color: var(--light);
             padding: 5rem 0;
-            color: #ffffff;
+            color: var(--dark);
         }
 
         .comparison-title {
             font-family: 'Hind Siliguri', 'Outfit', sans-serif;
             font-size: 2.25rem;
             font-weight: 800;
-            color: #ffffff;
+            color: var(--dark);
             margin-bottom: 2.5rem;
         }
 
         .comparison-container {
             max-width: 760px;
             margin: 0 auto;
-            background: #232327;
+            background: #ffffff;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.08);
         }
 
         .comparison-table {
@@ -416,7 +429,7 @@
             padding: 1.1rem 1rem;
             text-align: center;
             vertical-align: middle;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
         }
 
         .comparison-table tr:last-child th,
@@ -428,10 +441,10 @@
         .comparison-table th.feature-col,
         .comparison-table td.feature-col {
             width: 38%;
-            background-color: #2b2b30;
+            background-color: #f8fafc;
             text-align: left;
             padding-left: 1.5rem;
-            color: #ffffff;
+            color: #334155;
             font-weight: 700;
             font-size: 1.05rem;
             font-family: 'Hind Siliguri', sans-serif;
@@ -441,15 +454,15 @@
         .comparison-table th.razor-col,
         .comparison-table td.razor-col {
             width: 31%;
-            background-color: #232327;
-            color: #94a3b8;
+            background-color: #ffffff;
+            color: #64748b;
         }
 
         /* Column 3: Mini Shaver (Highlighted) */
         .comparison-table th.shaver-col,
         .comparison-table td.shaver-col {
             width: 31%;
-            background-color: #351c1c;
+            background-color: #fff1f2;
             color: #ff5252;
         }
 
@@ -464,12 +477,12 @@
         }
 
         .razor-header-icon {
-            background-color: #333338;
+            background-color: #f1f5f9;
             color: #94a3b8;
         }
 
         .shaver-header-icon {
-            background-color: #4a2222;
+            background-color: #ffe4e6;
             border: 2px solid #ff5252;
             overflow: hidden;
         }
@@ -555,14 +568,14 @@
 
         /* Image Comparison Slider */
         .compare-slider-section {
-            background-color: #161619;
+            background-color: var(--light);
             padding: 2rem 0 6rem 0;
         }
         .compare-slider-title {
             font-family: 'Hind Siliguri', 'Outfit', sans-serif;
             font-size: 2rem;
             font-weight: 800;
-            color: #ffffff;
+            color: var(--dark);
             margin-bottom: 3rem;
         }
         .image-compare-wrapper {
@@ -914,14 +927,14 @@
     <!-- Image Comparison Slider Section -->
     <section class="compare-slider-section">
         <div class="container text-center">
-            <h2 class="compare-slider-title text-white text-center">
+            <h2 class="compare-slider-title text-dark text-center">
                 স্লাইড করে <span style="color: #ff5252;">পার্থক্য</span> দেখুন
             </h2>
             
             <div class="image-compare-wrapper" id="image-compare-wrapper">
                 <!-- BASE WRAPPER (After - Right Side) -->
                 <div class="w-100 h-100 position-absolute top-0 start-0 z-1">
-                    <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&auto=format&fit=crop&q=80" alt="After">
+                    <img src="{{ asset('assets/frontend/img/after.png') }}" alt="After">
                     <!-- Badge -->
                     <div class="position-absolute p-3" style="top: 15px; right: 15px;">
                         <span class="badge rounded-pill px-4 py-2 fs-6" style="background-color: #ff5252; font-family: 'Hind Siliguri', sans-serif;">পরে</span>
@@ -939,7 +952,7 @@
 
                 <!-- OVERLAY WRAPPER (Before - Left Side) -->
                 <div class="compare-overlay w-100 h-100 position-absolute top-0 start-0" id="compare-overlay">
-                    <img src="https://images.unsplash.com/photo-1616260787161-558e65842cda?w=800&auto=format&fit=crop&q=80" alt="Before">
+                    <img src="{{ asset('assets/frontend/img/before.png') }}" alt="Before">
                     <!-- Badge -->
                     <div class="position-absolute p-3" style="top: 15px; left: 15px;">
                         <span class="badge rounded-pill px-4 py-2 fs-6" style="background-color: #3f3f46; border: 1px solid #52525b; font-family: 'Hind Siliguri', sans-serif;">আগে</span>
@@ -963,10 +976,10 @@
 
             <!-- Bottom badges -->
             <div class="d-flex justify-content-center gap-3 flex-wrap mt-2">
-                <div class="px-4 py-2 rounded-pill" style="border: 1px solid rgba(255, 82, 82, 0.5); background-color: #232327; color: #fff; font-family: 'Hind Siliguri', sans-serif; font-weight: 500;">
+                <div class="px-4 py-2 rounded-pill shadow-sm" style="border: 1px solid rgba(0, 0, 0, 0.08); background-color: #ffffff; color: #334155; font-family: 'Hind Siliguri', sans-serif; font-weight: 600;">
                     <span style="color: #ff5252; font-weight: bold;" class="me-2">✔</span> কাটার ভয় নেই
                 </div>
-                <div class="px-4 py-2 rounded-pill" style="border: 1px solid rgba(255, 82, 82, 0.5); background-color: #232327; color: #fff; font-family: 'Hind Siliguri', sans-serif; font-weight: 500;">
+                <div class="px-4 py-2 rounded-pill shadow-sm" style="border: 1px solid rgba(0, 0, 0, 0.08); background-color: #ffffff; color: #334155; font-family: 'Hind Siliguri', sans-serif; font-weight: 600;">
                     <span style="color: #ff5252; font-weight: bold;" class="me-2">✔</span> জ্বালা-পোড়া নেই
                 </div>
             </div>
@@ -1024,7 +1037,7 @@
             </div>
         </div>
     </section>
-
+    <div class="ratings"></div>
     <!-- Testimonials Carousel Section -->
     <section class="reviews-section bg-light" id="testimonials">
         <div class="container text-center">
@@ -1120,35 +1133,47 @@
 
     <!-- How It Works Section -->
     <section class="how-it-works-section" id="how-it-works">
-        <div class="container text-center">
-            <span class="text-uppercase text-primary tracking-widest fw-extrabold mb-2 d-block">Process</span>
-            <h2 class="mb-5 h1">How It Works</h2>
-            <div class="row g-4 justify-content-center">
-                <div class="col-lg-4 col-md-6">
-                    <div class="step-card">
-                        <div class="step-icon-wrap">
-                            <i class="bi bi-cart-check"></i>
-                        </div>
-                        <h3 class="h4 mb-3">1. Order</h3>
-                        <p class="text-muted mb-0">Select your favorite product package and enter your shipping details in the checkout form below.</p>
+        <div class="container">
+            <div class="card border-0 shadow-sm" style="border-radius: 20px; background: white;">
+                <div class="card-body p-3 p-md-5">
+                    <div class="text-center mb-4 mb-md-5">
+                        <span class="text-uppercase text-primary fw-bold mb-2 d-block" style="letter-spacing: 2px;">Process</span>
+                        <h2 class="h2 mb-0">How It Works</h2>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="step-card">
-                        <div class="step-icon-wrap">
-                            <i class="bi bi-truck"></i>
+                    <div class="row g-3 g-md-5 justify-content-center">
+                        <div class="col-lg-4 col-md-4 col-12">
+                            <div class="d-flex flex-row flex-md-column align-items-start align-items-md-center text-start text-md-center">
+                                <div class="step-icon-wrap flex-shrink-0 me-3 me-md-0 mb-0 mb-md-4" style="width: 55px; height: 55px; font-size: 1.25rem;">
+                                    <i class="bi bi-cart-check"></i>
+                                </div>
+                                <div>
+                                    <h3 class="h5 mb-1 mb-md-3 fw-bold">1. Order</h3>
+                                    <p class="text-muted mb-0 px-0 px-xl-3" style="font-size: 0.9rem; line-height: 1.5;">Select your favorite product package and enter your shipping details in the checkout form below.</p>
+                                </div>
+                            </div>
                         </div>
-                        <h3 class="h4 mb-3">2. Delivery</h3>
-                        <p class="text-muted mb-0">Your package is handled with care and delivered to your doorstep within 2-3 business days.</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="step-card">
-                        <div class="step-icon-wrap">
-                            <i class="bi bi-emoji-laughing"></i>
+                        <div class="col-lg-4 col-md-4 col-12">
+                            <div class="d-flex flex-row flex-md-column align-items-start align-items-md-center text-start text-md-center">
+                                <div class="step-icon-wrap flex-shrink-0 me-3 me-md-0 mb-0 mb-md-4" style="width: 55px; height: 55px; font-size: 1.25rem;">
+                                    <i class="bi bi-truck"></i>
+                                </div>
+                                <div>
+                                    <h3 class="h5 mb-1 mb-md-3 fw-bold">2. Delivery</h3>
+                                    <p class="text-muted mb-0 px-0 px-xl-3" style="font-size: 0.9rem; line-height: 1.5;">Your package is handled with care and delivered to your doorstep within 2-3 business days.</p>
+                                </div>
+                            </div>
                         </div>
-                        <h3 class="h4 mb-3">3. Enjoy</h3>
-                        <p class="text-muted mb-0">Unbox, start using your new premium quality product, and enjoy our lifetime warranty support.</p>
+                        <div class="col-lg-4 col-md-4 col-12">
+                            <div class="d-flex flex-row flex-md-column align-items-start align-items-md-center text-start text-md-center">
+                                <div class="step-icon-wrap flex-shrink-0 me-3 me-md-0 mb-0 mb-md-4" style="width: 55px; height: 55px; font-size: 1.25rem;">
+                                    <i class="bi bi-emoji-laughing"></i>
+                                </div>
+                                <div>
+                                    <h3 class="h5 mb-1 mb-md-3 fw-bold">3. Enjoy</h3>
+                                    <p class="text-muted mb-0 px-0 px-xl-3" style="font-size: 0.9rem; line-height: 1.5;">Unbox, start using your new premium quality product, and enjoy our lifetime warranty support.</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1168,51 +1193,38 @@
                 <div class="table-responsive">
                     <table class="table table-premium align-middle">
                         <thead>
-                            <tr>
-                                <th style="width: 80px;" class="text-center">Select</th>
+                            <tr class="text-nowrap">
                                 <th>Product Details</th>
-                                <th>Colour</th>
-                                <th>Price</th>
-                                <th style="width: 150px;" class="text-center">Quantity</th>
-                                <th class="text-end" style="width: 120px;">Total</th>
+                                <th class="text-center px-1">Quantity</th>
+                                <th class="text-end">Total</th>
                             </tr>
                         </thead>
                         <tbody>
                             <!-- Product 1 -->
-                            <tr class="product-row active-row">
-                                <td class="text-center">
-                                    <div class="form-check d-flex justify-content-center m-0">
-                                        <input class="form-check-input fs-5 product-select-radio" type="radio" name="selected_product_radio" id="prod1" value="199" checked data-name="Milbe Sound Pro Headphones">
-                                    </div>
-                                </td>
-                                <td>
-                                    <div class="d-flex align-items-center gap-3">
-                                        <img src="{{ asset('assets/frontend/img/waterproof.png') }}" alt="Sound Pro" class="product-thumb">
-                                        <div>
-                                            <h5 class="mb-0 fs-6 fw-bold">Premium Skin Friendly Mini Shaver</h5>
-                                            {{-- <small class="text-muted">Premium Skin Friendly Mini Shaver</small> --}}
-                                        </div>
-                                    </div>
-                                </td>
+                            <tr class="product-row active-row" data-price="{{ $product ? $product->discounted_price : '199' }}" data-name="{{ $product ? $product->title : 'Premium Skin Friendly Mini Shaver' }}">
                                 <td>
                                     <div class="d-flex align-items-center gap-2">
-                                        <div class="form-check p-0 m-0">
-                                            <input type="radio" name="product_color" id="color_silver" checked value="Platinum Silver" class="btn-check">
-                                            <label class="btn btn-outline-secondary p-0 rounded-circle d-flex align-items-center justify-content-center color-dot shadow-sm" for="color_silver" style="width: 28px; height: 28px; border-width: 2px;" title="Platinum Silver">
-                                                <span class="rounded-circle" style="width: 14px; height: 14px; background-color: #94a3b8;"></span>
-                                            </label>
+                                        <img src="{{ $product && $product->image ? asset('image/product/' . $product->image) : asset('assets/frontend/img/waterproof.png') }}" alt="{{ $product ? $product->title : 'Mini Shaver' }}" class="product-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 6px;">
+                                        <div style="min-width: 0;">
+                                            <h5 class="mb-1 fw-bold text-dark" style="font-size: 0.9rem; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; white-space: normal;" title="{{ $product ? $product->title : 'Premium Skin Friendly Mini Shaver' }}">{{ $product ? $product->title : 'Premium Skin Friendly Mini Shaver' }}</h5>
+                                            <div class="d-flex flex-wrap align-items-center gap-1" style="font-size: 0.75rem;">
+                                                <span class="badge bg-light text-secondary border px-1 py-1 fw-medium"><i class="bi bi-palette2 me-1"></i>Black</span>
+                                                @if($product && $product->regular_price)
+                                                    <del class="text-muted small">৳ {{ $product->regular_price }}</del>
+                                                @endif
+                                                <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-1 py-1 fw-bold"><i class="bi bi-tag-fill me-1"></i>৳ {{ $product ? $product->discounted_price : '199' }}</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </td>
-                                <td class="fw-semibold text-dark">৳ 199</td>
-                                <td>
-                                    <div class="input-group input-group-sm justify-content-center mx-auto" style="max-width: 110px;">
-                                        <button class="btn btn-outline-secondary border-secondary-subtle px-2 py-1 qty-btn-minus" type="button">-</button>
-                                        <input type="text" class="form-control text-center fw-bold product-qty-input" value="1" readonly name="quantity_1">
-                                        <button class="btn btn-outline-secondary border-secondary-subtle px-2 py-1 qty-btn-plus" type="button">+</button>
+                                <td class="px-1">
+                                    <div class="input-group input-group-sm justify-content-center mx-auto" style="max-width: 90px;">
+                                        <button class="btn btn-outline-secondary border-secondary-subtle px-1 py-0 qty-btn-minus" type="button">-</button>
+                                        <input type="text" class="form-control text-center fw-bold product-qty-input px-0" value="1" readonly name="quantity_1" style="font-size: 0.85rem;">
+                                        <button class="btn btn-outline-secondary border-secondary-subtle px-1 py-0 qty-btn-plus" type="button">+</button>
                                     </div>
                                 </td>
-                                <td class="fw-bold text-primary text-end row-total-price">৳ 199</td>
+                                <td class="fw-bold text-primary text-end row-total-price text-nowrap">৳ {{ $product ? $product->discounted_price : '199' }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -1302,7 +1314,7 @@
                             </div>
 
                             <div class="text-center mt-5">
-                                <button type="submit" class="btn btn-premium btn-lg w-100 py-3 rounded-3 shadow-lg fs-5">
+                                <button type="submit" class="btn btn-premium btn-confirm btn-lg w-100 py-3 rounded-pill shadow-lg fs-5 mx-auto" style="max-width: 350px;">
                                     <i class="bi bi-bag-check me-2"></i> Confirm Order
                                 </button>
                             </div>
@@ -1481,14 +1493,12 @@
         const summaryTotalPrice = document.getElementById('summary-total-price');
 
         function recalculateInvoice() {
-            let activeRadio = document.querySelector('.product-select-radio:checked');
-            if (!activeRadio) return;
+            let activeRow = document.querySelector('.product-row.active-row');
+            if (!activeRow) return;
 
-            let price = parseFloat(activeRadio.value);
-            let name = activeRadio.getAttribute('data-name');
+            let price = parseFloat(activeRow.getAttribute('data-price')) || 199;
+            let name = activeRow.getAttribute('data-name') || 'Product';
             
-            // Find active row
-            let activeRow = activeRadio.closest('tr');
             let qtyInput = activeRow.querySelector('.product-qty-input');
             let qty = parseInt(qtyInput.value, 10) || 1;
 
@@ -1519,48 +1529,6 @@
             hiddenDeliveryCost.value = deliveryCharge;
             hiddenTotalAmount.value = finalTotal;
         }
-
-        // Handle radio selection changes
-        selectRadios.forEach(radio => {
-            radio.addEventListener('change', function() {
-                // Remove active styling from all rows
-                document.querySelectorAll('.product-row').forEach(row => {
-                    row.classList.remove('active-row');
-                    
-                    // Disable quantity controls and reset to 1
-                    let rowQtyInput = row.querySelector('.product-qty-input');
-                    rowQtyInput.disabled = true;
-                    rowQtyInput.value = 1;
-                    
-                    // Reset quantity buttons
-                    row.querySelectorAll('.qty-btn-minus, .qty-btn-plus').forEach(btn => btn.disabled = true);
-                    
-                    // Style inactive total price
-                    let rowPrice = parseFloat(row.querySelector('.product-select-radio').value);
-                    row.querySelector('.row-total-price').textContent = `$${rowPrice.toFixed(2)}`;
-                    row.querySelector('.row-total-price').classList.add('text-muted');
-                    row.querySelector('.row-total-price').classList.remove('text-primary');
-                });
-
-                // Add active-row styling to selected row
-                let activeRow = this.closest('tr');
-                activeRow.classList.add('active-row');
-                
-                // Enable quantity inputs for selected row
-                let activeQtyInput = activeRow.querySelector('.product-qty-input');
-                activeQtyInput.disabled = false;
-                
-                // Enable quantity buttons
-                activeRow.querySelectorAll('.qty-btn-minus, .qty-btn-plus').forEach(btn => btn.disabled = false);
-
-                // Style active total price
-                let activeTotal = activeRow.querySelector('.row-total-price');
-                activeTotal.classList.remove('text-muted');
-                activeTotal.classList.add('text-primary');
-
-                recalculateInvoice();
-            });
-        });
 
         // Handle minus/plus buttons click events
         document.querySelectorAll('.product-row').forEach(row => {

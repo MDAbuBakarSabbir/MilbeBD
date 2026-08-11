@@ -2,7 +2,8 @@
 <html lang="en" class="h-100">
 
 <head>
-    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Focus | Admin Login </title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/backend/images/favicon.png') }}">
@@ -43,6 +44,17 @@
         }
         .auth-form {
             padding: 50px 40px;
+        }
+        @media (max-width: 576px) {
+            .auth-form {
+                padding: 30px 20px;
+            }
+            .authincation-content {
+                margin: 10px;
+            }
+            .auth-form h4 {
+                margin-bottom: 25px;
+            }
         }
         .auth-form h4 {
             font-weight: 800;
@@ -136,7 +148,7 @@
                                                 </span>
                                             @enderror
                                         </div>
-                                        <div class="form-row d-flex justify-content-between align-items-center mt-4 mb-4">
+                                        <div class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center mt-4 mb-4" style="gap: 10px;">
                                             <div class="form-group mb-0">
                                                 <div class="form-check ml-2">
                                                     <input class="form-check-input mt-1" type="checkbox" id="basic_checkbox_1" name="remember" {{ old('remember') ? 'checked' : '' }}>
