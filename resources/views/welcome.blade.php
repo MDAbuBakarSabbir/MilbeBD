@@ -394,27 +394,27 @@
 
         /* Razor vs Mini Shaver Comparison Section */
         .comparison-section {
-            background-color: var(--light);
+            background-color: #161619;
             padding: 5rem 0;
-            color: var(--dark);
+            color: #ffffff;
         }
 
         .comparison-title {
             font-family: 'Hind Siliguri', 'Outfit', sans-serif;
             font-size: 2.25rem;
             font-weight: 800;
-            color: var(--dark);
+            color: #ffffff;
             margin-bottom: 2.5rem;
         }
 
         .comparison-container {
             max-width: 760px;
             margin: 0 auto;
-            background: #ffffff;
+            background: #232327;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .comparison-table {
@@ -429,7 +429,7 @@
             padding: 1.1rem 1rem;
             text-align: center;
             vertical-align: middle;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         }
 
         .comparison-table tr:last-child th,
@@ -441,10 +441,10 @@
         .comparison-table th.feature-col,
         .comparison-table td.feature-col {
             width: 38%;
-            background-color: #f8fafc;
+            background-color: #2b2b30;
             text-align: left;
             padding-left: 1.5rem;
-            color: #334155;
+            color: #ffffff;
             font-weight: 700;
             font-size: 1.05rem;
             font-family: 'Hind Siliguri', sans-serif;
@@ -454,15 +454,15 @@
         .comparison-table th.razor-col,
         .comparison-table td.razor-col {
             width: 31%;
-            background-color: #ffffff;
-            color: #64748b;
+            background-color: #232327;
+            color: #94a3b8;
         }
 
         /* Column 3: Mini Shaver (Highlighted) */
         .comparison-table th.shaver-col,
         .comparison-table td.shaver-col {
             width: 31%;
-            background-color: #fff1f2;
+            background-color: #351c1c;
             color: #ff5252;
         }
 
@@ -477,12 +477,12 @@
         }
 
         .razor-header-icon {
-            background-color: #f1f5f9;
+            background-color: #333338;
             color: #94a3b8;
         }
 
         .shaver-header-icon {
-            background-color: #ffe4e6;
+            background-color: #4a2222;
             border: 2px solid #ff5252;
             overflow: hidden;
         }
@@ -568,14 +568,14 @@
 
         /* Image Comparison Slider */
         .compare-slider-section {
-            background-color: var(--light);
+            background-color: #161619;
             padding: 2rem 0 6rem 0;
         }
         .compare-slider-title {
             font-family: 'Hind Siliguri', 'Outfit', sans-serif;
             font-size: 2rem;
             font-weight: 800;
-            color: var(--dark);
+            color: #ffffff;
             margin-bottom: 3rem;
         }
         .image-compare-wrapper {
@@ -767,7 +767,7 @@
                 
                 <div class="col-lg-6 text-center">
                     <div class="img-container floating-element mx-auto" style="max-width: 480px;">
-                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&auto=format&fit=crop&q=80" alt="Milbe Sound Pro Headphones" class="img-fluid w-100 object-fit-cover" style="aspect-ratio: 1/1; object-position: center;">
+                        <img src="{{ asset('assets/frontend/img/trimmer img 2.png') }}" alt="Milbe Sound Pro Headphones" class="img-fluid w-100 object-fit-cover" style="aspect-ratio: 1/1; object-position: center;">
                     </div>
                 </div>
             </div>
@@ -801,23 +801,46 @@
     </section>
 
     <!-- Razor vs Mini Shaver Comparison Section -->
-    <section class="comparison-section" id="comparison">
+    <section class="comparison-section py-5 bg-light" id="comparison">
         <div class="container">
-            <div class="text-center">
-                <h2 class="comparison-title text-center">সাধারণ রেজার কেন সমাধান নয়?</h2>
+            <div class="text-center mb-5">
+                <span class="text-uppercase text-primary tracking-widest fw-extrabold mb-2 d-block">Comparison</span>
+                <h2 class="comparison-title text-center h1 text-dark fw-bolder">সাধারণ রেজার কেন সমাধান নয়?</h2>
             </div>
             
-            <div class="comparison-container">
+            <div class="comparison-container mx-auto bg-white p-4 p-md-5 rounded-4 shadow-sm" style="max-width: 800px; border: 1px solid rgba(0,0,0,0.05);">
                 <style>
+                    .comparison-table { 
+                        width: 100%; 
+                        border-collapse: separate; 
+                        border-spacing: 2px; 
+                        text-align: center; 
+                    }
+                    .comparison-table th, .comparison-table td {
+                        background-color: #2c2d31;
+                        padding: 18px 15px;
+                        vertical-align: middle;
+                    }
+                    .comparison-table th { padding: 25px 15px 20px; }
+                    
+                    /* Outer border radius */
+                    .comparison-table tr:first-child th:first-child { border-top-left-radius: 12px; }
+                    .comparison-table tr:first-child th:last-child { border-top-right-radius: 12px; }
+                    .comparison-table tr:last-child td:first-child { border-bottom-left-radius: 12px; }
+                    .comparison-table tr:last-child td:last-child { border-bottom-right-radius: 12px; }
+                    
+                    .comparison-table .feature-col { 
+                        text-align: left; 
+                        color: #ffffff; 
+                        font-weight: 600; 
+                        font-size: 1rem; 
+                    }
+                    
                     .comparison-table .shaver-col .shaver-text,
                     .comparison-table .shaver-col .check-icon,
                     .comparison-table .shaver-header-title,
                     .comparison-table .shaver-header-icon {
                         color: #10b981 !important;
-                    }
-                    .comparison-table tbody .shaver-col .shaver-text,
-                    .comparison-table tbody .shaver-col .check-icon {
-                        font-weight: 600;
                     }
                     
                     .comparison-table .razor-col .razor-text,
@@ -826,10 +849,41 @@
                     .comparison-table .razor-header-icon {
                         color: #ff5252 !important;
                     }
-                    .comparison-table tbody .razor-col .razor-text,
-                    .comparison-table tbody .razor-col .cross-icon {
+                    
+                    .comparison-table tbody .shaver-text,
+                    .comparison-table tbody .razor-text {
                         font-weight: 600;
+                        font-size: 0.95rem;
+                        display: block;
+                        margin-top: 5px;
                     }
+                    
+                    .comparison-table tbody .check-icon,
+                    .comparison-table tbody .cross-icon {
+                        font-size: 1.3rem;
+                        font-weight: bold;
+                        display: block;
+                    }
+                    
+                    .comparison-header-icon {
+                        width: 45px;
+                        height: 45px;
+                        border-radius: 50%;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin: 0 auto 10px;
+                    }
+                    .razor-header-icon { background: rgba(255,82,82,0.15); }
+                    .shaver-header-icon { padding: 0; }
+                    .shaver-header-icon img {
+                        width: 45px;
+                        height: 45px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                        border: 2px solid #10b981;
+                    }
+                    .comparison-header-title { color: #fff; font-size: 1.1rem; font-weight: 700; margin: 0; }
                 </style>
                 <table class="comparison-table">
                     <thead>
@@ -925,27 +979,27 @@
     </section>
 
     <!-- Image Comparison Slider Section -->
-    <section class="compare-slider-section">
+    <section class="compare-slider-section bg-white py-5">
         <div class="container text-center">
-            <h2 class="compare-slider-title text-dark text-center">
+            <h2 class="compare-slider-title text-dark text-center mb-4">
                 স্লাইড করে <span style="color: #ff5252;">পার্থক্য</span> দেখুন
             </h2>
             
-            <div class="image-compare-wrapper" id="image-compare-wrapper">
+            <div class="image-compare-wrapper shadow-lg mx-auto" id="image-compare-wrapper" style="border: 4px solid #fff; border-radius: 16px;">
                 <!-- BASE WRAPPER (After - Right Side) -->
                 <div class="w-100 h-100 position-absolute top-0 start-0 z-1">
                     <img src="{{ asset('assets/frontend/img/after.png') }}" alt="After">
                     <!-- Badge -->
                     <div class="position-absolute p-3" style="top: 15px; right: 15px;">
-                        <span class="badge rounded-pill px-4 py-2 fs-6" style="background-color: #ff5252; font-family: 'Hind Siliguri', sans-serif;">পরে</span>
+                        <span class="badge rounded-pill px-4 py-2 fs-6 shadow-sm" style="background-color: #ff5252; font-family: 'Hind Siliguri', sans-serif;">পরে</span>
                     </div>
                     <!-- Tags -->
                     <div class="position-absolute d-flex align-items-center gap-2" style="top: 40%; right: 15%;">
-                        <span class="badge rounded-pill px-3 py-2" style="background-color: #ff5252; font-family: 'Hind Siliguri', sans-serif; font-size: 0.9rem;">স্মুথ স্কিন</span>
+                        <span class="badge rounded-pill px-3 py-2 shadow-sm" style="background-color: #ff5252; font-family: 'Hind Siliguri', sans-serif; font-size: 0.9rem;">স্মুথ স্কিন</span>
                         <span class="rounded-circle" style="width: 20px; height: 20px; background-color: rgba(255, 82, 82, 0.4); border: 4px solid #ff5252; box-shadow: 0 0 10px rgba(255,82,82,0.5);"></span>
                     </div>
                     <div class="position-absolute d-flex align-items-center gap-2" style="top: 60%; right: 25%;">
-                        <span class="badge rounded-pill px-3 py-2" style="background-color: #ff5252; font-family: 'Hind Siliguri', sans-serif; font-size: 0.9rem;">জ্বালা নেই</span>
+                        <span class="badge rounded-pill px-3 py-2 shadow-sm" style="background-color: #ff5252; font-family: 'Hind Siliguri', sans-serif; font-size: 0.9rem;">জ্বালা নেই</span>
                         <span class="rounded-circle" style="width: 20px; height: 20px; background-color: rgba(255, 82, 82, 0.4); border: 4px solid #ff5252; box-shadow: 0 0 10px rgba(255,82,82,0.5);"></span>
                     </div>
                 </div>
@@ -955,16 +1009,16 @@
                     <img src="{{ asset('assets/frontend/img/before.png') }}" alt="Before">
                     <!-- Badge -->
                     <div class="position-absolute p-3" style="top: 15px; left: 15px;">
-                        <span class="badge rounded-pill px-4 py-2 fs-6" style="background-color: #3f3f46; border: 1px solid #52525b; font-family: 'Hind Siliguri', sans-serif;">আগে</span>
+                        <span class="badge rounded-pill px-4 py-2 fs-6 shadow-sm" style="background-color: #3f3f46; border: 1px solid #52525b; font-family: 'Hind Siliguri', sans-serif;">আগে</span>
                     </div>
                     <!-- Tags -->
                     <div class="position-absolute d-flex align-items-center gap-2" style="top: 35%; left: 15%;">
                         <span class="rounded-circle" style="width: 20px; height: 20px; background-color: rgba(161, 161, 170, 0.4); border: 4px solid #a1a1aa; box-shadow: 0 0 10px rgba(161,161,170,0.5);"></span>
-                        <span class="badge bg-dark rounded-pill px-3 py-2 border border-secondary" style="font-family: 'Hind Siliguri', sans-serif; font-size: 0.9rem;">লালচে র‍্যাশ</span>
+                        <span class="badge bg-dark rounded-pill px-3 py-2 border border-secondary shadow-sm" style="font-family: 'Hind Siliguri', sans-serif; font-size: 0.9rem;">লালচে র্যাশ</span>
                     </div>
                 </div>
                 
-                <div class="compare-slider-handle" id="compare-slider-handle">
+                <div class="compare-slider-handle shadow" id="compare-slider-handle">
                     <i class="bi bi-chevron-left" style="font-size: 0.9rem; margin-right: -2px;"></i>
                     <i class="bi bi-chevron-right" style="font-size: 0.9rem; margin-left: -2px;"></i>
                 </div>
@@ -976,10 +1030,10 @@
 
             <!-- Bottom badges -->
             <div class="d-flex justify-content-center gap-3 flex-wrap mt-2">
-                <div class="px-4 py-2 rounded-pill shadow-sm" style="border: 1px solid rgba(0, 0, 0, 0.08); background-color: #ffffff; color: #334155; font-family: 'Hind Siliguri', sans-serif; font-weight: 600;">
+                <div class="px-4 py-2 rounded-pill bg-light text-dark shadow-sm" style="border: 1px solid rgba(255, 82, 82, 0.2); font-family: 'Hind Siliguri', sans-serif; font-weight: 600;">
                     <span style="color: #ff5252; font-weight: bold;" class="me-2">✔</span> কাটার ভয় নেই
                 </div>
-                <div class="px-4 py-2 rounded-pill shadow-sm" style="border: 1px solid rgba(0, 0, 0, 0.08); background-color: #ffffff; color: #334155; font-family: 'Hind Siliguri', sans-serif; font-weight: 600;">
+                <div class="px-4 py-2 rounded-pill bg-light text-dark shadow-sm" style="border: 1px solid rgba(255, 82, 82, 0.2); font-family: 'Hind Siliguri', sans-serif; font-weight: 600;">
                     <span style="color: #ff5252; font-weight: bold;" class="me-2">✔</span> জ্বালা-পোড়া নেই
                 </div>
             </div>
@@ -1005,7 +1059,7 @@
                 </div>
                 <div class="col-lg-6 text-center order-1 order-lg-2">
                     <div class="img-container mx-auto" style="max-width: 450px;">
-                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&auto=format&fit=crop&q=80" alt="Milbe Velocity Running Kicks" class="img-fluid w-100 object-fit-cover" style="aspect-ratio: 1/1; object-position: center;">
+                        <img src="{{ asset('assets/frontend/img/trimmer img 3.png') }}" alt="Milbe Velocity Running Kicks" class="img-fluid w-100 object-fit-cover" style="aspect-ratio: 1/1; object-position: center;">
                     </div>
                 </div>
             </div>
@@ -1018,7 +1072,7 @@
             <div class="row align-items-center g-5">
                 <div class="col-lg-6 text-center">
                     <div class="img-container mx-auto" style="max-width: 450px;">
-                        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=600&auto=format&fit=crop&q=80" alt="Milbe Nomad Leather Pack" class="img-fluid w-100 object-fit-cover" style="aspect-ratio: 1/1; object-position: center;">
+                        <img src="{{ asset('assets/frontend/img/trimmer img 4.png') }}" alt="Milbe Nomad Leather Pack" class="img-fluid w-100 object-fit-cover" style="aspect-ratio: 1/1; object-position: center;">
                     </div>
                 </div>
                 <div class="col-lg-6 text-center text-lg-start">
@@ -1037,12 +1091,30 @@
             </div>
         </div>
     </section>
-    <div class="ratings"></div>
+
     <!-- Testimonials Carousel Section -->
     <section class="reviews-section bg-light" id="testimonials">
         <div class="container text-center">
             <span class="text-uppercase text-primary tracking-widest fw-extrabold mb-2 d-block">Testimonials</span>
-            <h2 class="mb-5 h1">What Our Customers Say</h2>
+            <h2 class="mb-4 h1">What Our Customers Say</h2>
+            
+            <!-- Customer Rating Stats -->
+            <div class="ratings mb-5 d-flex flex-column align-items-center justify-content-center">
+                <h3 class="display-4 fw-extrabold text-dark mb-1" style="font-family: 'Outfit', sans-serif;">
+                    <span class="counter" data-target="15000">0</span>+ 
+                </h3>
+                <p class="text-muted fw-medium fs-5 mb-2">Happy Customers</p>
+                <div class="d-flex align-items-center justify-content-center gap-2">
+                    <div class="text-warning fs-5">
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-fill"></i>
+                        <i class="bi bi-star-half"></i>
+                    </div>
+                    <span class="fw-bold fs-5 text-dark">4.8 / 5</span>
+                </div>
+            </div>
             
             <div id="reviewsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
                 <div class="carousel-inner">
@@ -1585,6 +1657,35 @@
                 compareHandle.style.left = `${val}%`;
             });
         }
+
+        // Animated Counter
+        const counters = document.querySelectorAll('.counter');
+        const speed = 50; 
+        const counterObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const updateCount = () => {
+                        const target = +counter.getAttribute('data-target');
+                        const count = +(counter.innerText.replace(/,/g, ''));
+                        const inc = target / speed;
+
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count + inc).toLocaleString();
+                            setTimeout(updateCount, 20);
+                        } else {
+                            counter.innerText = target.toLocaleString();
+                        }
+                    };
+                    updateCount();
+                    observer.unobserve(counter);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => {
+            counterObserver.observe(counter);
+        });
     </script>
 </body>
 </html>
