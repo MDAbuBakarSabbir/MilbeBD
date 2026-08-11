@@ -807,30 +807,34 @@
                 <h2 class="comparison-title text-center h1 text-dark fw-bolder">সাধারণ রেজার কেন সমাধান নয়?</h2>
             </div>
             
-            <div class="comparison-container mx-auto bg-white p-4 p-md-5 rounded-4 shadow-sm" style="max-width: 800px; border: 1px solid rgba(0,0,0,0.05);">
+            <div class="comparison-container mx-auto bg-white rounded-4 shadow-sm" style="max-width: 800px; border: 1px solid #e2e8f0; overflow: hidden;">
                 <style>
                     .comparison-table { 
                         width: 100%; 
-                        border-collapse: separate; 
-                        border-spacing: 2px; 
+                        border-collapse: collapse;
                         text-align: center; 
+                        margin: 0;
                     }
                     .comparison-table th, .comparison-table td {
-                        background-color: #2c2d31;
+                        background-color: #ffffff;
                         padding: 18px 15px;
                         vertical-align: middle;
+                        border: 1px solid #e2e8f0;
                     }
-                    .comparison-table th { padding: 25px 15px 20px; }
+                    .comparison-table th { 
+                        padding: 25px 15px 20px; 
+                        background-color: #f8fafc;
+                        border-bottom: 2px solid #e2e8f0;
+                    }
                     
-                    /* Outer border radius */
-                    .comparison-table tr:first-child th:first-child { border-top-left-radius: 12px; }
-                    .comparison-table tr:first-child th:last-child { border-top-right-radius: 12px; }
-                    .comparison-table tr:last-child td:first-child { border-bottom-left-radius: 12px; }
-                    .comparison-table tr:last-child td:last-child { border-bottom-right-radius: 12px; }
+                    .comparison-table tr:first-child th { border-top: none; }
+                    .comparison-table tr:last-child td { border-bottom: none; }
+                    .comparison-table th:first-child, .comparison-table td:first-child { border-left: none; }
+                    .comparison-table th:last-child, .comparison-table td:last-child { border-right: none; }
                     
                     .comparison-table .feature-col { 
                         text-align: left; 
-                        color: #ffffff; 
+                        color: #334155; 
                         font-weight: 600; 
                         font-size: 1rem; 
                     }
@@ -873,7 +877,7 @@
                         justify-content: center;
                         margin: 0 auto 10px;
                     }
-                    .razor-header-icon { background: rgba(255,82,82,0.15); }
+                    .razor-header-icon { background: rgba(255,82,82,0.1); }
                     .shaver-header-icon { padding: 0; }
                     .shaver-header-icon img {
                         width: 45px;
@@ -882,7 +886,7 @@
                         object-fit: cover;
                         border: 2px solid #10b981;
                     }
-                    .comparison-header-title { color: #fff; font-size: 1.1rem; font-weight: 700; margin: 0; }
+                    .comparison-header-title { color: #1e293b; font-size: 1.1rem; font-weight: 700; margin: 0; }
                 </style>
                 <table class="comparison-table">
                     <thead>
@@ -898,7 +902,7 @@
                             </th>
                             <th class="shaver-col">
                                 <div class="comparison-header-icon shaver-header-icon">
-                                    <img src="{{ asset('assets/frontend/img/waterproof.png') }}" alt="মিনি শেভার">
+                                    <img src="{{ asset('assets/frontend/img/trimmer img 5.png') }}" alt="মিনি শেভার">
                                 </div>
                                 <h3 class="comparison-header-title shaver-header-title">মিনি শেভার</h3>
                             </th>
@@ -1352,7 +1356,6 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="cityInput" class="mb-1 text-muted" style="font-size: 0.9rem;"><i class="bi bi-building me-1"></i> City</label>
                                         <select class="form-select select2" id="cityInput" name="city" required>
                                             <option value="">Select City</option>
                                             @foreach(\App\Models\District::where('status', 1)->get() as $district)
