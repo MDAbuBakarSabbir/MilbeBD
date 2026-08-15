@@ -433,4 +433,35 @@ class OrdersController extends Controller
 
         return response()->json(['status' => 'success', 'order_id' => $orderId]);
     }
+
+    /**
+     * Get SteadFast Courier Balance
+     */
+    public function getSteadfastBalance()
+    {
+        $api = SystemAPI::where('api_name', 'SteadFast Courier')->first();
+        if (! $api) {
+            return response()->json(['success' => false, 'balance' => 0]);
+        }
+
+        $url = rtrim($api->api_url, '/').'/get_balance';
+
+        try {
+            $response = Http::withHeaders([
+                'Api-Key' => $api->api_key,
+                'Secret-Key' => $api->api_secret,
+                'Content-Type' => 'application/json',
+            ])->get($url);
+
+            if ($response->successful()) {
+                $responseData = $response->json();
+                $balance = $responseData['balance'] ?? ($responseData['current_balance'] ?? 0);
+                return response()->json(['success' => true, 'balance' => $balance]);
+            }
+
+            return response()->json(['success' => false, 'balance' => 0]);
+        } catch (\Exception $e) {
+            return response()->json(['success' => false, 'balance' => 0]);
+        }
+    }
 }

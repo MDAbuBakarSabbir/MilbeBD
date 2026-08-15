@@ -58,6 +58,7 @@ Route::controller(OrdersController::class)->group(function () {
     Route::get('admin/orders/create', 'create')->name('admin.orders.create');
     Route::post('admin/orders', 'adminStore')->name('admin.orders.store');
     Route::post('admin/orders/steadfast-bulk', 'sendToSteadfastBulk')->name('admin.orders.steadfast.bulk');
+    Route::get('admin/orders/steadfast/balance', 'getSteadfastBalance')->name('admin.steadfast.balance');
     Route::get('admin/orders/{id}', 'show')->name('admin.orders.show');
     Route::get('admin/orders/{id}/edit', 'edit')->name('admin.orders.edit');
     Route::put('admin/orders/{id}', 'update')->name('admin.orders.update');

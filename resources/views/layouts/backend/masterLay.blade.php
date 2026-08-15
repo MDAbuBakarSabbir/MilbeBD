@@ -154,13 +154,117 @@
                         </div>
 
                         <!-- Courier Balance Widget -->
-                        <div class="courier-balance mx-3">
-                            <div class="d-flex align-items-center bg-light text-primary px-3 py-2 rounded-pill shadow-xs" style="border: 1px solid rgba(102, 126, 234, 0.15);">
-                                <i class="ti-wallet mr-2" style="font-size: 1.15rem; color: #667eea; line-height: 1;"></i>
-                                <span class="text-dark font-weight-medium mr-2 d-none d-sm-inline" style="font-size: 0.825rem; letter-spacing: 0.02em;">Courier Balance:</span>
-                                <span class="badge bg-primary text-white font-weight-bold px-2 py-1 rounded-pill" style="font-size: 0.8rem; background-color: #667eea !important;">0 ৳</span>
+                        <style>
+                            .courier-balance-widget {
+                                cursor: pointer;
+                                display: inline-block;
+                                user-select: none;
+                            }
+                            .courier-balance-container {
+                                height: 38px;
+                                border: 1px solid rgba(102, 126, 234, 0.2);
+                                background: #f8f9fa;
+                                border-radius: 50px;
+                                position: relative;
+                                display: flex;
+                                align-items: center;
+                                width: 160px;
+                                overflow: hidden;
+                            }
+                            .courier-balance-icon {
+                                width: 34px;
+                                height: 34px;
+                                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                                color: white;
+                                border-radius: 50%;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                position: absolute;
+                                left: 2px;
+                                transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+                                z-index: 2;
+                                box-shadow: 0 2px 5px rgba(102, 126, 234, 0.3);
+                            }
+                            .courier-balance-widget.expanded .courier-balance-icon {
+                                left: calc(100% - 36px);
+                            }
+                            .courier-text-layer {
+                                position: absolute;
+                                width: 100%;
+                                height: 100%;
+                                display: flex;
+                                align-items: center;
+                                z-index: 1;
+                            }
+                            .text-click {
+                                width: 100%;
+                                text-align: center;
+                                font-size: 0.8rem;
+                                font-weight: 600;
+                                color: #667eea;
+                                padding-left: 36px;
+                                opacity: 1;
+                                transform: translateX(0);
+                                transition: all 0.4s ease;
+                                position: absolute;
+                            }
+                            .courier-balance-widget.expanded .text-click {
+                                opacity: 0;
+                                transform: translateX(-15px);
+                            }
+                            .text-balance {
+                                width: 100%;
+                                text-align: center;
+                                font-size: 0.95rem;
+                                font-weight: 700;
+                                color: #2d3748;
+                                padding-right: 36px;
+                                opacity: 0;
+                                transform: translateX(15px);
+                                transition: all 0.4s ease;
+                                position: absolute;
+                            }
+                            .courier-balance-widget.expanded .text-balance {
+                                opacity: 1;
+                                transform: translateX(0);
+                            }
+                        </style>
+                        <div class="courier-balance mx-3 courier-balance-widget" onclick="toggleCourierBalance(this)">
+                            <div class="courier-balance-container shadow-xs">
+                                <div class="courier-balance-icon">
+                                    <i class="ti-wallet" style="font-size: 1.1rem;"></i>
+                                </div>
+                                <div class="courier-text-layer">
+                                    <span class="text-click">Tap for Balance</span>
+                                    <span class="text-balance">0 <span style="font-size: 12px;">৳</span></span>
+                                </div>
                             </div>
                         </div>
+                        <script>
+                            function toggleCourierBalance(el) {
+                                const isExpanded = el.classList.toggle('expanded');
+                                
+                                if (isExpanded && !el.dataset.fetched) {
+                                    const balanceSpan = el.querySelector('.text-balance');
+                                    balanceSpan.innerHTML = '<span style="font-size: 0.85rem;">Loading...</span>';
+                                    
+                                    fetch("{{ route('admin.steadfast.balance') }}")
+                                        .then(response => response.json())
+                                        .then(data => {
+                                            if (data.success) {
+                                                balanceSpan.innerHTML = data.balance + ' <span style="font-size: 12px;">৳</span>';
+                                                el.dataset.fetched = "true";
+                                            } else {
+                                                balanceSpan.innerHTML = '<span style="font-size: 0.8rem; color: #e53e3e;">Failed</span>';
+                                            }
+                                        })
+                                        .catch(error => {
+                                            balanceSpan.innerHTML = '<span style="font-size: 0.8rem; color: #e53e3e;">Error</span>';
+                                        });
+                                }
+                            }
+                        </script>
 
                         <!-- Header Right Controls -->
                         <ul class="navbar-nav header-right">

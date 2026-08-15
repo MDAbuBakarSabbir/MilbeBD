@@ -68,59 +68,67 @@
 <div class="row mb-4">
     <!-- Stat 1 -->
     <div class="col-xl-3 col-lg-6 col-sm-6 mb-4 mb-xl-0">
-        <div class="card stat-card">
-            <div class="card-body d-flex align-items-center p-4">
-                <div class="stat-icon-wrapper bg-gradient-warning shadow-sm mr-4">
-                    <i class="mdi mdi-clock-outline"></i>
-                </div>
-                <div>
-                    <p class="text-muted mb-1 font-weight-bold text-uppercase" style="font-size: 12px; letter-spacing: 1px;">Pending Order</p>
-                    <h3 class="font-weight-bolder text-dark m-0">12</h3>
+        <a href="{{ route('admin.orders.index', ['status' => 'Pending']) }}" class="text-decoration-none">
+            <div class="card stat-card">
+                <div class="card-body d-flex align-items-center p-4">
+                    <div class="stat-icon-wrapper bg-gradient-warning shadow-sm mr-4">
+                        <i class="mdi mdi-clock-outline"></i>
+                    </div>
+                    <div>
+                        <p class="text-muted mb-1 font-weight-bold text-uppercase" style="font-size: 12px; letter-spacing: 1px;">Pending Order</p>
+                        <h3 class="font-weight-bolder text-dark m-0">{{ number_format($stats['pending']) }}</h3>
+                    </div>
                 </div>
             </div>
-        </div>
+        </a>
     </div>
     <!-- Stat 2 -->
     <div class="col-xl-3 col-lg-6 col-sm-6 mb-4 mb-xl-0">
-        <div class="card stat-card">
-            <div class="card-body d-flex align-items-center p-4">
-                <div class="stat-icon-wrapper bg-gradient-info shadow-sm mr-4">
-                    <i class="mdi mdi-calendar-today"></i>
-                </div>
-                <div>
-                    <p class="text-muted mb-1 font-weight-bold text-uppercase" style="font-size: 12px; letter-spacing: 1px;">Today's Order</p>
-                    <h3 class="font-weight-bolder text-dark m-0">45</h3>
+        <a href="{{ route('admin.orders.index', ['from_date' => date('Y-m-d'), 'to_date' => date('Y-m-d')]) }}" class="text-decoration-none">
+            <div class="card stat-card">
+                <div class="card-body d-flex align-items-center p-4">
+                    <div class="stat-icon-wrapper bg-gradient-info shadow-sm mr-4">
+                        <i class="mdi mdi-calendar-today"></i>
+                    </div>
+                    <div>
+                        <p class="text-muted mb-1 font-weight-bold text-uppercase" style="font-size: 12px; letter-spacing: 1px;">Today's Order</p>
+                        <h3 class="font-weight-bolder text-dark m-0">{{ number_format($stats['today']) }}</h3>
+                    </div>
                 </div>
             </div>
-        </div>
+        </a>
     </div>
     <!-- Stat 3 -->
     <div class="col-xl-3 col-lg-6 col-sm-6 mb-4 mb-sm-0">
-        <div class="card stat-card">
-            <div class="card-body d-flex align-items-center p-4">
-                <div class="stat-icon-wrapper bg-gradient-success shadow-sm mr-4">
-                    <i class="mdi mdi-shopping"></i>
-                </div>
-                <div>
-                    <p class="text-muted mb-1 font-weight-bold text-uppercase" style="font-size: 12px; letter-spacing: 1px;">Total Order</p>
-                    <h3 class="font-weight-bolder text-dark m-0">8,549</h3>
+        <a href="{{ route('admin.orders.index') }}" class="text-decoration-none">
+            <div class="card stat-card">
+                <div class="card-body d-flex align-items-center p-4">
+                    <div class="stat-icon-wrapper bg-gradient-success shadow-sm mr-4">
+                        <i class="mdi mdi-shopping"></i>
+                    </div>
+                    <div>
+                        <p class="text-muted mb-1 font-weight-bold text-uppercase" style="font-size: 12px; letter-spacing: 1px;">Total Order</p>
+                        <h3 class="font-weight-bolder text-dark m-0">{{ number_format($stats['total']) }}</h3>
+                    </div>
                 </div>
             </div>
-        </div>
+        </a>
     </div>
     <!-- Stat 4 -->
     <div class="col-xl-3 col-lg-6 col-sm-6">
-        <div class="card stat-card">
-            <div class="card-body d-flex align-items-center p-4">
-                <div class="stat-icon-wrapper bg-gradient-primary shadow-sm mr-4">
-                    <i class="mdi mdi-cash-multiple"></i>
-                </div>
-                <div>
-                    <p class="text-muted mb-1 font-weight-bold text-uppercase" style="font-size: 12px; letter-spacing: 1px;">Total Sale</p>
-                    <h3 class="font-weight-bolder text-dark m-0">৳ 24,500</h3>
+        <a href="{{ route('admin.orders.index') }}" class="text-decoration-none">
+            <div class="card stat-card">
+                <div class="card-body d-flex align-items-center p-4">
+                    <div class="stat-icon-wrapper bg-gradient-primary shadow-sm mr-4">
+                        <i class="mdi mdi-cash-multiple"></i>
+                    </div>
+                    <div>
+                        <p class="text-muted mb-1 font-weight-bold text-uppercase" style="font-size: 12px; letter-spacing: 1px;">Total Sale</p>
+                        <h3 class="font-weight-bolder text-dark m-0">৳ {{ number_format($stats['total_sale']) }}</h3>
+                    </div>
                 </div>
             </div>
-        </div>
+        </a>
     </div>
 </div>
 
@@ -130,7 +138,7 @@
         <div class="card glass-card h-100">
             <div class="card-header border-0 pb-0 pt-4 px-4 bg-transparent d-flex justify-content-between align-items-center">
                 <h4 class="card-title font-weight-bold text-dark m-0" style="font-size: 18px;">Recent Orders</h4>
-                <a href="#" class="btn btn-sm btn-outline-primary" style="border-radius: 20px; padding: 5px 15px; font-weight: 600;">View All</a>
+                <a href="{{ route('admin.orders.index') ?? '#' }}" class="btn btn-sm btn-outline-primary" style="border-radius: 20px; padding: 5px 15px; font-weight: 600;">View All</a>
             </div>
             <div class="card-body p-4">
                 <div class="table-responsive">
@@ -145,42 +153,34 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @forelse($recentOrders as $order)
                             <tr>
-                                <td><span class="font-weight-bold text-primary">#ORD-001</span></td>
+                                <td><span class="font-weight-bold text-primary">#{{ $order->order_id }}</span></td>
                                 <td>
                                     <div class="d-flex align-items-center">
-                                        <div class="mr-3 shadow-sm" style="width: 36px; height: 36px; border-radius: 50%; background: #f0f4ff; color: #667eea; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px;">J</div>
-                                        <span class="font-weight-bold">John Doe</span>
+                                        <div class="mr-3 shadow-sm" style="width: 36px; height: 36px; border-radius: 50%; background: #f0f4ff; color: #667eea; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px;">{{ strtoupper(substr($order->customer_name, 0, 1)) }}</div>
+                                        <span class="font-weight-bold">{{ $order->customer_name }}</span>
                                     </div>
                                 </td>
-                                <td><i class="mdi mdi-calendar-blank mr-1 text-muted"></i> 2026-07-01</td>
-                                <td class="font-weight-bold">৳ 1,200</td>
-                                <td><span class="badge-soft-warning"><i class="mdi mdi-clock-outline mr-1" style="font-size: 14px;"></i>Pending</span></td>
-                            </tr>
-                            <tr>
-                                <td><span class="font-weight-bold text-primary">#ORD-002</span></td>
+                                <td><i class="mdi mdi-calendar-blank mr-1 text-muted"></i> {{ \Carbon\Carbon::parse($order->order_date ?? $order->created_at)->format('Y-m-d') }}</td>
+                                <td class="font-weight-bold">৳ {{ number_format($order->grand_total) }}</td>
                                 <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="mr-3 shadow-sm" style="width: 36px; height: 36px; border-radius: 50%; background: #e6f8f0; color: #10c469; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px;">S</div>
-                                        <span class="font-weight-bold">Sarah Smith</span>
-                                    </div>
+                                    @if(in_array($order->order_status, ['Pending', 'Incomplete']))
+                                        <span class="badge-soft-warning"><i class="mdi mdi-clock-outline mr-1" style="font-size: 14px;"></i>{{ $order->order_status }}</span>
+                                    @elseif(in_array($order->order_status, ['Delivered', 'Completed']))
+                                        <span class="badge-soft-success"><i class="mdi mdi-check-circle-outline mr-1" style="font-size: 14px;"></i>{{ $order->order_status }}</span>
+                                    @elseif(in_array($order->order_status, ['Cancelled', 'Canceled', 'Returned']))
+                                        <span class="badge-soft-danger"><i class="mdi mdi-close-circle-outline mr-1" style="font-size: 14px;"></i>{{ $order->order_status }}</span>
+                                    @else
+                                        <span class="badge-soft-warning"><i class="mdi mdi-information-outline mr-1" style="font-size: 14px;"></i>{{ $order->order_status }}</span>
+                                    @endif
                                 </td>
-                                <td><i class="mdi mdi-calendar-blank mr-1 text-muted"></i> 2026-07-02</td>
-                                <td class="font-weight-bold">৳ 3,450</td>
-                                <td><span class="badge-soft-success"><i class="mdi mdi-check-circle-outline mr-1" style="font-size: 14px;"></i>Delivered</span></td>
                             </tr>
+                            @empty
                             <tr>
-                                <td><span class="font-weight-bold text-primary">#ORD-003</span></td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="mr-3 shadow-sm" style="width: 36px; height: 36px; border-radius: 50%; background: #ffe8e8; color: #ff5b5b; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px;">M</div>
-                                        <span class="font-weight-bold">Michael Brown</span>
-                                    </div>
-                                </td>
-                                <td><i class="mdi mdi-calendar-blank mr-1 text-muted"></i> 2026-07-02</td>
-                                <td class="font-weight-bold">৳ 950</td>
-                                <td><span class="badge-soft-danger"><i class="mdi mdi-close-circle-outline mr-1" style="font-size: 14px;"></i>Canceled</span></td>
+                                <td colspan="5" class="text-center">No orders found.</td>
                             </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
@@ -202,7 +202,7 @@
                         </div>
                         <span class="font-weight-bold text-dark" style="font-size: 15px;">Total Order</span>
                     </div>
-                    <span class="font-weight-bolder" style="font-size: 18px;">8,549</span>
+                    <span class="font-weight-bolder" style="font-size: 18px;">{{ number_format($stats['total']) }}</span>
                 </div>
                 
                 <div class="stat-list-item d-flex justify-content-between align-items-center">
@@ -212,7 +212,7 @@
                         </div>
                         <span class="font-weight-bold text-dark" style="font-size: 15px;">Total Delivered</span>
                     </div>
-                    <span class="font-weight-bolder text-success" style="font-size: 18px;">7,210</span>
+                    <span class="font-weight-bolder text-success" style="font-size: 18px;">{{ number_format($stats['delivered']) }}</span>
                 </div>
                 
                 <div class="stat-list-item d-flex justify-content-between align-items-center">
@@ -222,7 +222,7 @@
                         </div>
                         <span class="font-weight-bold text-dark" style="font-size: 15px;">Total Cancel</span>
                     </div>
-                    <span class="font-weight-bolder text-danger" style="font-size: 18px;">1,120</span>
+                    <span class="font-weight-bolder text-danger" style="font-size: 18px;">{{ number_format($stats['cancelled']) }}</span>
                 </div>
                 
                 <div class="stat-list-item d-flex justify-content-between align-items-center mb-0">
@@ -232,7 +232,7 @@
                         </div>
                         <span class="font-weight-bold text-dark" style="font-size: 15px;">Total Return</span>
                     </div>
-                    <span class="font-weight-bolder text-warning" style="font-size: 18px;">219</span>
+                    <span class="font-weight-bolder text-warning" style="font-size: 18px;">{{ number_format($stats['returned']) }}</span>
                 </div>
             </div>
         </div>
@@ -247,7 +247,7 @@
                 <h4 class="card-title font-weight-bold text-dark m-0" style="font-size: 18px;">Top Ordered Districts</h4>
                 <div class="dropdown">
                     <button class="btn btn-sm btn-outline-light text-dark shadow-sm dropdown-toggle font-weight-bold" type="button" data-toggle="dropdown" style="border-radius: 20px; padding: 6px 16px;">
-                        This Month
+                        All Time
                     </button>
                 </div>
             </div>
@@ -263,71 +263,34 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td><span class="font-weight-bold text-warning" style="font-size: 18px;">#1</span></td>
-                                <td><span class="font-weight-bold text-dark" style="font-size: 15px;">Dhaka</span></td>
-                                <td class="font-weight-bold" style="font-size: 15px;">1,450</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="progress w-100 mr-3 shadow-sm" style="height: 10px; border-radius: 10px; background-color: #f0f4ff;">
-                                            <div class="progress-bar bg-primary" role="progressbar" style="width: 85%; border-radius: 10px;"></div>
+                            @php
+                                $colors = ['primary', 'info', 'success', 'warning', 'danger'];
+                                $bgs = ['#f0f4ff', '#e3f2fd', '#e6f8f0', '#fff4e5', '#ffe8e8'];
+                            @endphp
+                            @forelse($topDistricts as $index => $district)
+                                @php
+                                    $percentage = $maxDistrictCount > 0 ? round(($district->order_count / $maxDistrictCount) * 100) : 0;
+                                    $color = $colors[$index % count($colors)];
+                                    $bg = $bgs[$index % count($bgs)];
+                                @endphp
+                                <tr>
+                                    <td><span class="font-weight-bold text-muted" style="font-size: 18px;">#{{ $index + 1 }}</span></td>
+                                    <td><span class="font-weight-bold text-dark" style="font-size: 15px;">{{ $district->customer_district ?: 'Unknown' }}</span></td>
+                                    <td class="font-weight-bold" style="font-size: 15px;">{{ number_format($district->order_count) }}</td>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <div class="progress w-100 mr-3 shadow-sm" style="height: 10px; border-radius: 10px; background-color: {{ $bg }};">
+                                                <div class="progress-bar bg-{{ $color }}" role="progressbar" style="width: {{ $percentage }}%; border-radius: 10px;"></div>
+                                            </div>
+                                            <span class="font-weight-bold text-{{ $color }}" style="font-size: 13px;">{{ $percentage }}%</span>
                                         </div>
-                                        <span class="font-weight-bold text-primary" style="font-size: 13px;">85%</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><span class="font-weight-bold text-muted" style="font-size: 18px;">#2</span></td>
-                                <td><span class="font-weight-bold text-dark" style="font-size: 15px;">Chittagong</span></td>
-                                <td class="font-weight-bold" style="font-size: 15px;">980</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="progress w-100 mr-3 shadow-sm" style="height: 10px; border-radius: 10px; background-color: #e3f2fd;">
-                                            <div class="progress-bar bg-info" role="progressbar" style="width: 65%; border-radius: 10px;"></div>
-                                        </div>
-                                        <span class="font-weight-bold text-info" style="font-size: 13px;">65%</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><span class="font-weight-bold text-muted" style="font-size: 18px;">#3</span></td>
-                                <td><span class="font-weight-bold text-dark" style="font-size: 15px;">Sylhet</span></td>
-                                <td class="font-weight-bold" style="font-size: 15px;">850</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="progress w-100 mr-3 shadow-sm" style="height: 10px; border-radius: 10px; background-color: #e6f8f0;">
-                                            <div class="progress-bar bg-success" role="progressbar" style="width: 50%; border-radius: 10px;"></div>
-                                        </div>
-                                        <span class="font-weight-bold text-success" style="font-size: 13px;">50%</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><span class="font-weight-bold text-muted" style="font-size: 18px;">#4</span></td>
-                                <td><span class="font-weight-bold text-dark" style="font-size: 15px;">Rajshahi</span></td>
-                                <td class="font-weight-bold" style="font-size: 15px;">620</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="progress w-100 mr-3 shadow-sm" style="height: 10px; border-radius: 10px; background-color: #fff4e5;">
-                                            <div class="progress-bar bg-warning" role="progressbar" style="width: 35%; border-radius: 10px;"></div>
-                                        </div>
-                                        <span class="font-weight-bold text-warning" style="font-size: 13px;">35%</span>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td><span class="font-weight-bold text-muted" style="font-size: 18px;">#5</span></td>
-                                <td><span class="font-weight-bold text-dark" style="font-size: 15px;">Khulna</span></td>
-                                <td class="font-weight-bold" style="font-size: 15px;">410</td>
-                                <td>
-                                    <div class="d-flex align-items-center">
-                                        <div class="progress w-100 mr-3 shadow-sm" style="height: 10px; border-radius: 10px; background-color: #ffe8e8;">
-                                            <div class="progress-bar bg-danger" role="progressbar" style="width: 25%; border-radius: 10px;"></div>
-                                        </div>
-                                        <span class="font-weight-bold text-danger" style="font-size: 13px;">25%</span>
-                                    </div>
-                                </td>
-                            </tr>
+                                    </td>
+                                </tr>
+                            @empty
+                                <tr>
+                                    <td colspan="4" class="text-center">No district data available.</td>
+                                </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>

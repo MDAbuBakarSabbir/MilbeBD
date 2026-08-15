@@ -793,7 +793,7 @@
                             <div class="col-4 border-start border-end px-1 px-md-3">
                                 <div class="d-flex flex-column align-items-center h-100">
                                     <i class="bi bi-calendar2-check mb-1 mb-md-2" style="color: #e85d2c; font-size: 1.8rem;"></i>
-                                    <h6 class="fw-bold mb-0 text-dark d-none d-md-block">৩০ দিনের রিপ্লেসমেন্ট গ্যারান্টি</h6>
+                                    <h6 class="fw-bold mb-0 text-dark d-none d-md-block">৭ দিনের রিপ্লেসমেন্ট গ্যারান্টি</h6>
                                     <span class="fw-bold text-dark d-block d-md-none" style="font-size: 0.75rem; line-height: 1.2;">৩০ দিনের<br>রিপ্লেসমেন্ট</span>
                                 </div>
                             </div>
@@ -801,7 +801,7 @@
                             <div class="col-4">
                                 <div class="d-flex flex-column align-items-center h-100">
                                     <i class="bi bi-people-fill mb-1 mb-md-2" style="color: #e85d2c; font-size: 1.8rem;"></i>
-                                    <h6 class="fw-bold mb-0 text-dark d-none d-md-block">১১,০০০+ সন্তুষ্ট কাস্টমার</h6>
+                                    <h6 class="fw-bold mb-0 text-dark d-none d-md-block">১৫,০০০+ সন্তুষ্ট কাস্টমার</h6>
                                     <span class="fw-bold text-dark d-block d-md-none" style="font-size: 0.75rem; line-height: 1.2;">১১,০০০+<br>সন্তুষ্ট কাস্টমার</span>
                                 </div>
                             </div>
@@ -1343,12 +1343,12 @@
                         </thead>
                         <tbody>
                             <!-- Product 1 -->
-                            <tr class="product-row active-row" data-price="{{ $product ? $product->discounted_price : '199' }}" data-name="{{ $product ? $product->title : 'Premium Skin Friendly Mini Shaver' }}">
+                            <tr class="product-row active-row" data-price="{{ $product ? $product->discounted_price : '1299' }}" data-name="{{ $product ? $product->title : 'Premium Skin Friendly Mini Shaver' }}">
                                 <td>
                                     <div class="d-flex align-items-center gap-2">
                                         <img src="{{ $product && $product->image ? asset('image/product/' . $product->image) : asset('assets/frontend/img/waterproof.png') }}" alt="{{ $product ? $product->title : 'Mini Shaver' }}" class="product-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 6px;">
                                         <div style="min-width: 0;">
-                                            <h5 class="mb-1 fw-bold text-dark" style="font-size: 0.9rem; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; white-space: normal;" title="{{ $product ? $product->title : 'Premium Skin Friendly Mini Shaver' }}">{{ $product ? $product->title : 'Premium Skin Friendly Mini Shaver' }}</h5>
+                                            <h5 class="mb-1 fw-bold text-dark" style="font-size: 0.9rem; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; white-space: normal;" title="{{ $product ? $product->title : 'Skin Friendly Mini Shaver' }}">{{ $product ? $product->title : 'Skin Friendly Mini Shaver' }}</h5>
                                             <div class="d-flex flex-wrap align-items-center gap-1" style="font-size: 0.75rem;">
                                                 <span class="badge bg-light text-secondary border px-1 py-1 fw-medium"><i class="bi bi-palette2 me-1"></i>স্ট্যান্ডার্ড</span>
                                                 @if($product && $product->regular_price)
@@ -1366,7 +1366,7 @@
                                         <button class="btn btn-outline-secondary border-secondary-subtle px-1 py-0 qty-btn-plus" type="button">+</button>
                                     </div>
                                 </td>
-                                <td class="fw-bold text-primary text-end row-total-price text-nowrap">৳ <span class="price-val">{{ $product ? $product->discounted_price : '199' }}</span></td>
+                                <td class="fw-bold text-primary text-end row-total-price text-nowrap">৳ <span class="price-val">{{ $product ? $product->discounted_price : '1290' }}</span></td>
                             </tr>
                         </tbody>
                     </table>

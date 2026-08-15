@@ -27,7 +27,7 @@ class HomeController extends Controller
             'incomplete' => Orders::where('order_status', 'Incomplete')->count(),
         ];
 
-        $recentOrders = Orders::latest()->take(10)->get();
+        $recentOrders = Orders::latest()->take(4)->get();
 
         $topDistricts = Orders::select('customer_district', DB::raw('count(*) as order_count'))
             ->groupBy('customer_district')
