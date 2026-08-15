@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>MilbeBD | Premium Skin Shaver</title>
-    <link rel="shortcut icon" href="{{ asset('assets/frontend/img/favicon.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('assets/frontend/img/favicon.webp') }}" type="image/x-icon">
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     
@@ -706,7 +706,7 @@
     <nav class="navbar navbar-expand-lg sticky-top navbar-custom py-3">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-                <img src="{{ asset('assets/frontend/img/logo.png') }}" alt="MilbeBD Logo" class="logo-img">
+                <img src="{{ asset('assets/frontend/img/logo.webp') }}" alt="MilbeBD Logo" class="logo-img">
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -810,7 +810,7 @@
                 </div>
                 <div class="col-lg-6 text-center order-1 order-lg-2">
                     <div class="img-container floating-element mx-auto" style="max-width: 480px;">
-                        <img src="{{ asset('assets/frontend/img/trimmer img 2.png') }}" alt="Milbe Sound Pro Headphones" class="img-fluid w-100 object-fit-cover" style="aspect-ratio: 1/1; object-position: center;">
+                        <img src="{{ asset('assets/frontend/img/trimmer img 2.webp') }}" alt="Milbe Sound Pro Headphones" class="img-fluid w-100 object-fit-cover" style="aspect-ratio: 1/1; object-position: center;">
                     </div>
                 </div>
             </div>
@@ -823,7 +823,7 @@
             <div class="row align-items-center g-5">
                 <div class="col-lg-6 text-center">
                     <div class="img-container mx-auto" style="max-width: 450px;">
-                        <img src="{{ asset('assets/frontend/img/waterproof.png') }}" alt="Milbe Smart Horizon Watch" class="img-fluid w-100 object-fit-cover" style="aspect-ratio: 1/1; object-position: center;">
+                        <img src="{{ asset('assets/frontend/img/waterproof.webp') }}" alt="Milbe Smart Horizon Watch" class="img-fluid w-100 object-fit-cover" style="aspect-ratio: 1/1; object-position: center;">
                     </div>
                 </div>
                 <div class="col-lg-6 text-center text-lg-start">
@@ -945,7 +945,7 @@
                             </th>
                             <th class="shaver-col">
                                 <div class="comparison-header-icon shaver-header-icon">
-                                    <img src="{{ asset('assets/frontend/img/trimmer img 5.png') }}" alt="মিনি শেভার">
+                                    <img src="{{ asset('assets/frontend/img/trimmer img 5.webp') }}" alt="মিনি শেভার">
                                 </div>
                                 <h3 class="comparison-header-title shaver-header-title">মিনি শেভার</h3>
                             </th>
@@ -1034,7 +1034,7 @@
             <div class="image-compare-wrapper shadow-lg mx-auto" id="image-compare-wrapper" style="border: 4px solid #fff; border-radius: 16px;">
                 <!-- BASE WRAPPER (After - Right Side) -->
                 <div class="w-100 h-100 position-absolute top-0 start-0 z-1">
-                    <img src="{{ asset('assets/frontend/img/after.png') }}" alt="After">
+                    <img src="{{ asset('assets/frontend/img/after.webp') }}" alt="After">
                     <!-- Badge -->
                     <div class="position-absolute p-3" style="top: 15px; right: 15px;">
                         <span class="badge rounded-pill px-4 py-2 fs-6 shadow-sm" style="background-color: #ff5252; font-family: 'Hind Siliguri', sans-serif;">পরে</span>
@@ -1052,7 +1052,7 @@
 
                 <!-- OVERLAY WRAPPER (Before - Left Side) -->
                 <div class="compare-overlay w-100 h-100 position-absolute top-0 start-0" id="compare-overlay">
-                    <img src="{{ asset('assets/frontend/img/before.png') }}" alt="Before">
+                    <img src="{{ asset('assets/frontend/img/before.webp') }}" alt="Before">
                     <!-- Badge -->
                     <div class="position-absolute p-3" style="top: 15px; left: 15px;">
                         <span class="badge rounded-pill px-4 py-2 fs-6 shadow-sm" style="background-color: #3f3f46; border: 1px solid #52525b; font-family: 'Hind Siliguri', sans-serif;">আগে</span>
@@ -1105,7 +1105,7 @@
                 </div>
                 <div class="col-lg-6 text-center order-1 order-lg-2">
                     <div class="img-container mx-auto" style="max-width: 450px;">
-                        <img src="{{ asset('assets/frontend/img/trimmer img 3.png') }}" alt="Milbe Velocity Running Kicks" class="img-fluid w-100 object-fit-cover" style="aspect-ratio: 1/1; object-position: center;">
+                        <img src="{{ asset('assets/frontend/img/trimmer img 3.webp') }}" alt="Milbe Velocity Running Kicks" class="img-fluid w-100 object-fit-cover" style="aspect-ratio: 1/1; object-position: center;">
                     </div>
                 </div>
             </div>
@@ -1118,7 +1118,7 @@
             <div class="row align-items-center g-5">
                 <div class="col-lg-6 text-center">
                     <div class="img-container mx-auto" style="max-width: 450px;">
-                        <img src="{{ asset('assets/frontend/img/trimmer img 4.png') }}" alt="Milbe Nomad Leather Pack" class="img-fluid w-100 object-fit-cover" style="aspect-ratio: 1/1; object-position: center;">
+                        <img src="{{ asset('assets/frontend/img/trimmer img 4.webp') }}" alt="Milbe Nomad Leather Pack" class="img-fluid w-100 object-fit-cover" style="aspect-ratio: 1/1; object-position: center;">
                     </div>
                 </div>
                 <div class="col-lg-6 text-center text-lg-start">
@@ -1155,7 +1155,7 @@
                 </div>
                 <div class="col-lg-6 text-center order-1 order-lg-2">
                     <div class="img-container mx-auto" style="max-width: 450px;">
-                        <img src="{{ asset('assets/frontend/img/trimmer img 5.png') }}" alt="Milbe Nomad Leather Pack" class="img-fluid w-100 object-fit-cover" style="aspect-ratio: 1/1; object-position: center;">
+                        <img src="{{ asset('assets/frontend/img/trimmer img 5.webp') }}" alt="Milbe Nomad Leather Pack" class="img-fluid w-100 object-fit-cover" style="aspect-ratio: 1/1; object-position: center;">
                     </div>
                 </div>
             </div>
@@ -1346,7 +1346,7 @@
                             <tr class="product-row active-row" data-price="{{ $product ? $product->discounted_price : '1299' }}" data-name="{{ $product ? $product->title : 'Premium Skin Friendly Mini Shaver' }}">
                                 <td>
                                     <div class="d-flex align-items-center gap-2">
-                                        <img src="{{ $product && $product->image ? asset('image/product/' . $product->image) : asset('assets/frontend/img/waterproof.png') }}" alt="{{ $product ? $product->title : 'Mini Shaver' }}" class="product-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 6px;">
+                                        <img src="{{ $product && $product->image ? asset('image/product/' . $product->image) : asset('assets/frontend/img/product-1.webp') }}" alt="{{ $product ? $product->title : 'Mini Shaver' }}" class="product-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 6px;">
                                         <div style="min-width: 0;">
                                             <h5 class="mb-1 fw-bold text-dark" style="font-size: 0.9rem; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; white-space: normal;" title="{{ $product ? $product->title : 'Skin Friendly Mini Shaver' }}">{{ $product ? $product->title : 'Skin Friendly Mini Shaver' }}</h5>
                                             <div class="d-flex flex-wrap align-items-center gap-1" style="font-size: 0.75rem;">
@@ -1460,7 +1460,7 @@
             <div class="row gy-4 mb-5">
                 <div class="col-lg-5 text-center text-lg-start">
                     <a class="footer-logo d-inline-flex align-items-center mb-3" href="{{ url('/') }}">
-                        <img src="{{ asset('assets/frontend/img/logo.png') }}" alt="milbebd.com" style="height: 65px; width: auto; object-fit: contain;">
+                        <img src="{{ asset('assets/frontend/img/logo.webp') }}" alt="milbebd.com" style="height: 65px; width: auto; object-fit: contain;">
                     </a>
                     <p class="pe-lg-5" style="color: rgba(255, 255, 255, 0.7);">
                         {{ $settings->site_description ?? 'Your trusted portal for premium lifestyle and technical products. Experience stellar customer service, rapid delivery, and genuine quality guarantees.' }}
