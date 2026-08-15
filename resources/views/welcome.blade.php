@@ -742,19 +742,19 @@
                         <small class="text-uppercase tracking-wider fw-bold text-secondary mb-2">অফার শেষ হতে বাকি :</small>
                         <div class="countdown-container mb-4">
                             <div class="countdown-box">
-                                <div class="countdown-val text-days">00</div>
+                                <div class="countdown-val text-days">০০</div>
                                 <div class="countdown-lbl">দিন</div>
                             </div>
                             <div class="countdown-box">
-                                <div class="countdown-val text-hours">00</div>
+                                <div class="countdown-val text-hours">০০</div>
                                 <div class="countdown-lbl">ঘন্টা</div>
                             </div>
                             <div class="countdown-box">
-                                <div class="countdown-val text-minutes">00</div>
+                                <div class="countdown-val text-minutes">০০</div>
                                 <div class="countdown-lbl">মিনিট</div>
                             </div>
                             <div class="countdown-box">
-                                <div class="countdown-val text-seconds">00</div>
+                                <div class="countdown-val text-seconds">০০</div>
                                 <div class="countdown-lbl">সেকেন্ড</div>
                             </div>
                         </div>
@@ -1152,14 +1152,14 @@
     <!-- Testimonials Carousel Section -->
     <section class="reviews-section bg-light" id="testimonials">
         <div class="container text-center">
-            <h2 class="mb-4 h1">What Our Customers Say</h2>
+            <h2 class="mb-4 h1">আমাদের কাস্টমারদের মতামত</h2>
             
             <!-- Customer Rating Stats -->
             <div class="ratings mb-5 d-flex flex-column align-items-center justify-content-center">
                 <h3 class="display-4 fw-extrabold text-dark mb-1" style="font-family: 'Outfit', sans-serif;">
                     <span class="counter" data-target="15000">0</span>+ 
                 </h3>
-                <p class="text-muted fw-medium fs-5 mb-2">Happy Customers</p>
+                <p class="text-muted fw-medium fs-5 mb-2">সন্তুষ্ট কাস্টমার</p>
                 <div class="d-flex align-items-center justify-content-center gap-2">
                     <div class="text-warning fs-5">
                         <i class="bi bi-star-fill"></i>
@@ -1168,7 +1168,7 @@
                         <i class="bi bi-star-fill"></i>
                         <i class="bi bi-star-half"></i>
                     </div>
-                    <span class="fw-bold fs-5 text-dark">4.8 / 5</span>
+                    <span class="fw-bold fs-5 text-dark">৪.৮ / ৫</span>
                 </div>
             </div>
             
@@ -1185,13 +1185,13 @@
                                 <i class="bi bi-star-fill"></i>
                             </div>
                             <p class="fs-5 text-muted mb-4 italic">
-                                "The Sound Pro headphones exceeded my expectations. The noise cancellation is spectacular, and they are incredibly comfortable during long flights. MilbeBD delivers absolute perfection!"
+                                "মিনি শেভারটি আমার প্রত্যাশাকেও ছাড়িয়ে গেছে। এর ব্লেডটি ভিতরে থাকায় স্কিন কাটার কোনো ভয় নেই এবং এটি ব্যবহার করা খুব আরামদায়ক। MilbeBD সত্যিই দুর্দান্ত প্রোডাক্ট দেয়!"
                             </p>
                             <div class="d-flex align-items-center justify-content-center gap-3">
-                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" alt="Samantha K." class="avatar-img">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80" alt="সাদিয়া আফরিন" class="avatar-img">
                                 <div class="text-start">
-                                    <h5 class="mb-0 fs-6 fw-bold">Samantha K.</h5>
-                                    <small class="text-muted">Verified Customer</small>
+                                    <h5 class="mb-0 fs-6 fw-bold">সাদিয়া আফরিন</h5>
+                                    <small class="text-muted">ভেরিফাইড কাস্টমার</small>
                                 </div>
                             </div>
                         </div>
@@ -1207,13 +1207,13 @@
                                 <i class="bi bi-star-fill"></i>
                             </div>
                             <p class="fs-5 text-muted mb-4 italic">
-                                "Absolutely stunning design on the Horizon smartwatch. It tracks my steps perfectly, and I've received so many compliments. Ordering was fast and customer support was exceptional."
+                                "ডিজাইনটা অসাধারণ! এত ছোট আর কিউট যে ব্যাগে করে যেখানে খুশি নিয়ে যাওয়া যায়। ডেলিভারি ফাস্ট ছিল এবং কাস্টমার সাপোর্টও খুব ভালো লেগেছে।"
                             </p>
                             <div class="d-flex align-items-center justify-content-center gap-3">
-                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80" alt="Marcus V." class="avatar-img">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80" alt="মাহমুদুল হাসান" class="avatar-img">
                                 <div class="text-start">
-                                    <h5 class="mb-0 fs-6 fw-bold">Marcus V.</h5>
-                                    <small class="text-muted">Tech Enthusiast</small>
+                                    <h5 class="mb-0 fs-6 fw-bold">মাহমুদুল হাসান</h5>
+                                    <small class="text-muted">রেগুলার কাস্টমার</small>
                                 </div>
                             </div>
                         </div>
@@ -1229,13 +1229,13 @@
                                 <i class="bi bi-star-half"></i>
                             </div>
                             <p class="fs-5 text-muted mb-4 italic">
-                                "The Nomad Backpack holds everything I need, and the leather feels top quality. Very happy with my purchase. Best premium store out there!"
+                                "অল্প সময়ে সুন্দরভাবে কাজ করে। ঠোঁটের উপরের অংশ আর গলার নিচের অংশ ক্লিন করার জন্য এর থেকে ভালো আর কিছু হতে পারে না। আমি পুরোপুরি সন্তুষ্ট!"
                             </p>
                             <div class="d-flex align-items-center justify-content-center gap-3">
-                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80" alt="Eliza D." class="avatar-img">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80" alt="তাসনিম ইসলাম" class="avatar-img">
                                 <div class="text-start">
-                                    <h5 class="mb-0 fs-6 fw-bold">Eliza D.</h5>
-                                    <small class="text-muted">Digital Nomad</small>
+                                    <h5 class="mb-0 fs-6 fw-bold">তাসনিম ইসলাম</h5>
+                                    <small class="text-muted">ভেরিফাইড কাস্টমার</small>
                                 </div>
                             </div>
                         </div>
@@ -1265,7 +1265,7 @@
             <div class="card border-0 shadow-sm" style="border-radius: 20px; background: white;">
                 <div class="card-body p-3 p-md-5">
                     <div class="text-center mb-4 mb-md-5">
-                        <h2 class="h2 mb-0">How It Works</h2>
+                        <h2 class="h2 mb-0">যেভাবে কাজ করে</h2>
                     </div>
                     <div class="row g-2 g-md-5 justify-content-center px-1">
                         <div class="col-4">
@@ -1274,9 +1274,9 @@
                                     <i class="bi bi-cart-check"></i>
                                 </div>
                                 <div>
-                                    <h3 class="h5 mb-1 mb-md-3 fw-bold d-none d-md-block">1. Order</h3>
-                                    <span class="fw-bold d-block d-md-none text-dark" style="font-size: 0.75rem;">1. Order</span>
-                                    <p class="text-muted mb-0 px-0 px-xl-3 d-none d-md-block" style="font-size: 0.9rem; line-height: 1.5;">Select your favorite product package and enter your shipping details in the checkout form below.</p>
+                                    <h3 class="h5 mb-1 mb-md-3 fw-bold d-none d-md-block">১. অর্ডার</h3>
+                                    <span class="fw-bold d-block d-md-none text-dark" style="font-size: 0.75rem;">১. অর্ডার</span>
+                                    <p class="text-muted mb-0 px-0 px-xl-3 d-none d-md-block" style="font-size: 0.9rem; line-height: 1.5;">আপনার পছন্দের প্যাকেজটি নির্বাচন করুন এবং নিচের ফর্মে শিপিং ঠিকানা দিন।</p>
                                 </div>
                             </div>
                         </div>
@@ -1286,9 +1286,9 @@
                                     <i class="bi bi-truck"></i>
                                 </div>
                                 <div>
-                                    <h3 class="h5 mb-1 mb-md-3 fw-bold d-none d-md-block">2. Delivery</h3>
-                                    <span class="fw-bold d-block d-md-none text-dark" style="font-size: 0.75rem;">2. Delivery</span>
-                                    <p class="text-muted mb-0 px-0 px-xl-3 d-none d-md-block" style="font-size: 0.9rem; line-height: 1.5;">Your package is handled with care and delivered to your doorstep within 2-3 business days.</p>
+                                    <h3 class="h5 mb-1 mb-md-3 fw-bold d-none d-md-block">২. ডেলিভারি</h3>
+                                    <span class="fw-bold d-block d-md-none text-dark" style="font-size: 0.75rem;">২. ডেলিভারি</span>
+                                    <p class="text-muted mb-0 px-0 px-xl-3 d-none d-md-block" style="font-size: 0.9rem; line-height: 1.5;">আপনার প্রোডাক্টটি খুব যত্নের সাথে ২-৩ দিনের মধ্যে আপনার ঠিকানায় পৌঁছে দেওয়া হবে।</p>
                                 </div>
                             </div>
                         </div>
@@ -1298,9 +1298,9 @@
                                     <i class="bi bi-emoji-laughing"></i>
                                 </div>
                                 <div>
-                                    <h3 class="h5 mb-1 mb-md-3 fw-bold d-none d-md-block">3. Enjoy</h3>
-                                    <span class="fw-bold d-block d-md-none text-dark" style="font-size: 0.75rem;">3. Enjoy</span>
-                                    <p class="text-muted mb-0 px-0 px-xl-3 d-none d-md-block" style="font-size: 0.9rem; line-height: 1.5;">Unbox, start using your new premium quality product, and enjoy our lifetime warranty support.</p>
+                                    <h3 class="h5 mb-1 mb-md-3 fw-bold d-none d-md-block">৩. উপভোগ করুন</h3>
+                                    <span class="fw-bold d-block d-md-none text-dark" style="font-size: 0.75rem;">৩. উপভোগ করুন</span>
+                                    <p class="text-muted mb-0 px-0 px-xl-3 d-none d-md-block" style="font-size: 0.9rem; line-height: 1.5;">প্রোডাক্টটি হাতে পাওয়ার পর আনবক্স করুন, ব্যবহার শুরু করুন এবং সন্তুষ্ট থাকুন।</p>
                                 </div>
                             </div>
                         </div>
@@ -1314,8 +1314,8 @@
     <section class="product-select-section" id="product-selection">
         <div class="container">
             <div class="text-center mb-5">
-                <h2 class="h1 mb-2">Select Your Product</h2>
-                <p class="text-muted">Choose your preferred product package to continue</p>
+                <h2 class="h1 mb-2">আপনার প্রোডাক্ট নির্বাচন করুন</h2>
+                <p class="text-muted">অর্ডার করতে আপনার পছন্দের প্যাকেজটি নির্বাচন করুন</p>
             </div>
             
             <div class="table-premium-container">
@@ -1323,9 +1323,9 @@
                     <table class="table table-premium align-middle">
                         <thead>
                             <tr class="text-nowrap">
-                                <th>Product Details</th>
-                                <th class="text-center px-1">Quantity</th>
-                                <th class="text-end">Total</th>
+                                <th>প্রোডাক্টের বিবরণ</th>
+                                <th class="text-center px-1">পরিমাণ</th>
+                                <th class="text-end">সর্বমোট</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -1337,7 +1337,7 @@
                                         <div style="min-width: 0;">
                                             <h5 class="mb-1 fw-bold text-dark" style="font-size: 0.9rem; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; white-space: normal;" title="{{ $product ? $product->title : 'Premium Skin Friendly Mini Shaver' }}">{{ $product ? $product->title : 'Premium Skin Friendly Mini Shaver' }}</h5>
                                             <div class="d-flex flex-wrap align-items-center gap-1" style="font-size: 0.75rem;">
-                                                <span class="badge bg-light text-secondary border px-1 py-1 fw-medium"><i class="bi bi-palette2 me-1"></i>Black</span>
+                                                <span class="badge bg-light text-secondary border px-1 py-1 fw-medium"><i class="bi bi-palette2 me-1"></i>স্ট্যান্ডার্ড</span>
                                                 @if($product && $product->regular_price)
                                                     <del class="text-muted small">৳ {{ $product->regular_price }}</del>
                                                 @endif
@@ -1349,11 +1349,11 @@
                                 <td class="px-1">
                                     <div class="input-group input-group-sm justify-content-center mx-auto" style="max-width: 90px;">
                                         <button class="btn btn-outline-secondary border-secondary-subtle px-1 py-0 qty-btn-minus" type="button">-</button>
-                                        <input type="text" class="form-control text-center fw-bold product-qty-input px-0" value="1" readonly name="quantity_1" style="font-size: 0.85rem;">
+                                        <input type="text" class="form-control text-center fw-bold product-qty-input px-0" value="১" readonly name="quantity_1" style="font-size: 0.85rem;">
                                         <button class="btn btn-outline-secondary border-secondary-subtle px-1 py-0 qty-btn-plus" type="button">+</button>
                                     </div>
                                 </td>
-                                <td class="fw-bold text-primary text-end row-total-price text-nowrap">৳ {{ $product ? $product->discounted_price : '199' }}</td>
+                                <td class="fw-bold text-primary text-end row-total-price text-nowrap">৳ <span class="price-val">{{ $product ? $product->discounted_price : '199' }}</span></td>
                             </tr>
                         </tbody>
                     </table>
@@ -1369,11 +1369,8 @@
                 <div class="col-lg-8">
                     <div class="order-card">
                         <div class="text-center mb-5">
-                            <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill mb-3 fw-semibold">
-                                Checkout
-                            </span>
-                            <h2 class="h1 mb-2">Fast Order Checkout</h2>
-                            <p class="text-muted">Fill in your shipping details below to place your order. Delivery inside and outside Dhaka is active.</p>
+                            <h2 class="h1 mb-2">অর্ডার ফর্ম</h2>
+                            <p class="text-muted">অর্ডারটি কনফার্ম করতে নিচের ফর্মটি পুরন করুন</p>
                         </div>
                         
                         <form action="{{ route('orders.store') }}" method="post" id="checkout-form">
@@ -1553,7 +1550,11 @@
             const minuteEls = document.querySelectorAll('.text-minutes');
             const secondEls = document.querySelectorAll('.text-seconds');
 
-            const format = num => String(num).padStart(2, '0');
+            const englishToBangla = (numStr) => {
+                const banglaDigits = {'0': '০', '1': '১', '2': '২', '3': '৩', '4': '৪', '5': '৫', '6': '৬', '7': '৭', '8': '৮', '9': '৯'};
+                return numStr.replace(/[0-9]/g, w => banglaDigits[w]);
+            };
+            const format = num => englishToBangla(String(num).padStart(2, '0'));
 
             dayEls.forEach(el => el.textContent = format(days));
             hourEls.forEach(el => el.textContent = format(hours));
