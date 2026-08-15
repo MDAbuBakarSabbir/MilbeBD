@@ -817,7 +817,7 @@
                     <span class="badge bg-danger-subtle text-danger px-3 py-2 rounded-pill mb-3 fw-semibold">
                         <i class="bi bi-fire me-1"></i> ওয়াটারপ্রুফ প্রযুক্তি
                     </span>
-                    <h2 class="h1 mb-3">১০০% ওয়াটারপ্রুফ – সরাসরি পানিতে ধুয়ে ফেলুন</h2>
+                    <h2 class="h1 mb-3">100% ওয়াটারপ্রুফ – সরাসরি পানিতে ধুয়ে ফেলুন</h2>
                     <p class="text-muted mb-4">
                         ব্যবহার শেষে পানির নিচে রেখে সরাসরি পরিষ্কার করে নিন। ওয়াটারপ্রুফ বডির কারণে এটি শুকনো বা সাবানের ফেনা (Wet & Dry) উভয়ভাবেই ব্যবহার উপযোগী।
                     </p>
