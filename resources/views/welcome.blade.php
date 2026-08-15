@@ -794,7 +794,7 @@
                                 <div class="d-flex flex-column align-items-center h-100">
                                     <i class="bi bi-calendar2-check mb-1 mb-md-2" style="color: #e85d2c; font-size: 1.8rem;"></i>
                                     <h6 class="fw-bold mb-0 text-dark d-none d-md-block">৭ দিনের রিপ্লেসমেন্ট গ্যারান্টি</h6>
-                                    <span class="fw-bold text-dark d-block d-md-none" style="font-size: 0.75rem; line-height: 1.2;">৩০ দিনের<br>রিপ্লেসমেন্ট</span>
+                                    <span class="fw-bold text-dark d-block d-md-none" style="font-size: 0.75rem; line-height: 1.2;">৭ দিনের<br>রিপ্লেসমেন্ট</span>
                                 </div>
                             </div>
                             <!-- Customers -->
