@@ -39,7 +39,7 @@
             font-family: 'Hind Siliguri', 'Inter', sans-serif;
             background-color: var(--light);
             color: #334155;
-            overflow-x: hidden;
+            overflow-x: clip;
             width: 100%;
             max-width: 100vw;
             scroll-behavior: smooth;
@@ -71,6 +71,19 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             font-size: 1.5rem;
+        }
+
+        .logo-img {
+            height: 75px;
+            width: auto;
+            object-fit: contain;
+            transition: var(--transition);
+        }
+        
+        @media (min-width: 992px) {
+            .logo-img {
+                height: 90px;
+            }
         }
 
         .nav-link {
@@ -693,7 +706,7 @@
     <nav class="navbar navbar-expand-lg sticky-top navbar-custom py-3">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" href="{{ url('/') }}">
-                <img src="{{ asset('assets/frontend/img/logo.png') }}" alt="MilbeBD Logo" style="height: 55px; width: auto; object-fit: contain;">
+                <img src="{{ asset('assets/frontend/img/logo.png') }}" alt="MilbeBD Logo" class="logo-img">
             </a>
             <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -1447,7 +1460,7 @@
             <div class="row gy-4 mb-5">
                 <div class="col-lg-5 text-center text-lg-start">
                     <a class="footer-logo d-inline-flex align-items-center mb-3" href="{{ url('/') }}">
-                        <img src="{{ asset('assets/frontend/img/logo white.png') }}" alt="milbebd.com" style="height: 65px; width: auto; object-fit: contain;">
+                        <img src="{{ asset('assets/frontend/img/logo.png') }}" alt="milbebd.com" style="height: 65px; width: auto; object-fit: contain;">
                     </a>
                     <p class="pe-lg-5" style="color: rgba(255, 255, 255, 0.7);">
                         {{ $settings->site_description ?? 'Your trusted portal for premium lifestyle and technical products. Experience stellar customer service, rapid delivery, and genuine quality guarantees.' }}
@@ -1697,6 +1710,18 @@
                 compareOverlay.style.clipPath = `polygon(0 0, ${val}% 0, ${val}% 100%, 0 100%)`;
                 compareOverlay.style.webkitClipPath = `polygon(0 0, ${val}% 0, ${val}% 100%, 0 100%)`;
                 compareHandle.style.left = `${val}%`;
+            });
+        }
+
+        // Navbar Scroll Effect
+        const navbar = document.querySelector('.navbar-custom');
+        if (navbar) {
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
             });
         }
 
