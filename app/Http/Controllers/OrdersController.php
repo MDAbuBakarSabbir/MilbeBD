@@ -22,27 +22,6 @@ class OrdersController extends Controller
             'city' => 'required|string|max:100',
         ]);
 
-        // Courier History
-        $courierHistory = '';
-        $bdCourierApi = SystemAPI::where('api_name', 'BD Courier API')->first();
-
-        if ($bdCourierApi && $bdCourierApi->api_status === 'Active' && ! empty($bdCourierApi->api_key)) {
-            try {
-                $response = Http::withHeaders([
-                    'Authorization' => 'Bearer '.$bdCourierApi->api_key,
-                    'Content-Type' => 'application/json',
-                ])->post('https://api.bdcourier.com/courier-check', [
-                    'phone' => $request->phone,
-                ]);
-
-                if ($response->successful()) {
-                    $courierHistory = $response->body();
-                }
-            } catch (\Exception $e) {
-                // Keep history empty if request fails
-            }
-        }
-
         $orderId = 'MBD-'.rand(100000, 999999);
         $qty = intval($request->product_qty ?: 1);
         $price = floatval($request->product_price ?: 199);
@@ -70,8 +49,30 @@ class OrdersController extends Controller
             'admin_discount' => $request->admin_discount ?? '0',
             'grand_total' => strval($grandTotal),
             'order_status' => 'Pending',
-            'courier_history' => $courierHistory,
         ]);
+
+        // Run Courier API check in the background after the response is sent to the customer
+        $bdCourierApi = SystemAPI::where('api_name', 'BD Courier API')->first();
+        $phone = $request->phone;
+
+        if ($bdCourierApi && $bdCourierApi->api_status === 'Active' && ! empty($bdCourierApi->api_key)) {
+            app()->terminating(function () use ($order, $bdCourierApi, $phone) {
+                try {
+                    $response = Http::withHeaders([
+                        'Authorization' => 'Bearer '.$bdCourierApi->api_key,
+                        'Content-Type' => 'application/json',
+                    ])->timeout(5)->post('https://api.bdcourier.com/courier-check', [
+                        'phone' => $phone,
+                    ]);
+
+                    if ($response->successful()) {
+                        $order->update(['courier_history' => $response->body()]);
+                    }
+                } catch (\Exception $e) {
+                    // Ignore background API failure
+                }
+            });
+        }
 
         session()->put('last_order', $order->id);
 
@@ -295,6 +296,7 @@ class OrdersController extends Controller
         $order = Orders::findOrFail($id);
         $orderId = $order->order_id;
         $order->delete();
+
         return redirect()->route('admin.orders.index')->with('success', "Order #{$orderId} deleted successfully!");
     }
 
@@ -304,12 +306,12 @@ class OrdersController extends Controller
     public function sendToSteadfastBulk(Request $request)
     {
         $orderIds = $request->order_ids;
-        if (!$orderIds || empty($orderIds)) {
+        if (! $orderIds || empty($orderIds)) {
             return response()->json(['success' => false, 'message' => 'No orders selected.']);
         }
 
-        $api = \App\Models\SystemAPI::where('api_name', 'SteadFast Courier')->first();
-        if (!$api) {
+        $api = SystemAPI::where('api_name', 'SteadFast Courier')->first();
+        if (! $api) {
             return response()->json(['success' => false, 'message' => 'SteadFast Courier API credentials not found in database.']);
         }
 
@@ -319,7 +321,7 @@ class OrdersController extends Controller
 
         foreach ($orders as $order) {
             // Prevent duplicate entries
-            if (!empty($order->courier_history) && strpos($order->courier_history, 'consignment_id') !== false) {
+            if (! empty($order->courier_history) && strpos($order->courier_history, 'consignment_id') !== false) {
                 continue;
             }
 
@@ -327,9 +329,9 @@ class OrdersController extends Controller
                 'invoice' => $order->order_id,
                 'recipient_name' => $order->customer_name,
                 'recipient_phone' => $order->customer_phone,
-                'recipient_address' => $order->customer_address . ', ' . $order->customer_district,
+                'recipient_address' => $order->customer_address.', '.$order->customer_district,
                 'cod_amount' => (float) $order->grand_total,
-                'note' => "Product: {$order->product_id}, Qty: {$order->product_quantity}"
+                'note' => "Product: {$order->product_id}, Qty: {$order->product_quantity}",
             ];
             $validOrderIds[] = $order->id;
         }
@@ -338,21 +340,21 @@ class OrdersController extends Controller
             return response()->json(['success' => false, 'message' => 'All selected orders have already been sent to SteadFast.']);
         }
 
-        $url = rtrim($api->api_url, '/') . '/create_order/bulk-order';
-        
+        $url = rtrim($api->api_url, '/').'/create_order/bulk-order';
+
         try {
-            $response = \Illuminate\Support\Facades\Http::withHeaders([
+            $response = Http::withHeaders([
                 'Api-Key' => $api->api_key,
                 'Secret-Key' => $api->api_secret,
-                'Content-Type' => 'application/json'
+                'Content-Type' => 'application/json',
             ])->post($url, [
-                'data' => $payloadData
+                'data' => $payloadData,
             ]);
 
             if ($response->successful()) {
                 $responseData = $response->json();
                 $successCount = 0;
-                
+
                 // Steadfast returns array of data containing consignment_id
                 if (isset($responseData['data']) && is_array($responseData['data'])) {
                     foreach ($responseData['data'] as $resData) {
@@ -362,8 +364,8 @@ class OrdersController extends Controller
                                 'courier_history' => json_encode([
                                     'consignment_id' => $resData['consignment_id'],
                                     'tracking_code' => $resData['tracking_code'] ?? '',
-                                    'sent_at' => now()->toDateTimeString()
-                                ])
+                                    'sent_at' => now()->toDateTimeString(),
+                                ]),
                             ]);
                             $successCount++;
                         }
@@ -374,8 +376,8 @@ class OrdersController extends Controller
                         'courier_history' => json_encode([
                             'status' => 'Sent to Steadfast',
                             'response' => $responseData,
-                            'sent_at' => now()->toDateTimeString()
-                        ])
+                            'sent_at' => now()->toDateTimeString(),
+                        ]),
                     ]);
                     $successCount = count($validOrderIds);
                 }
@@ -383,9 +385,9 @@ class OrdersController extends Controller
                 return response()->json(['success' => true, 'message' => "$successCount orders successfully sent to SteadFast Courier."]);
             }
 
-            return response()->json(['success' => false, 'message' => 'Failed to connect to SteadFast API. Status: ' . $response->status()]);
+            return response()->json(['success' => false, 'message' => 'Failed to connect to SteadFast API. Status: '.$response->status()]);
         } catch (\Exception $e) {
-            return response()->json(['success' => false, 'message' => 'API Error: ' . $e->getMessage()]);
+            return response()->json(['success' => false, 'message' => 'API Error: '.$e->getMessage()]);
         }
     }
 

@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Confirmed | MilbeBD</title>
+    <title>অর্ডার কনফার্মড | MilbeBD</title>
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #4f46e5;
@@ -21,7 +21,7 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Hind Siliguri', 'Inter', sans-serif;
             background: radial-gradient(circle at 10% 20%, rgba(79, 70, 229, 0.08) 0%, rgba(236, 72, 153, 0.08) 90%), #f8fafc;
             min-height: 100vh;
             display: flex;
@@ -32,7 +32,7 @@
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Hind Siliguri', 'Outfit', sans-serif;
         }
 
         .receipt-card {
@@ -115,7 +115,7 @@
             color: #475569;
             font-weight: 700;
             text-transform: uppercase;
-            font-size: 0.78rem;
+            font-size: 0.85rem;
             letter-spacing: 0.5px;
             border: none;
             padding: 1rem;
@@ -197,9 +197,9 @@
             <div class="check-circle">
                 <i class="bi bi-check-lg"></i>
             </div>
-            <span class="badge-status mb-2 d-inline-block">Order Confirmed</span>
-            <h1 class="fw-bold mb-2">Thank You For Your Order!</h1>
-            <p class="mb-0 opacity-75">Your order details have been securely recorded. We will dispatch your shipment soon.</p>
+            <span class="badge-status mb-2 d-inline-block">অর্ডার কনফার্মড</span>
+            <h1 class="fw-bold mb-2">আপনার অর্ডারের জন্য ধন্যবাদ!</h1>
+            <p class="mb-0 opacity-75">আপনার অর্ডারের বিস্তারিত তথ্য সফলভাবে সংরক্ষিত হয়েছে। আমরা খুব শীঘ্রই আপনার প্রোডাক্টটি পাঠিয়ে দিবো।</p>
         </div>
 
         <!-- Body Content -->
@@ -208,25 +208,25 @@
             <div class="row g-3 mb-4">
                 <div class="col-sm-6 col-md-3">
                     <div class="info-box">
-                        <div class="info-label">Order ID</div>
+                        <div class="info-label">অর্ডার আইডি</div>
                         <div class="info-value text-primary fw-bold">{{ $order->order_id }}</div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-3">
                     <div class="info-box">
-                        <div class="info-label">Order Date</div>
+                        <div class="info-label">অর্ডারের তারিখ</div>
                         <div class="info-value">{{ \Carbon\Carbon::parse($order->order_date)->format('M d, Y') }}</div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-3">
                     <div class="info-box">
-                        <div class="info-label">Payment Method</div>
+                        <div class="info-label">পেমেন্ট মেথড</div>
                         <div class="info-value">{{ $order->payment_method }}</div>
                     </div>
                 </div>
                 <div class="col-sm-6 col-md-3">
                     <div class="info-box">
-                        <div class="info-label">Order Status</div>
+                        <div class="info-label">অর্ডারের অবস্থা</div>
                         <div class="info-value"><span class="badge bg-warning text-dark px-2 py-1">{{ $order->order_status }}</span></div>
                     </div>
                 </div>
@@ -237,14 +237,14 @@
                 <div class="col-md-6">
                     <div class="info-box">
                         <h6 class="fw-bold mb-3 d-flex align-items-center text-dark">
-                            <i class="bi bi-person-badge text-primary me-2 fs-5"></i> Customer Details
+                            <i class="bi bi-person-badge text-primary me-2 fs-5"></i> কাস্টমারের বিবরণ
                         </h6>
                         <div class="mb-2">
-                            <span class="text-muted d-block" style="font-size: 0.8rem;">Full Name:</span>
+                            <span class="text-muted d-block" style="font-size: 0.8rem;">সম্পূর্ণ নাম:</span>
                             <span class="fw-semibold text-dark">{{ $order->customer_name }}</span>
                         </div>
                         <div>
-                            <span class="text-muted d-block" style="font-size: 0.8rem;">Phone Number:</span>
+                            <span class="text-muted d-block" style="font-size: 0.8rem;">ফোন নম্বর:</span>
                             <span class="fw-semibold text-dark">{{ $order->customer_phone }}</span>
                         </div>
                     </div>
@@ -252,14 +252,14 @@
                 <div class="col-md-6">
                     <div class="info-box">
                         <h6 class="fw-bold mb-3 d-flex align-items-center text-dark">
-                            <i class="bi bi-geo-alt text-primary me-2 fs-5"></i> Shipping Address
+                            <i class="bi bi-geo-alt text-primary me-2 fs-5"></i> ডেলিভারি ঠিকানা
                         </h6>
                         <div class="mb-2">
-                            <span class="text-muted d-block" style="font-size: 0.8rem;">Street Address:</span>
+                            <span class="text-muted d-block" style="font-size: 0.8rem;">বিস্তারিত ঠিকানা:</span>
                             <span class="fw-semibold text-dark">{{ $order->customer_address }}</span>
                         </div>
                         <div>
-                            <span class="text-muted d-block" style="font-size: 0.8rem;">District / City:</span>
+                            <span class="text-muted d-block" style="font-size: 0.8rem;">জেলা / শহর:</span>
                             <span class="fw-semibold text-dark">{{ $order->customer_district }}</span>
                         </div>
                     </div>
@@ -271,17 +271,17 @@
                 <table class="table table-custom mb-0">
                     <thead>
                         <tr>
-                            <th>Item Description</th>
-                            <th class="text-center">Color / Variant</th>
-                            <th class="text-center">Qty</th>
-                            <th class="text-end">Subtotal</th>
+                            <th>প্রোডাক্টের বিবরণ</th>
+                            <th class="text-center">কালার / ভ্যারিয়েন্ট</th>
+                            <th class="text-center">পরিমাণ</th>
+                            <th class="text-end">সাবটোটাল</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>
                                 <div class="fw-bold text-dark">{{ $order->product_id }}</div>
-                                <small class="text-muted">High-grade technical guarantee</small>
+                                <small class="text-muted">উন্নত মানের গ্যারান্টি</small>
                             </td>
                             <td class="text-center">
                                 <span class="badge bg-light text-dark border px-2 py-1">{{ $order->product_color }}</span>
@@ -296,23 +296,23 @@
             <!-- Totals Section -->
             <div class="total-box mb-5">
                 <div class="d-flex justify-content-between mb-2">
-                    <span class="text-muted fw-semibold">Subtotal Amount:</span>
+                    <span class="text-muted fw-semibold">সাবটোটাল:</span>
                     <span class="fw-bold text-dark">৳ {{ number_format(floatval($order->order_sub_total), 2) }}</span>
                 </div>
                 <div class="d-flex justify-content-between mb-2">
-                    <span class="text-muted fw-semibold">Delivery Charge ({{ $order->customer_district }}):</span>
+                    <span class="text-muted fw-semibold">ডেলিভারি চার্জ:</span>
                     <span class="fw-bold text-dark">৳ {{ number_format(floatval($order->delivery_cost), 2) }}</span>
                 </div>
                 @if(floatval($order->coupon_discount) > 0 || floatval($order->admin_discount) > 0)
                 <div class="d-flex justify-content-between mb-2 text-success">
-                    <span class="fw-semibold">Total Discount:</span>
+                    <span class="fw-semibold">সর্বমোট ডিসকাউন্ট:</span>
                     <span class="fw-bold">- ৳ {{ number_format(floatval($order->coupon_discount) + floatval($order->admin_discount), 2) }}</span>
                 </div>
                 @endif
                 <hr class="border-secondary opacity-15 my-3">
                 <div class="d-flex justify-content-between align-items-center">
-                    <span class="h5 mb-0 fw-bold text-dark">Grand Total:</span>
-                    <span class="h3 mb-0 fw-extrabold text-primary" style="font-family: 'Outfit', sans-serif; font-weight: 800;">
+                    <span class="h5 mb-0 fw-bold text-dark">সর্বমোট বিল:</span>
+                    <span class="h3 mb-0 fw-bold text-primary" style="font-family: 'Hind Siliguri', sans-serif;">
                         ৳ {{ number_format(floatval($order->grand_total), 2) }}
                     </span>
                 </div>
@@ -321,10 +321,10 @@
             <!-- Actions -->
             <div class="d-flex flex-wrap gap-3 justify-content-center no-print">
                 <button onclick="window.print()" class="btn btn-outline-custom d-flex align-items-center gap-2">
-                    <i class="bi bi-printer fs-5"></i> Print Invoice
+                    <i class="bi bi-printer fs-5"></i> ইনভয়েস প্রিন্ট করুন
                 </button>
                 <a href="{{ url('/') }}" class="btn btn-gradient d-flex align-items-center gap-2">
-                    <i class="bi bi-shop fs-5"></i> Return to Store
+                    <i class="bi bi-shop fs-5"></i> হোম পেজে ফিরে যান
                 </a>
             </div>
         </div>

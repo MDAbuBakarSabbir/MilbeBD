@@ -36,7 +36,7 @@
         }
 
         html, body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Hind Siliguri', 'Inter', sans-serif;
             background-color: var(--light);
             color: #334155;
             overflow-x: hidden;
@@ -46,7 +46,7 @@
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Hind Siliguri', 'Outfit', sans-serif;
             font-weight: 700;
         }
 
@@ -714,7 +714,7 @@
                     </li>
                     <li class="nav-item ms-lg-2">
                         <a href="#order-form-section" class="btn btn-premium btn-sm py-2 px-4 shadow-sm">
-                            <i class="bi bi-cart3"></i> Order Now
+                            <i class="bi bi-cart3"></i> অর্ডার করুন
                         </a>
                     </li>
                 </ul>
@@ -726,46 +726,76 @@
     <section class="hero-section" id="about">
         <div class="container">
             <div class="row align-items-center g-5">
-                <div class="col-lg-6 text-center text-lg-start">
+                <div class="col-lg-6 text-center text-lg-start order-2 order-lg-1">
                     <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill mb-3 fw-semibold">
-                        <i class="bi bi-star-fill me-1"></i> Special Launch Offer
+                        <i class="bi bi-star-fill me-1"></i> স্পেশাল অফার
                     </span>
                     <h1 class="display-4 fw-extrabold mb-3">
-                        Experience Premium Quality <br><span class="gradient-text">Milbe Sound Pro</span>
+                        এক্সপেরিয়েন্স করুন প্রিমিয়াম কোয়ালিটি  <br><span class="gradient-text">স্কিন ফ্রেন্ডলি মিনি শেভার </span>
                     </h1>
                     <p class="lead text-muted mb-4">
-                        Immerse yourself in unmatched acoustic clarity and design perfection. Our flagship product elevates every beat, note, and whisper to pure bliss.
+                        মিনি শেভারের ব্লেডটি ভিতরে থাকার কারণে স্কিন কাটা-ছেড়া অথবা জ্বালা-পোড়ার ভয় নেই। এটি যেকোনো ছোট জায়গায় দ্রুত শেভ করার জন্য খুবই উপযোগী। যেমন, গাল, ঠোঁটের উপরের অংশ, গলার নিচের অংশ ইত্যাদি।
                     </p>
                     
                     <!-- Countdown Area -->
                     <div class="d-flex flex-column align-items-center align-items-lg-start">
-                        <small class="text-uppercase tracking-wider fw-bold text-secondary mb-2">Offer ending soon in:</small>
+                        <small class="text-uppercase tracking-wider fw-bold text-secondary mb-2">অফার শেষ হতে বাকি :</small>
                         <div class="countdown-container mb-4">
                             <div class="countdown-box">
                                 <div class="countdown-val text-days">00</div>
-                                <div class="countdown-lbl">Days</div>
+                                <div class="countdown-lbl">দিন</div>
                             </div>
                             <div class="countdown-box">
                                 <div class="countdown-val text-hours">00</div>
-                                <div class="countdown-lbl">Hours</div>
+                                <div class="countdown-lbl">ঘন্টা</div>
                             </div>
                             <div class="countdown-box">
                                 <div class="countdown-val text-minutes">00</div>
-                                <div class="countdown-lbl">Min</div>
+                                <div class="countdown-lbl">মিনিট</div>
                             </div>
                             <div class="countdown-box">
                                 <div class="countdown-val text-seconds">00</div>
-                                <div class="countdown-lbl">Sec</div>
+                                <div class="countdown-lbl">সেকেন্ড</div>
                             </div>
                         </div>
                     </div>
                     
                     <a href="#order-form-section" class="btn btn-premium btn-lg">
-                        Claim 50% Off Now <i class="bi bi-arrow-right-short fs-5"></i>
+                        50% ছাড় পেতে এখনি অর্ডার করুন <i class="bi bi-arrow-right-short fs-5"></i>
                     </a>
                 </div>
-                
-                <div class="col-lg-6 text-center">
+                <!-- Features Strip -->
+                <div class="col-12 mt-lg-5 mt-4 order-3">
+                    <div class="bg-white rounded-4 shadow-sm p-3 p-md-4 border">
+                        <div class="row g-2 g-md-4 text-center justify-content-center px-1">
+                            <!-- Warranty -->
+                            <div class="col-4">
+                                <div class="d-flex flex-column align-items-center h-100">
+                                    <i class="bi bi-shield-check mb-1 mb-md-2" style="color: #e85d2c; font-size: 1.8rem;"></i>
+                                    <h6 class="fw-bold mb-0 text-dark d-none d-md-block">১ বছরের সার্ভিস ওয়ারেন্টি</h6>
+                                    <span class="fw-bold text-dark d-block d-md-none" style="font-size: 0.75rem; line-height: 1.2;">১ বছরের<br>সার্ভিস ওয়ারেন্টি</span>
+                                </div>
+                            </div>
+                            <!-- Replacement -->
+                            <div class="col-4 border-start border-end px-1 px-md-3">
+                                <div class="d-flex flex-column align-items-center h-100">
+                                    <i class="bi bi-calendar2-check mb-1 mb-md-2" style="color: #e85d2c; font-size: 1.8rem;"></i>
+                                    <h6 class="fw-bold mb-0 text-dark d-none d-md-block">৩০ দিনের রিপ্লেসমেন্ট গ্যারান্টি</h6>
+                                    <span class="fw-bold text-dark d-block d-md-none" style="font-size: 0.75rem; line-height: 1.2;">৩০ দিনের<br>রিপ্লেসমেন্ট</span>
+                                </div>
+                            </div>
+                            <!-- Customers -->
+                            <div class="col-4">
+                                <div class="d-flex flex-column align-items-center h-100">
+                                    <i class="bi bi-people-fill mb-1 mb-md-2" style="color: #e85d2c; font-size: 1.8rem;"></i>
+                                    <h6 class="fw-bold mb-0 text-dark d-none d-md-block">১১,০০০+ সন্তুষ্ট কাস্টমার</h6>
+                                    <span class="fw-bold text-dark d-block d-md-none" style="font-size: 0.75rem; line-height: 1.2;">১১,০০০+<br>সন্তুষ্ট কাস্টমার</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center order-1 order-lg-2">
                     <div class="img-container floating-element mx-auto" style="max-width: 480px;">
                         <img src="{{ asset('assets/frontend/img/trimmer img 2.png') }}" alt="Milbe Sound Pro Headphones" class="img-fluid w-100 object-fit-cover" style="aspect-ratio: 1/1; object-position: center;">
                     </div>
@@ -785,11 +815,11 @@
                 </div>
                 <div class="col-lg-6 text-center text-lg-start">
                     <span class="badge bg-danger-subtle text-danger px-3 py-2 rounded-pill mb-3 fw-semibold">
-                        <i class="bi bi-fire me-1"></i> Best Seller
+                        <i class="bi bi-fire me-1"></i> ওয়াটারপ্রুফ প্রযুক্তি
                     </span>
-                    <h2 class="h1 mb-3">Milbe Smart Horizon Watch</h2>
+                    <h2 class="h1 mb-3">১০০% ওয়াটারপ্রুফ – সরাসরি পানিতে ধুয়ে ফেলুন</h2>
                     <p class="text-muted mb-4">
-                        Stay connected, monitor your workouts, and look sophisticated with our ultimate smart companion. Engineered for style, built for durability.
+                        ব্যবহার শেষে পানির নিচে রেখে সরাসরি পরিষ্কার করে নিন। ওয়াটারপ্রুফ বডির কারণে এটি শুকনো বা সাবানের ফেনা (Wet & Dry) উভয়ভাবেই ব্যবহার উপযোগী।
                     </p>
 
                     <a href="#order-form-section" class="btn btn-premium btn-lg">
@@ -804,7 +834,6 @@
     <section class="comparison-section py-5 bg-light" id="comparison">
         <div class="container">
             <div class="text-center mb-5">
-                <span class="text-uppercase text-primary tracking-widest fw-extrabold mb-2 d-block">Comparison</span>
                 <h2 class="comparison-title text-center h1 text-dark fw-bolder">সাধারণ রেজার কেন সমাধান নয়?</h2>
             </div>
             
@@ -1050,11 +1079,11 @@
             <div class="row align-items-center g-5">
                 <div class="col-lg-6 text-center text-lg-start order-2 order-lg-1">
                     <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill mb-3 fw-semibold">
-                        <i class="bi bi-lightning-fill me-1"></i> Limited Edition
+                        <i class="bi bi-lightning-fill me-1"></i> পাওয়ারফুল পারফর্মেন্স
                     </span>
-                    <h2 class="h1 mb-3">Milbe Velocity Running Kicks</h2>
+                    <h2 class="h1 mb-3">হাই-স্পিড শক্তিশালী মোটর ও নিখুঁত কাটিং</h2>
                     <p class="text-muted mb-4">
-                        Experience ultimate cushioning and style on your daily runs. Designed with high-performance breathable mesh and responsive grip outsoles.
+                        ছোট আকারে হলেও এতে আছে শক্তিশালী টার্বো মোটর, যা খুব দ্রুত এবং টানে টান না মেরে এক টানেই সব চুল কেটে ফেলে। এর শক্তিশালী ইলেকট্রিক মোটর যেকোনো ঘনত্বের লোম সহজেই কাটতে পারে এবং ব্লেড খুব দ্রুত ঘোরার কারণে ত্বক কেটে যাওয়ার ভয় থাকে না।
                     </p>
                     
                     <a href="#order-form-section" class="btn btn-premium btn-lg">
@@ -1081,11 +1110,11 @@
                 </div>
                 <div class="col-lg-6 text-center text-lg-start">
                     <span class="badge bg-warning-subtle text-warning px-3 py-2 rounded-pill mb-3 fw-semibold">
-                        <i class="bi bi-award-fill me-1"></i> Highly Rated
+                        <i class="bi bi-award-fill me-1"></i> টাইপ-সি ফাস্ট চার্জিং
                     </span>
-                    <h2 class="h1 mb-3">Milbe Nomad Leather Pack</h2>
+                    <h2 class="h1 mb-3">যেকোনো স্থানে টাইপ-সি ফাস্ট চার্জিং সুবিধা</h2>
                     <p class="text-muted mb-4">
-                        Handcrafted top-grain leather backpack built to accompany your everyday adventures. Waterproof zippers, ergonomic straps, and plenty of organized compartments.
+                       ল্যাপটপ, পাওয়ার ব্যাংক বা মোবাইল চার্জার দিয়ে সহজেই চার্জ দিতে পারবেন। মাত্র ১ ঘণ্টার চার্জে দীর্ঘদিন ব্যবহার করুন নিশ্চিন্তে। USB Type-C চার্জিং পোর্টের কারণে এটিকে পাওয়ার ব্যাংক, ল্যাপটপ বা যেকোনো আধুনিক ডিভাইসের অ্যাডাপ্টার দিয়ে দ্রুত চার্জ করা যায়। এটি একবার পুরোপুরি চার্জ হতে প্রায় ১ ঘণ্টা সময় নেয় এবং फुल চার্জে প্রায় ৬০ মিনিট ব্যাকআপ দেয়, যা লম্বা সময়ের জন্য যথেষ্ট।
                     </p>
                     
                     <a href="#order-form-section" class="btn btn-premium btn-lg">
@@ -1095,11 +1124,34 @@
             </div>
         </div>
     </section>
+    <section class="product-section bg-white">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6 text-center text-lg-start order-2 order-lg-1">
+                    <span class="badge bg-warning-subtle text-warning px-3 py-2 rounded-pill mb-3 fw-semibold">
+                        <i class="bi bi-award-fill me-1"></i> পোর্টেবল ও কম্প্যাক্ট
+                    </span>
+                    <h2 class="h1 mb-3">পকেটে নিয়ে ঘোরার মতো সুপার পোর্টেবল ডিজাইন</h2>
+                    <p class="text-muted mb-4">
+                      ওজনে হালকা এবং সাইজে ছোট হওয়ায় অফিস, ভ্রমণ বা জরুরি প্রয়োজনে পকেটে বা ব্যাগে নিয়ে যেকোনো জায়গায় সাথে রাখা একদম সহজ। এক হাতে সহজেই ধরা যায়, এমন আকৃতির জন্য এটি যেকোনো পকেটে বা লাগেজে খুব সহজেই ফিট হয়ে যায়। ভ্রমণের সময় বা বাড়ির বাইরে যেকোনো জায়গায় ব্যবহারের জন্য পারফেক্ট। এর হালকা ওজন এবং ছোট আকারের কারণে ব্যবহারকারীর চলাফেরার জন্য কোনো অসুবিধা হয় না, বরং খুব সহজেই বহনযোগ্য হওয়ায় যেকোনো স্থানে তাৎক্ষণিক ব্যবহারের সুবিধা পাওয়া যায়।
+                    </p>
+                    
+                    <a href="#order-form-section" class="btn btn-premium btn-lg">
+                        এখনই অর্ডার করুন <i class="bi bi-chevron-right fs-6"></i>
+                    </a>
+                </div>
+                <div class="col-lg-6 text-center order-1 order-lg-2">
+                    <div class="img-container mx-auto" style="max-width: 450px;">
+                        <img src="{{ asset('assets/frontend/img/trimmer img 5.png') }}" alt="Milbe Nomad Leather Pack" class="img-fluid w-100 object-fit-cover" style="aspect-ratio: 1/1; object-position: center;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Testimonials Carousel Section -->
     <section class="reviews-section bg-light" id="testimonials">
         <div class="container text-center">
-            <span class="text-uppercase text-primary tracking-widest fw-extrabold mb-2 d-block">Testimonials</span>
             <h2 class="mb-4 h1">What Our Customers Say</h2>
             
             <!-- Customer Rating Stats -->
@@ -1201,7 +1253,7 @@
             
             <div class="mt-4">
                 <a href="#order-form-section" class="btn btn-premium">
-                    Get Yours Today <i class="bi bi-cart-plus me-1"></i>
+                    আজই অর্ডার করুন <i class="bi bi-cart-plus me-1"></i>
                 </a>
             </div>
         </div>
@@ -1213,40 +1265,42 @@
             <div class="card border-0 shadow-sm" style="border-radius: 20px; background: white;">
                 <div class="card-body p-3 p-md-5">
                     <div class="text-center mb-4 mb-md-5">
-                        <span class="text-uppercase text-primary fw-bold mb-2 d-block" style="letter-spacing: 2px;">Process</span>
                         <h2 class="h2 mb-0">How It Works</h2>
                     </div>
-                    <div class="row g-3 g-md-5 justify-content-center">
-                        <div class="col-lg-4 col-md-4 col-12">
-                            <div class="d-flex flex-row flex-md-column align-items-start align-items-md-center text-start text-md-center">
-                                <div class="step-icon-wrap flex-shrink-0 me-3 me-md-0 mb-0 mb-md-4" style="width: 55px; height: 55px; font-size: 1.25rem;">
+                    <div class="row g-2 g-md-5 justify-content-center px-1">
+                        <div class="col-4">
+                            <div class="d-flex flex-column align-items-center text-center h-100">
+                                <div class="step-icon-wrap flex-shrink-0 mb-2 mb-md-4 d-flex justify-content-center align-items-center mx-auto" style="width: 45px; height: 45px; font-size: 1.2rem;">
                                     <i class="bi bi-cart-check"></i>
                                 </div>
                                 <div>
-                                    <h3 class="h5 mb-1 mb-md-3 fw-bold">1. Order</h3>
-                                    <p class="text-muted mb-0 px-0 px-xl-3" style="font-size: 0.9rem; line-height: 1.5;">Select your favorite product package and enter your shipping details in the checkout form below.</p>
+                                    <h3 class="h5 mb-1 mb-md-3 fw-bold d-none d-md-block">1. Order</h3>
+                                    <span class="fw-bold d-block d-md-none text-dark" style="font-size: 0.75rem;">1. Order</span>
+                                    <p class="text-muted mb-0 px-0 px-xl-3 d-none d-md-block" style="font-size: 0.9rem; line-height: 1.5;">Select your favorite product package and enter your shipping details in the checkout form below.</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 col-12">
-                            <div class="d-flex flex-row flex-md-column align-items-start align-items-md-center text-start text-md-center">
-                                <div class="step-icon-wrap flex-shrink-0 me-3 me-md-0 mb-0 mb-md-4" style="width: 55px; height: 55px; font-size: 1.25rem;">
+                        <div class="col-4">
+                            <div class="d-flex flex-column align-items-center text-center h-100">
+                                <div class="step-icon-wrap flex-shrink-0 mb-2 mb-md-4 d-flex justify-content-center align-items-center mx-auto" style="width: 45px; height: 45px; font-size: 1.2rem;">
                                     <i class="bi bi-truck"></i>
                                 </div>
                                 <div>
-                                    <h3 class="h5 mb-1 mb-md-3 fw-bold">2. Delivery</h3>
-                                    <p class="text-muted mb-0 px-0 px-xl-3" style="font-size: 0.9rem; line-height: 1.5;">Your package is handled with care and delivered to your doorstep within 2-3 business days.</p>
+                                    <h3 class="h5 mb-1 mb-md-3 fw-bold d-none d-md-block">2. Delivery</h3>
+                                    <span class="fw-bold d-block d-md-none text-dark" style="font-size: 0.75rem;">2. Delivery</span>
+                                    <p class="text-muted mb-0 px-0 px-xl-3 d-none d-md-block" style="font-size: 0.9rem; line-height: 1.5;">Your package is handled with care and delivered to your doorstep within 2-3 business days.</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-4 col-12">
-                            <div class="d-flex flex-row flex-md-column align-items-start align-items-md-center text-start text-md-center">
-                                <div class="step-icon-wrap flex-shrink-0 me-3 me-md-0 mb-0 mb-md-4" style="width: 55px; height: 55px; font-size: 1.25rem;">
+                        <div class="col-4">
+                            <div class="d-flex flex-column align-items-center text-center h-100">
+                                <div class="step-icon-wrap flex-shrink-0 mb-2 mb-md-4 d-flex justify-content-center align-items-center mx-auto" style="width: 45px; height: 45px; font-size: 1.2rem;">
                                     <i class="bi bi-emoji-laughing"></i>
                                 </div>
                                 <div>
-                                    <h3 class="h5 mb-1 mb-md-3 fw-bold">3. Enjoy</h3>
-                                    <p class="text-muted mb-0 px-0 px-xl-3" style="font-size: 0.9rem; line-height: 1.5;">Unbox, start using your new premium quality product, and enjoy our lifetime warranty support.</p>
+                                    <h3 class="h5 mb-1 mb-md-3 fw-bold d-none d-md-block">3. Enjoy</h3>
+                                    <span class="fw-bold d-block d-md-none text-dark" style="font-size: 0.75rem;">3. Enjoy</span>
+                                    <p class="text-muted mb-0 px-0 px-xl-3 d-none d-md-block" style="font-size: 0.9rem; line-height: 1.5;">Unbox, start using your new premium quality product, and enjoy our lifetime warranty support.</p>
                                 </div>
                             </div>
                         </div>
@@ -1260,7 +1314,6 @@
     <section class="product-select-section" id="product-selection">
         <div class="container">
             <div class="text-center mb-5">
-                <span class="text-uppercase text-primary tracking-widest fw-extrabold mb-2 d-block">Selection</span>
                 <h2 class="h1 mb-2">Select Your Product</h2>
                 <p class="text-muted">Choose your preferred product package to continue</p>
             </div>
@@ -1327,44 +1380,35 @@
                             @csrf
                             
                             <!-- Hidden inputs to submit selected product, price and quantity to backend -->
-                            <input type="hidden" name="product_name" id="hidden_product_name" value="Milbe Sound Pro Headphones">
+                            <input type="hidden" name="product_name" id="hidden_product_name" value="Skin Friendly Mini Shaver">
                             <input type="hidden" name="product_price" id="hidden_product_price" value="199">
                             <input type="hidden" name="product_qty" id="hidden_product_qty" value="1">
                             <input type="hidden" name="delivery_cost" id="hidden_delivery_cost" value="0">
                             <input type="hidden" name="total_amount" id="hidden_total_amount" value="199">
-                            <input type="hidden" name="product_color" id="hidden_product_color" value="Midnight Black">
+                            <input type="hidden" name="product_color" id="hidden_product_color" value="Standard">
 
                             <div class="row g-4 mb-4">
                                 <div class="col-md-6">
                                     <div class="form-floating">
                                         <input type="text" class="form-control" id="nameInput" name="name" placeholder="Full Name" required>
-                                        <label for="nameInput"><i class="bi bi-person me-1"></i> Name</label>
+                                        <label for="nameInput"><i class="bi bi-person me-1"></i> নাম লিখুন</label>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
                                         <input type="tel" class="form-control" id="phoneInput" name="phone" placeholder="Phone Number" required>
-                                        <label for="phoneInput"><i class="bi bi-telephone me-1"></i> Phone</label>
+                                        <label for="phoneInput"><i class="bi bi-telephone me-1"></i> ফোন নম্বর লিখুন</label>
                                     </div>
                                 </div>
                             </div>
                             <div class="row g-4 mb-4">
-                                <div class="col-md-6">
+                                <div class="col-12">
                                     <div class="form-floating">
                                         <input type="text" class="form-control" id="addressInput" name="address" placeholder="Shipping Address" required>
-                                        <label for="addressInput"><i class="bi bi-geo-alt me-1"></i> Address</label>
+                                        <label for="addressInput"><i class="bi bi-geo-alt me-1"></i> বিস্তারিত ঠিকানা লিখুন</label>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <select class="form-select select2" id="cityInput" name="city" required>
-                                            <option value="">Select City</option>
-                                            @foreach(\App\Models\District::where('status', 1)->get() as $district)
-                                                <option value="{{ $district->name }}" data-charge="{{ $district->delivery_charge }}">{{ $district->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
+                                <input type="hidden" name="city" value="বাংলাদেশ">
                             </div>
                             
                             <!-- Billing Summary -->
@@ -1375,22 +1419,22 @@
                                 </div>
                                 <div class="d-flex justify-content-between mb-2">
                                     <span class="text-muted">Subtotal Price:</span>
-                                    <strong class="text-dark" id="summary-product-price">৳ 199</strong>
+                                    <strong class="text-dark" id="summary-product-price"></strong>
                                 </div>
                                 <div class="d-flex justify-content-between mb-2">
                                     <span class="text-muted">Delivery Charge:</span>
-                                    <strong class="text-dark" id="summary-delivery-charge">৳ 0</strong>
+                                    <strong class="text-dark" id="summary-delivery-charge">ফ্রি</strong>
                                 </div>
                                 <hr class="my-3 border-secondary opacity-15">
                                 <div class="d-flex justify-content-between">
                                     <span class="fw-bold fs-5 text-dark">Total Amount:</span>
-                                    <strong class="fs-5 text-primary" id="summary-total-price">৳ 199</strong>
+                                    <strong class="fs-5 text-primary" id="summary-total-price"></strong>
                                 </div>
                             </div>
 
                             <div class="text-center mt-5">
-                                <button type="submit" class="btn btn-premium btn-confirm btn-lg w-100 py-3 rounded-pill shadow-lg fs-5 mx-auto" style="max-width: 350px;">
-                                    <i class="bi bi-bag-check me-2"></i> Confirm Order
+                                <button type="submit" id="submitBtn" class="btn btn-premium btn-confirm btn-lg w-100 py-3 rounded-pill shadow-lg fs-5 mx-auto" style="max-width: 350px;">
+                                    <span id="submitBtnContent"><i class="bi bi-bag-check me-2"></i> অর্ডার কনফার্ম করুন</span>
                                 </button>
                             </div>
                         </form>
@@ -1582,18 +1626,13 @@
             activeRow.querySelector('.row-total-price').textContent = `৳ ${subtotal.toFixed(2)}`;
 
             // Check delivery
-            let citySelect = document.getElementById('cityInput');
-            let selectedOption = citySelect.options[citySelect.selectedIndex];
             let deliveryCharge = 0;
-            if (selectedOption && selectedOption.dataset.charge) {
-                deliveryCharge = parseFloat(selectedOption.dataset.charge);
-            }
             let finalTotal = subtotal + deliveryCharge;
 
             // Update Summary
             summaryProdName.textContent = name;
             summaryProdPrice.textContent = `৳ ${subtotal.toFixed(2)}`;
-            summaryDeliveryCharge.textContent = `৳ ${deliveryCharge.toFixed(2)}`;
+            summaryDeliveryCharge.textContent = `ফ্রি`;
             summaryTotalPrice.textContent = `৳ ${finalTotal.toFixed(2)}`;
 
             // Update hidden inputs for backend submissions
@@ -1688,6 +1727,19 @@
         counters.forEach(counter => {
             counterObserver.observe(counter);
         });
+
+        // Form Submit Preloader
+        const checkoutForm = document.getElementById('checkout-form');
+        const submitBtn = document.getElementById('submitBtn');
+
+        if (checkoutForm && submitBtn) {
+            checkoutForm.addEventListener('submit', function(e) {
+                if (checkoutForm.checkValidity()) {
+                    submitBtn.disabled = true;
+                    submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span> অর্ডার প্রসেস হচ্ছে...';
+                }
+            });
+        }
     </script>
 </body>
 </html>
