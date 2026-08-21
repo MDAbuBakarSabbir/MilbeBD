@@ -313,41 +313,86 @@
     </div>
     <div class="row">
         <div class="col">
-            <!-- Meta Pixel & GTag -->
+            <!-- Meta Pixel, CAPI & GTM Tracking -->
             <div class="glass-card">
                 <div class="card-header-custom">
                     <h5 class="card-title-custom">
                         <div class="card-title-icon bg-light text-info">
                             <i class="mdi mdi-google-analytics"></i>
                         </div>
-                        Analytics & Tracking
+                        Analytics, Meta CAPI & Google GTM Tracking
                     </h5>
                 </div>
                 <div class="card-body p-4">
-                    <form action="" method="POST">
+                    <form action="{{ route('admin.pixelGtagUpdate') }}" method="POST">
                         @csrf
-                        <div class="row">
+                        <div class="row g-4">
+                            <!-- Google Tag Manager (GTM) -->
                             <div class="col-md-6 form-group">
-                                <label for="meta_pixel_id">Meta Pixel ID</label>
+                                <label for="gtm_id" class="d-flex align-items-center justify-content-between">
+                                    <span><i class="mdi mdi-tag-outline text-primary mr-1"></i> Google Tag Manager (GTM) ID</span>
+                                    <span class="badge badge-light text-muted">Recommended</span>
+                                </label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
-                                        <span class="input-group-text"><i class="mdi mdi-facebook text-primary"></i></span>
+                                        <span class="input-group-text"><i class="mdi mdi-google text-primary"></i></span>
                                     </div>
-                                    <input type="text" class="form-control border-left-0" id="meta_pixel_id" name="meta_pixel_id" value="{{ $settings['meta_pixel_id'] ?? '' }}" placeholder="e.g. 1234567890">
+                                    <input type="text" class="form-control border-left-0" id="gtm_id" name="gtm_id" value="{{ $settings->gtm_id ?? '' }}" placeholder="e.g. GTM-XXXXXXX">
                                 </div>
+                                <small class="text-muted d-block mt-1">Inserts GTM container automatically into &lt;head&gt; and &lt;body&gt; with Enhanced Ecommerce dataLayer.</small>
                             </div>
+
+                            <!-- Google Analytics 4 (GA4) -->
                             <div class="col-md-6 form-group">
-                                <label for="gtag_id">Google Tag ID</label>
+                                <label for="google_analytics"><i class="mdi mdi-chart-line text-warning mr-1"></i> Google Analytics / GA4 ID</label>
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="mdi mdi-google text-danger"></i></span>
                                     </div>
-                                    <input type="text" class="form-control border-left-0" id="gtag_id" name="gtag_id" value="{{ $settings['gtag_id'] ?? '' }}" placeholder="e.g. G-XXXXXXX">
+                                    <input type="text" class="form-control border-left-0" id="google_analytics" name="google_analytics" value="{{ $settings->google_analytics ?? '' }}" placeholder="e.g. G-XXXXXXX">
                                 </div>
+                                <small class="text-muted d-block mt-1">Optional if already managed via GTM container.</small>
+                            </div>
+
+                            <!-- Meta Pixel ID -->
+                            <div class="col-md-6 form-group">
+                                <label for="meta_pixel"><i class="mdi mdi-facebook text-primary mr-1"></i> Meta (Facebook) Pixel ID</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="mdi mdi-facebook text-primary"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control border-left-0" id="meta_pixel" name="meta_pixel" value="{{ $settings->meta_pixel ?? '' }}" placeholder="e.g. 123456789012345">
+                                </div>
+                                <small class="text-muted d-block mt-1">Used for browser Pixel and Server Conversions API (CAPI).</small>
+                            </div>
+
+                            <!-- Meta Test Event Code -->
+                            <div class="col-md-6 form-group">
+                                <label for="meta_test_event_code"><i class="mdi mdi-bug-outline text-danger mr-1"></i> Meta CAPI Test Event Code (Optional)</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="mdi mdi-flask-outline text-danger"></i></span>
+                                    </div>
+                                    <input type="text" class="form-control border-left-0" id="meta_test_event_code" name="meta_test_event_code" value="{{ $settings->meta_test_event_code ?? '' }}" placeholder="e.g. TEST12345">
+                                </div>
+                                <small class="text-muted d-block mt-1">Found in Meta Events Manager &gt; Test Events tab. Leave blank for live production.</small>
+                            </div>
+
+                            <!-- Meta CAPI Access Token -->
+                            <div class="col-12 form-group">
+                                <label for="meta_capi_token"><i class="mdi mdi-key-variant text-success mr-1"></i> Meta Conversions API (CAPI) Access Token</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="mdi mdi-shield-key text-success"></i></span>
+                                    </div>
+                                    <textarea class="form-control border-left-0" id="meta_capi_token" name="meta_capi_token" rows="3" placeholder="Paste your Meta System User Access Token here (starts with EA...)">{{ $settings->meta_capi_token ?? '' }}</textarea>
+                                </div>
+                                <small class="text-muted d-block mt-1">Generated from Meta Events Manager &gt; Settings &gt; Conversions API &gt; Generate access token.</small>
                             </div>
                         </div>
-                        <div class="mt-3">
-                            <button type="submit" class="btn btn-update"><i class="mdi mdi-content-save mr-2"></i>Save Tracking IDs</button>
+
+                        <div class="mt-4">
+                            <button type="submit" class="btn btn-update"><i class="mdi mdi-content-save mr-2"></i>Save Tracking & CAPI Settings</button>
                         </div>
                     </form>
                 </div>

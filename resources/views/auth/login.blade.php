@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Focus | Admin Login </title>
+    <title>MILBE BD | Admin Login </title>
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/backend/images/favicon.png') }}">
     <link href="{{ asset('assets/backend/css/style.css') }}" rel="stylesheet">

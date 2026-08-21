@@ -23,6 +23,7 @@ class ProductController extends Controller
 
         $product = new Product;
         $product->title = $request->title;
+        $product->color = $request->color ?? 'স্ট্যান্ডার্ড';
         $product->regular_price = $request->regular_price;
         $product->discounted_price = $request->discounted_price;
         $product->description = $request->description;
@@ -41,6 +42,7 @@ class ProductController extends Controller
 
         $product = Product::findOrFail($id);
         $product->title = $request->title;
+        $product->color = $request->color ?? 'স্ট্যান্ডার্ড';
         $product->regular_price = $request->regular_price;
         $product->discounted_price = $request->discounted_price;
         

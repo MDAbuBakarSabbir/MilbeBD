@@ -1,3 +1,6 @@
+@php
+    $settings = App\Models\Settings::first();
+@endphp
 <!DOCTYPE html>
 <html lang="bn">
 <head>
@@ -9,7 +12,50 @@
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600;700;800;900&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+
+    {{-- Google Tag Manager (GTM) --}}
+    @if(!empty($settings->gtm_id))
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','{{ trim($settings->gtm_id) }}');</script>
+    <!-- End Google Tag Manager -->
+    @endif
+
+    {{-- Google Analytics (GA4) --}}
+    @if(!empty($settings->google_analytics))
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ trim($settings->google_analytics) }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '{{ trim($settings->google_analytics) }}');
+    </script>
+    @endif
+
+    {{-- Meta (Facebook) Pixel Base Code --}}
+    @if(!empty($settings->meta_pixel))
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '{{ trim($settings->meta_pixel) }}');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id={{ trim($settings->meta_pixel) }}&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    @endif
     <style>
         :root {
             --primary: #4f46e5;
@@ -21,7 +67,7 @@
         }
 
         body {
-            font-family: 'Hind Siliguri', 'Inter', sans-serif;
+            font-family: 'Noto Sans Bengali', 'Inter', sans-serif;
             background: radial-gradient(circle at 10% 20%, rgba(79, 70, 229, 0.08) 0%, rgba(236, 72, 153, 0.08) 90%), #f8fafc;
             min-height: 100vh;
             display: flex;
@@ -32,7 +78,7 @@
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Hind Siliguri', 'Outfit', sans-serif;
+            font-family: 'Noto Sans Bengali', 'Outfit', sans-serif;
         }
 
         .receipt-card {
@@ -190,6 +236,11 @@
     </style>
 </head>
 <body>
+    {{-- Google Tag Manager (noscript) --}}
+    @if(!empty($settings->gtm_id))
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ trim($settings->gtm_id) }}"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    @endif
 
     <div class="receipt-card">
         <!-- Header -->
@@ -312,7 +363,7 @@
                 <hr class="border-secondary opacity-15 my-3">
                 <div class="d-flex justify-content-between align-items-center">
                     <span class="h5 mb-0 fw-bold text-dark">সর্বমোট বিল:</span>
-                    <span class="h3 mb-0 fw-bold text-primary" style="font-family: 'Hind Siliguri', sans-serif;">
+                    <span class="h3 mb-0 fw-bold text-primary" style="font-family: 'Noto Sans Bengali', sans-serif;">
                         ৳ {{ number_format(floatval($order->grand_total), 2) }}
                     </span>
                 </div>
@@ -332,5 +383,40 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Purchase Event Tracking (Pixel & GTM) -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        // Meta Pixel Purchase Event with exact Order ID for Deduplication with CAPI
+        if (typeof fbq === 'function') {
+            fbq('track', 'Purchase', {
+                content_name: {!! json_encode($order->product_id) !!},
+                content_ids: ['{{ (string)$order->id }}'],
+                content_type: 'product',
+                value: {{ floatval($order->grand_total) }},
+                currency: 'BDT',
+                num_items: {{ intval($order->product_quantity) }}
+            }, { eventID: '{{ $order->order_id }}' });
+        }
+
+        // GTM Enhanced Ecommerce Purchase Event
+        window.dataLayer.push({
+            event: 'purchase',
+            ecommerce: {
+                transaction_id: '{{ $order->order_id }}',
+                value: {{ floatval($order->grand_total) }},
+                tax: 0,
+                shipping: {{ floatval($order->delivery_cost) }},
+                currency: 'BDT',
+                items: [{
+                    item_id: '{{ (string)$order->id }}',
+                    item_name: {!! json_encode($order->product_id) !!},
+                    price: {{ floatval($order->order_sub_total) / max(1, intval($order->product_quantity)) }},
+                    quantity: {{ intval($order->product_quantity) }}
+                }]
+            }
+        });
+    </script>
 </body>
 </html>

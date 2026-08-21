@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Orders;
 use App\Models\OrderStatus;
 use App\Models\SystemAPI;
+use App\Services\MetaCapiService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
@@ -73,6 +74,37 @@ class OrdersController extends Controller
                 }
             });
         }
+
+        // Trigger Meta Conversions API (CAPI) Purchase Event (Server-Side)
+        $userData = [
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'address' => $request->address,
+            'city' => $request->city,
+            'country' => 'bd',
+            'fbp' => $request->cookie('_fbp') ?? $request->input('fbp'),
+            'fbc' => $request->cookie('_fbc') ?? $request->input('fbc'),
+        ];
+
+        $customData = [
+            'currency' => 'BDT',
+            'value' => $grandTotal,
+            'content_name' => $order->product_id,
+            'content_type' => 'product',
+            'content_ids' => [(string) $order->id],
+            'num_items' => $qty,
+            'contents' => [
+                [
+                    'id' => (string) $order->id,
+                    'quantity' => $qty,
+                    'item_price' => $price,
+                ],
+            ],
+        ];
+
+        app()->terminating(function () use ($orderId, $userData, $customData, $request) {
+            MetaCapiService::sendEvent('Purchase', $userData, $customData, $orderId, $request);
+        });
 
         session()->put('last_order', $order->id);
 
@@ -456,6 +488,7 @@ class OrdersController extends Controller
             if ($response->successful()) {
                 $responseData = $response->json();
                 $balance = $responseData['balance'] ?? ($responseData['current_balance'] ?? 0);
+
                 return response()->json(['success' => true, 'balance' => $balance]);
             }
 

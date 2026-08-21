@@ -100,9 +100,12 @@ class HomeController extends Controller
     {
         $settings = Settings::first() ?? new Settings;
         $settings->meta_pixel = $request->meta_pixel;
+        $settings->meta_capi_token = $request->meta_capi_token;
+        $settings->meta_test_event_code = $request->meta_test_event_code;
+        $settings->gtm_id = $request->gtm_id;
         $settings->google_analytics = $request->google_analytics;
         $settings->save();
 
-        return redirect()->route('admin.siteSettings')->with('success', 'Pixel and gtag updated successfully!');
+        return redirect()->route('admin.siteSettings')->with('success', 'Tracking settings (GTM, Meta CAPI, Pixel) updated successfully!');
     }
 }

@@ -9,6 +9,7 @@ use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReviewsController;
 use App\Http\Controllers\SystemAPIController;
+use App\Http\Controllers\TrackingController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
@@ -75,6 +76,8 @@ Route::controller(OrdersController::class)->group(function () {
     Route::get('order-success', 'orderSuccess')->name('order.success');
     Route::post('orders/incomplete', 'incompleteStore')->name('orders.incompleteStore');
 });
+
+Route::post('/track-capi-event', [TrackingController::class, 'trackEvent'])->name('track.capi.event');
 
 Route::controller(SystemAPIController::class)->group(function () {
     Route::get('/courier-apis', 'courier_api')->name('courier-apis.index');

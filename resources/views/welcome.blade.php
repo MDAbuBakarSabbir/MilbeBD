@@ -20,7 +20,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- CSS Styles -->
     <style>
@@ -36,7 +36,7 @@
         }
 
         html, body {
-            font-family: 'Hind Siliguri', 'Inter', sans-serif;
+            font-family: 'Noto Sans Bengali', 'Inter', sans-serif;
             background-color: var(--light);
             color: #334155;
             overflow-x: clip;
@@ -46,7 +46,7 @@
         }
 
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Hind Siliguri', 'Outfit', sans-serif;
+            font-family: 'Noto Sans Bengali', 'Outfit', sans-serif;
             font-weight: 700;
         }
 
@@ -414,7 +414,7 @@
         }
 
         .comparison-title {
-            font-family: 'Hind Siliguri', 'Outfit', sans-serif;
+            font-family: 'Noto Sans Bengali', 'Outfit', sans-serif;
             font-size: 2.25rem;
             font-weight: 800;
             color: #ffffff;
@@ -461,7 +461,7 @@
             color: #ffffff;
             font-weight: 700;
             font-size: 1.05rem;
-            font-family: 'Hind Siliguri', sans-serif;
+            font-family: 'Noto Sans Bengali', sans-serif;
         }
 
         /* Column 2: Normal Razor */
@@ -508,7 +508,7 @@
         }
 
         .comparison-header-title {
-            font-family: 'Hind Siliguri', sans-serif;
+            font-family: 'Noto Sans Bengali', sans-serif;
             font-size: 1.1rem;
             font-weight: 700;
             margin: 0;
@@ -545,14 +545,14 @@
             color: #94a3b8;
             font-size: 0.95rem;
             font-weight: 500;
-            font-family: 'Hind Siliguri', sans-serif;
+            font-family: 'Noto Sans Bengali', sans-serif;
         }
 
         .shaver-text {
             color: #ff5252;
             font-size: 0.95rem;
             font-weight: 700;
-            font-family: 'Hind Siliguri', sans-serif;
+            font-family: 'Noto Sans Bengali', sans-serif;
         }
 
         @media (max-width: 576px) {
@@ -586,7 +586,7 @@
             padding: 2rem 0 6rem 0;
         }
         .compare-slider-title {
-            font-family: 'Hind Siliguri', 'Outfit', sans-serif;
+            font-family: 'Noto Sans Bengali', 'Outfit', sans-serif;
             font-size: 2rem;
             font-weight: 800;
             color: #ffffff;
@@ -675,12 +675,48 @@
         }
     </style>
 
-    {{-- google tag start --}}
-        
-    {{-- google tag end  --}}
-    {{-- facebook pixel start --}}
+    {{-- Google Tag Manager (GTM) --}}
+    @if(!empty($settings->gtm_id))
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','{{ trim($settings->gtm_id) }}');</script>
+    <!-- End Google Tag Manager -->
+    @endif
 
-    {{-- facebook pixel end  --}}
+    {{-- Google Analytics (GA4) --}}
+    @if(!empty($settings->google_analytics))
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ trim($settings->google_analytics) }}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '{{ trim($settings->google_analytics) }}');
+    </script>
+    @endif
+
+    {{-- Meta (Facebook) Pixel Base Code --}}
+    @if(!empty($settings->meta_pixel))
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '{{ trim($settings->meta_pixel) }}');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id={{ trim($settings->meta_pixel) }}&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+    @endif
 
     <!-- Select2 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
@@ -701,6 +737,11 @@
     </style>
 </head>
 <body>
+    {{-- Google Tag Manager (noscript) --}}
+    @if(!empty($settings->gtm_id))
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ trim($settings->gtm_id) }}"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    @endif
 
     <!-- Sticky Header/Navbar -->
     <nav class="navbar navbar-expand-lg sticky-top navbar-custom py-3">
@@ -743,7 +784,7 @@
                     <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill mb-3 fw-semibold">
                         <i class="bi bi-star-fill me-1"></i> স্পেশাল অফার
                     </span>
-                    <h1 class="display-4 fw-extrabold mb-3">
+                    <h1 class="display-4 mb-3" style="font-weight: 500;">
                         এক্সপেরিয়েন্স করুন প্রিমিয়াম কোয়ালিটি  <br><span class="gradient-text">স্কিন ফ্রেন্ডলি মিনি শেভার </span>
                     </h1>
                     <p class="lead text-muted mb-4">
@@ -789,7 +830,7 @@
                                     <span class="fw-bold text-dark d-block d-md-none" style="font-size: 0.75rem; line-height: 1.2;">১ বছরের<br>সার্ভিস ওয়ারেন্টি</span>
                                 </div>
                             </div>
-                            <!-- Replacement -->
+                            <!--Replacement -->
                             <div class="col-4 border-start border-end px-1 px-md-3">
                                 <div class="d-flex flex-column align-items-center h-100">
                                     <i class="bi bi-calendar2-check mb-1 mb-md-2" style="color: #e85d2c; font-size: 1.8rem;"></i>
@@ -1037,15 +1078,15 @@
                     <img src="{{ asset('assets/frontend/img/after.webp') }}" alt="After">
                     <!-- Badge -->
                     <div class="position-absolute p-3" style="top: 15px; right: 15px;">
-                        <span class="badge rounded-pill px-4 py-2 fs-6 shadow-sm" style="background-color: #ff5252; font-family: 'Hind Siliguri', sans-serif;">পরে</span>
+                        <span class="badge rounded-pill px-4 py-2 fs-6 shadow-sm" style="background-color: #ff5252; font-family: 'Noto Sans Bengali', sans-serif;">পরে</span>
                     </div>
                     <!-- Tags -->
                     <div class="position-absolute d-flex align-items-center gap-2" style="top: 40%; right: 15%;">
-                        <span class="badge rounded-pill px-3 py-2 shadow-sm" style="background-color: #ff5252; font-family: 'Hind Siliguri', sans-serif; font-size: 0.9rem;">স্মুথ স্কিন</span>
+                        <span class="badge rounded-pill px-3 py-2 shadow-sm" style="background-color: #ff5252; font-family: 'Noto Sans Bengali', sans-serif; font-size: 0.9rem;">স্মুথ স্কিন</span>
                         <span class="rounded-circle" style="width: 20px; height: 20px; background-color: rgba(255, 82, 82, 0.4); border: 4px solid #ff5252; box-shadow: 0 0 10px rgba(255,82,82,0.5);"></span>
                     </div>
                     <div class="position-absolute d-flex align-items-center gap-2" style="top: 60%; right: 25%;">
-                        <span class="badge rounded-pill px-3 py-2 shadow-sm" style="background-color: #ff5252; font-family: 'Hind Siliguri', sans-serif; font-size: 0.9rem;">জ্বালা নেই</span>
+                        <span class="badge rounded-pill px-3 py-2 shadow-sm" style="background-color: #ff5252; font-family: 'Noto Sans Bengali', sans-serif; font-size: 0.9rem;">জ্বালা নেই</span>
                         <span class="rounded-circle" style="width: 20px; height: 20px; background-color: rgba(255, 82, 82, 0.4); border: 4px solid #ff5252; box-shadow: 0 0 10px rgba(255,82,82,0.5);"></span>
                     </div>
                 </div>
@@ -1055,12 +1096,12 @@
                     <img src="{{ asset('assets/frontend/img/before.webp') }}" alt="Before">
                     <!-- Badge -->
                     <div class="position-absolute p-3" style="top: 15px; left: 15px;">
-                        <span class="badge rounded-pill px-4 py-2 fs-6 shadow-sm" style="background-color: #3f3f46; border: 1px solid #52525b; font-family: 'Hind Siliguri', sans-serif;">আগে</span>
+                        <span class="badge rounded-pill px-4 py-2 fs-6 shadow-sm" style="background-color: #3f3f46; border: 1px solid #52525b; font-family: 'Noto Sans Bengali', sans-serif;">আগে</span>
                     </div>
                     <!-- Tags -->
                     <div class="position-absolute d-flex align-items-center gap-2" style="top: 35%; left: 15%;">
                         <span class="rounded-circle" style="width: 20px; height: 20px; background-color: rgba(161, 161, 170, 0.4); border: 4px solid #a1a1aa; box-shadow: 0 0 10px rgba(161,161,170,0.5);"></span>
-                        <span class="badge bg-dark rounded-pill px-3 py-2 border border-secondary shadow-sm" style="font-family: 'Hind Siliguri', sans-serif; font-size: 0.9rem;">লালচে র্যাশ</span>
+                        <span class="badge bg-dark rounded-pill px-3 py-2 border border-secondary shadow-sm" style="font-family: 'Noto Sans Bengali', sans-serif; font-size: 0.9rem;">লালচে র্যাশ</span>
                     </div>
                 </div>
                 
@@ -1072,14 +1113,14 @@
                 <input type="range" min="0" max="100" value="50" class="compare-slider-input" id="compare-slider-input">
             </div>
 
-            <p class="text-secondary mt-4 mb-4" style="font-family: 'Hind Siliguri', sans-serif;">স্লাইডার ড্র্যাগ করে পার্থক্য দেখুন</p>
+            <p class="text-secondary mt-4 mb-4" style="font-family: 'Noto Sans Bengali', sans-serif;">স্লাইডার ড্র্যাগ করে পার্থক্য দেখুন</p>
 
             <!-- Bottom badges -->
             <div class="d-flex justify-content-center gap-3 flex-wrap mt-2">
-                <div class="px-4 py-2 rounded-pill bg-light text-dark shadow-sm" style="border: 1px solid rgba(255, 82, 82, 0.2); font-family: 'Hind Siliguri', sans-serif; font-weight: 600;">
+                <div class="px-4 py-2 rounded-pill bg-light text-dark shadow-sm" style="border: 1px solid rgba(255, 82, 82, 0.2); font-family: 'Noto Sans Bengali', sans-serif; font-weight: 600;">
                     <span style="color: #ff5252; font-weight: bold;" class="me-2">✔</span> কাটার ভয় নেই
                 </div>
-                <div class="px-4 py-2 rounded-pill bg-light text-dark shadow-sm" style="border: 1px solid rgba(255, 82, 82, 0.2); font-family: 'Hind Siliguri', sans-serif; font-weight: 600;">
+                <div class="px-4 py-2 rounded-pill bg-light text-dark shadow-sm" style="border: 1px solid rgba(255, 82, 82, 0.2); font-family: 'Noto Sans Bengali', sans-serif; font-weight: 600;">
                     <span style="color: #ff5252; font-weight: bold;" class="me-2">✔</span> জ্বালা-পোড়া নেই
                 </div>
             </div>
@@ -1343,18 +1384,18 @@
                         </thead>
                         <tbody>
                             <!-- Product 1 -->
-                            <tr class="product-row active-row" data-price="{{ $product ? $product->discounted_price : '1299' }}" data-name="{{ $product ? $product->title : 'Premium Skin Friendly Mini Shaver' }}">
+                            <tr class="product-row active-row" data-price="{{ $product ? $product->discounted_price : '1299' }}" data-name="{{ $product ? $product->title : 'Premium Skin Friendly Mini Shaver' }}" data-color="{{ $product && $product->color ? $product->color : 'স্ট্যান্ডার্ড' }}">
                                 <td>
                                     <div class="d-flex align-items-center gap-2">
                                         <img src="{{ $product && $product->image ? asset('image/product/' . $product->image) : asset('assets/frontend/img/product-1.webp') }}" alt="{{ $product ? $product->title : 'Mini Shaver' }}" class="product-thumb" style="width: 50px; height: 50px; object-fit: cover; border-radius: 6px;">
                                         <div style="min-width: 0;">
                                             <h5 class="mb-1 fw-bold text-dark" style="font-size: 0.9rem; line-height: 1.3; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; white-space: normal;" title="{{ $product ? $product->title : 'Skin Friendly Mini Shaver' }}">{{ $product ? $product->title : 'Skin Friendly Mini Shaver' }}</h5>
                                             <div class="d-flex flex-wrap align-items-center gap-1" style="font-size: 0.75rem;">
-                                                <span class="badge bg-light text-secondary border px-1 py-1 fw-medium"><i class="bi bi-palette2 me-1"></i>স্ট্যান্ডার্ড</span>
+                                                <span class="badge bg-light text-secondary border px-1 py-1 fw-medium"><i class="bi bi-palette2 me-1"></i>{{ $product && $product->color ? $product->color : 'স্ট্যান্ডার্ড' }}</span>
                                                 @if($product && $product->regular_price)
                                                     <del class="text-muted small">৳ {{ $product->regular_price }}</del>
                                                 @endif
-                                                <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-1 py-1 fw-bold"><i class="bi bi-tag-fill me-1"></i>৳ {{ $product ? $product->discounted_price : '199' }}</span>
+                                                <span class="badge bg-primary-subtle text-primary border border-primary-subtle px-1 py-1 fw-bold"><i class="bi bi-tag-fill me-1"></i>৳ {{ $product ? $product->discounted_price : '1299' }}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -1366,7 +1407,7 @@
                                         <button class="btn btn-outline-secondary border-secondary-subtle px-1 py-0 qty-btn-plus" type="button">+</button>
                                     </div>
                                 </td>
-                                <td class="fw-bold text-primary text-end row-total-price text-nowrap">৳ <span class="price-val">{{ $product ? $product->discounted_price : '1290' }}</span></td>
+                                <td class="fw-bold text-primary text-end row-total-price text-nowrap">৳ <span class="price-val">{{ $product ? $product->discounted_price : '1299' }}</span></td>
                             </tr>
                         </tbody>
                     </table>
@@ -1390,12 +1431,12 @@
                             @csrf
                             
                             <!-- Hidden inputs to submit selected product, price and quantity to backend -->
-                            <input type="hidden" name="product_name" id="hidden_product_name" value="Skin Friendly Mini Shaver">
-                            <input type="hidden" name="product_price" id="hidden_product_price" value="199">
+                            <input type="hidden" name="product_name" id="hidden_product_name" value="{{ $product ? $product->title : 'Skin Friendly Mini Shaver' }}">
+                            <input type="hidden" name="product_price" id="hidden_product_price" value="{{ $product ? $product->discounted_price : '1299' }}">
                             <input type="hidden" name="product_qty" id="hidden_product_qty" value="1">
                             <input type="hidden" name="delivery_cost" id="hidden_delivery_cost" value="0">
-                            <input type="hidden" name="total_amount" id="hidden_total_amount" value="199">
-                            <input type="hidden" name="product_color" id="hidden_product_color" value="Standard">
+                            <input type="hidden" name="total_amount" id="hidden_total_amount" value="{{ $product ? $product->discounted_price : '1299' }}">
+                            <input type="hidden" name="product_color" id="hidden_product_color" value="{{ $product && $product->color ? $product->color : 'স্ট্যান্ডার্ড' }}">
 
                             <div class="row g-4 mb-4">
                                 <div class="col-md-6">
@@ -1425,7 +1466,7 @@
                             <div class="billing-summary p-4 mb-4">
                                 <div class="d-flex justify-content-between mb-2">
                                     <span class="text-muted">Selected Product:</span>
-                                    <span class="fw-semibold text-dark text-wrap text-end" id="summary-product-name" style="max-width: 250px;">Skin Friendly Mini Shaver</span>
+                                    <span class="fw-semibold text-dark text-wrap text-end" id="summary-product-name" style="max-width: 250px;">{{ $product ? $product->title : 'Skin Friendly Mini Shaver' }}</span>
                                 </div>
                                 <div class="d-flex justify-content-between mb-2">
                                     <span class="text-muted">Subtotal Price:</span>
@@ -1628,8 +1669,9 @@
             let activeRow = document.querySelector('.product-row.active-row');
             if (!activeRow) return;
 
-            let price = parseFloat(activeRow.getAttribute('data-price')) || 199;
-            let name = activeRow.getAttribute('data-name') || 'Product';
+            let price = parseFloat(activeRow.getAttribute('data-price')) || {{ $product ? floatval($product->discounted_price) : 1299 }};
+            let name = activeRow.getAttribute('data-name') || {!! json_encode($product ? $product->title : 'Premium Skin Friendly Mini Shaver') !!};
+            let color = activeRow.getAttribute('data-color') || {!! json_encode($product && $product->color ? $product->color : 'স্ট্যান্ডার্ড') !!};
             
             let qtyInput = activeRow.querySelector('.product-qty-input');
             let qty = parseInt(qtyInput.value, 10) || 1;
@@ -1655,6 +1697,9 @@
             hiddenProdQty.value = qty;
             hiddenDeliveryCost.value = deliveryCharge;
             hiddenTotalAmount.value = finalTotal;
+            if (hiddenProductColor) {
+                hiddenProductColor.value = color;
+            }
         }
 
         // Handle minus/plus buttons click events
@@ -1766,6 +1811,157 @@
                 }
             });
         }
+
+        // ==========================================
+        // META CAPI & GOOGLE GTM TRACKING ENGINE
+        // ==========================================
+        window.dataLayer = window.dataLayer || [];
+
+        // Helper: Generate unique Event ID for Deduplication between Browser Pixel & Server CAPI
+        function generateTrackingEventId(prefix) {
+            return (prefix || 'evt') + '_' + Date.now() + '_' + Math.random().toString(36).substring(2, 9);
+        }
+
+        // Helper: Read Cookie value by name
+        function getTrackingCookie(name) {
+            let match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+            return match ? decodeURIComponent(match[2]) : null;
+        }
+
+        // Helper: Send event asynchronously to Server-side Meta Conversions API (CAPI)
+        function sendMetaCapiEvent(eventName, eventId, customData = {}, userData = {}) {
+            try {
+                const payload = {
+                    event_name: eventName,
+                    event_id: eventId,
+                    custom_data: customData,
+                    user_data: userData,
+                    fbp: getTrackingCookie('_fbp'),
+                    fbc: getTrackingCookie('_fbc')
+                };
+
+                fetch("{{ route('track.capi.event') }}", {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                }).catch(function(err) {
+                    // Silently ignore background tracking error
+                });
+            } catch(e) {}
+        }
+
+        // Current product info
+        const trackingProduct = {
+            id: '{{ $product ? $product->id : "1" }}',
+            name: {!! json_encode($product ? $product->title : "Premium Skin Friendly Mini Shaver") !!},
+            price: {{ $product ? floatval($product->discounted_price) : 1299 }},
+            currency: 'BDT'
+        };
+
+        // 1. TRACK PAGEVIEW (Pixel + CAPI + GTM)
+        const pageViewEventId = generateTrackingEventId('pv');
+        if (typeof fbq === 'function') {
+            fbq('track', 'PageView', {}, { eventID: pageViewEventId });
+        }
+        window.dataLayer.push({
+            event: 'page_view',
+            page_title: document.title,
+            page_location: window.location.href
+        });
+        sendMetaCapiEvent('PageView', pageViewEventId);
+
+        // 2. TRACK VIEW CONTENT (Pixel + CAPI + GTM)
+        const viewContentEventId = generateTrackingEventId('vc');
+        if (typeof fbq === 'function') {
+            fbq('track', 'ViewContent', {
+                content_name: trackingProduct.name,
+                content_ids: [String(trackingProduct.id)],
+                content_type: 'product',
+                value: trackingProduct.price,
+                currency: trackingProduct.currency
+            }, { eventID: viewContentEventId });
+        }
+        window.dataLayer.push({
+            event: 'view_item',
+            ecommerce: {
+                currency: trackingProduct.currency,
+                value: trackingProduct.price,
+                items: [{
+                    item_id: String(trackingProduct.id),
+                    item_name: trackingProduct.name,
+                    price: trackingProduct.price,
+                    quantity: 1
+                }]
+            }
+        });
+        sendMetaCapiEvent('ViewContent', viewContentEventId, {
+            content_name: trackingProduct.name,
+            content_ids: [String(trackingProduct.id)],
+            content_type: 'product',
+            value: trackingProduct.price,
+            currency: trackingProduct.currency
+        });
+
+        // 3. TRACK INITIATE CHECKOUT (Pixel + CAPI + GTM)
+        let checkoutInitiated = false;
+        function trackInitiateCheckout() {
+            if (checkoutInitiated) return;
+            checkoutInitiated = true;
+
+            const activePrice = parseFloat($('#hidden_product_price').val()) || trackingProduct.price;
+            const activeQty = parseInt($('#hidden_product_qty').val()) || 1;
+            const activeTotal = parseFloat($('#hidden_total_amount').val()) || (activePrice * activeQty);
+
+            const checkoutEventId = generateTrackingEventId('ic');
+
+            if (typeof fbq === 'function') {
+                fbq('track', 'InitiateCheckout', {
+                    content_name: trackingProduct.name,
+                    content_ids: [String(trackingProduct.id)],
+                    content_type: 'product',
+                    value: activeTotal,
+                    currency: trackingProduct.currency,
+                    num_items: activeQty
+                }, { eventID: checkoutEventId });
+            }
+
+            window.dataLayer.push({
+                event: 'begin_checkout',
+                ecommerce: {
+                    currency: trackingProduct.currency,
+                    value: activeTotal,
+                    items: [{
+                        item_id: String(trackingProduct.id),
+                        item_name: trackingProduct.name,
+                        price: activePrice,
+                        quantity: activeQty
+                    }]
+                }
+            });
+
+            sendMetaCapiEvent('InitiateCheckout', checkoutEventId, {
+                content_name: trackingProduct.name,
+                content_ids: [String(trackingProduct.id)],
+                content_type: 'product',
+                value: activeTotal,
+                currency: trackingProduct.currency,
+                num_items: activeQty
+            }, {
+                name: $('#nameInput').val(),
+                phone: $('#phoneInput').val(),
+                address: $('#addressInput').val()
+            });
+        }
+
+        // Trigger Initiate Checkout when user clicks order button or interacts with form
+        document.querySelectorAll('a[href="#order-form-section"], .btn-premium').forEach(btn => {
+            btn.addEventListener('click', trackInitiateCheckout);
+        });
+        $('#nameInput, #phoneInput, #addressInput').one('focus', trackInitiateCheckout);
     </script>
 </body>
 </html>

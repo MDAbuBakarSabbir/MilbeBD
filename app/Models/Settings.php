@@ -18,5 +18,8 @@ class Settings extends Model
         'site_favicon',
         'meta_pixel',
         'google_analytics',
+        'gtm_id',
+        'meta_capi_token',
+        'meta_test_event_code',
     ];
 }

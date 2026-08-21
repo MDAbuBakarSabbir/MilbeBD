@@ -14,6 +14,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Title</th>
+                                <th>Color / Variant</th>
                                 <th>Image</th>
                                 <th>Regular Price</th>
                                 <th>Sale Price</th>
@@ -25,12 +26,13 @@
                                 <tr>
                                     <td>{{ $product->id }}</td>
                                     <td>{{ $product->title }}</td>
+                                    <td><span class="badge badge-info">{{ $product->color ?? 'স্ট্যান্ডার্ড' }}</span></td>
                                     <td>
                                         <img src="{{ asset('image/product/' . $product->image) }}" alt="{{ $product->title }}"
                                             class="img-fluid" style="width: 50px; height: 50px; object-fit: cover;">
                                     </td>
-                                    <td>{{ $product->regular_price }}</td>
-                                    <td>{{ $product->discounted_price }}</td>
+                                    <td>৳ {{ $product->regular_price }}</td>
+                                    <td>৳ {{ $product->discounted_price }}</td>
                                     <td>
                                         <button type="button" title="Edit"
                                             class="btn btn-primary edit-product-btn"
@@ -38,6 +40,7 @@
                                             data-target="#editProductModal"
                                             data-id="{{ $product->id }}"
                                             data-title="{{ $product->title }}"
+                                            data-color="{{ $product->color ?? 'স্ট্যান্ডার্ড' }}"
                                             data-regular-price="{{ $product->regular_price }}"
                                             data-discounted-price="{{ $product->discounted_price }}"
                                             data-image="{{ asset('image/product/' . $product->image) }}"
@@ -69,8 +72,12 @@
                             @method('PUT')
                             <div class="modal-body">
                                 <div class="mb-3">
-                                    <label for="title" class="form-label">Title</label>
+                                    <label for="title" class="form-label">Title / Name</label>
                                     <input type="text" class="form-control" id="title" name="title" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="color" class="form-label">Color / Variant Name</label>
+                                    <input type="text" class="form-control" id="color" name="color" placeholder="e.g. স্ট্যান্ডার্ড বা ব্ল্যাক">
                                 </div>
                                 <div class="mb-3">
                                     <label for="image" class="form-label">Image (Leave blank to keep current)</label>
@@ -84,13 +91,13 @@
                                     <input type="text" class="form-control" id="regular_price" name="regular_price" required>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="discounted_price" class="form-label">Discounted Price</label>
+                                    <label for="discounted_price" class="form-label">Discounted / Sale Price</label>
                                     <input type="text" class="form-control" id="discounted_price" name="discounted_price">
                                 </div>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                                <button type="submit" class="btn btn-primary">Update</button>
+                                <button type="submit" class="btn btn-primary">Update Product</button>
                             </div>
                         </form>
                     </div>
@@ -103,6 +110,7 @@
         $('.edit-product-btn').on('click', function() {
             let id = $(this).data('id');
             let title = $(this).data('title');
+            let color = $(this).data('color');
             let regularPrice = $(this).data('regular-price');
             let discountedPrice = $(this).data('discounted-price');
             let actionUrl = $(this).data('action');
@@ -110,6 +118,7 @@
 
             $('#editProductForm').attr('action', actionUrl);
             $('#editProductForm #title').val(title);
+            $('#editProductForm #color').val(color);
             $('#editProductForm #regular_price').val(regularPrice);
             $('#editProductForm #discounted_price').val(discountedPrice);
             
