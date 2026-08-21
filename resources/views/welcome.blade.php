@@ -13,10 +13,10 @@
     <link rel="shortcut icon" href="{{ asset('assets/frontend/img/favicon.webp') }}" type="image/x-icon">
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    
+
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -58,7 +58,7 @@
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
             transition: var(--transition);
         }
-        
+
         .navbar-custom.scrolled {
             background: rgba(255, 255, 255, 0.95);
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
@@ -79,7 +79,7 @@
             object-fit: contain;
             transition: var(--transition);
         }
-        
+
         @media (min-width: 992px) {
             .logo-img {
                 height: 90px;
@@ -369,7 +369,7 @@
             border-color: var(--primary) !important;
             box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2) !important;
         }
-        .table-premium tbody td, 
+        .table-premium tbody td,
         .table-premium tbody th {
             padding: 1.2rem 1rem;
             border-bottom: 1px solid #f1f5f9;
@@ -386,7 +386,7 @@
             object-fit: cover;
             box-shadow: 0 4px 10px rgba(0,0,0,0.06);
         }
-        
+
         /* Billing & Delivery Section Styles */
         .billing-summary {
             background: var(--light);
@@ -790,7 +790,7 @@
                     <p class="lead text-muted mb-4">
                         মিনি শেভারের ব্লেডটি ভিতরে থাকার কারণে স্কিন কাটা-ছেড়া অথবা জ্বালা-পোড়ার ভয় নেই। এটি যেকোনো ছোট জায়গায় দ্রুত শেভ করার জন্য খুবই উপযোগী। যেমন, গাল, ঠোঁটের উপরের অংশ, গলার নিচের অংশ ইত্যাদি।
                     </p>
-                    
+
                     <!-- Countdown Area -->
                     <div class="d-flex flex-column align-items-center align-items-lg-start">
                         <small class="text-uppercase tracking-wider fw-bold text-secondary mb-2">অফার শেষ হতে বাকি :</small>
@@ -813,9 +813,9 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <a href="#order-form-section" class="btn btn-premium btn-lg">
-                        50% ছাড় পেতে এখনি অর্ডার করুন <i class="bi bi-arrow-right-short fs-5"></i>
+                        ২৮% ছাড় পেতে অর্ডার করুন <i class="bi bi-arrow-right-short fs-5"></i>
                     </a>
                 </div>
                 <!-- Features Strip -->
@@ -890,13 +890,13 @@
             <div class="text-center mb-5">
                 <h2 class="comparison-title text-center h1 text-dark fw-bolder">সাধারণ রেজার কেন সমাধান নয়?</h2>
             </div>
-            
+
             <div class="comparison-container mx-auto bg-white rounded-4 shadow-sm" style="max-width: 800px; border: 1px solid #e2e8f0; overflow: hidden;">
                 <style>
-                    .comparison-table { 
-                        width: 100%; 
+                    .comparison-table {
+                        width: 100%;
                         border-collapse: collapse;
-                        text-align: center; 
+                        text-align: center;
                         margin: 0;
                     }
                     .comparison-table th, .comparison-table td {
@@ -905,38 +905,38 @@
                         vertical-align: middle;
                         border: 1px solid #e2e8f0;
                     }
-                    .comparison-table th { 
-                        padding: 25px 15px 20px; 
+                    .comparison-table th {
+                        padding: 25px 15px 20px;
                         background-color: #f8fafc;
                         border-bottom: 2px solid #e2e8f0;
                     }
-                    
+
                     .comparison-table tr:first-child th { border-top: none; }
                     .comparison-table tr:last-child td { border-bottom: none; }
                     .comparison-table th:first-child, .comparison-table td:first-child { border-left: none; }
                     .comparison-table th:last-child, .comparison-table td:last-child { border-right: none; }
-                    
-                    .comparison-table .feature-col { 
-                        text-align: left; 
-                        color: #334155; 
-                        font-weight: 600; 
-                        font-size: 1rem; 
+
+                    .comparison-table .feature-col {
+                        text-align: left;
+                        color: #334155;
+                        font-weight: 600;
+                        font-size: 1rem;
                     }
-                    
+
                     .comparison-table .shaver-col .shaver-text,
                     .comparison-table .shaver-col .check-icon,
                     .comparison-table .shaver-header-title,
                     .comparison-table .shaver-header-icon {
                         color: #10b981 !important;
                     }
-                    
+
                     .comparison-table .razor-col .razor-text,
                     .comparison-table .razor-col .cross-icon,
                     .comparison-table .razor-header-title,
                     .comparison-table .razor-header-icon {
                         color: #ff5252 !important;
                     }
-                    
+
                     .comparison-table tbody .shaver-text,
                     .comparison-table tbody .razor-text {
                         font-weight: 600;
@@ -944,14 +944,14 @@
                         display: block;
                         margin-top: 5px;
                     }
-                    
+
                     .comparison-table tbody .check-icon,
                     .comparison-table tbody .cross-icon {
                         font-size: 1.3rem;
                         font-weight: bold;
                         display: block;
                     }
-                    
+
                     .comparison-header-icon {
                         width: 45px;
                         height: 45px;
@@ -1071,7 +1071,7 @@
             <h2 class="compare-slider-title text-dark text-center mb-4">
                 স্লাইড করে <span style="color: #ff5252;">পার্থক্য</span> দেখুন
             </h2>
-            
+
             <div class="image-compare-wrapper shadow-lg mx-auto" id="image-compare-wrapper" style="border: 4px solid #fff; border-radius: 16px;">
                 <!-- BASE WRAPPER (After - Right Side) -->
                 <div class="w-100 h-100 position-absolute top-0 start-0 z-1">
@@ -1104,12 +1104,12 @@
                         <span class="badge bg-dark rounded-pill px-3 py-2 border border-secondary shadow-sm" style="font-family: 'Noto Sans Bengali', sans-serif; font-size: 0.9rem;">লালচে র্যাশ</span>
                     </div>
                 </div>
-                
+
                 <div class="compare-slider-handle shadow" id="compare-slider-handle">
                     <i class="bi bi-chevron-left" style="font-size: 0.9rem; margin-right: -2px;"></i>
                     <i class="bi bi-chevron-right" style="font-size: 0.9rem; margin-left: -2px;"></i>
                 </div>
-                
+
                 <input type="range" min="0" max="100" value="50" class="compare-slider-input" id="compare-slider-input">
             </div>
 
@@ -1139,7 +1139,7 @@
                     <p class="text-muted mb-4">
                         ছোট আকারে হলেও এতে আছে শক্তিশালী টার্বো মোটর, যা খুব দ্রুত এবং টানে টান না মেরে এক টানেই সব চুল কেটে ফেলে। এর শক্তিশালী ইলেকট্রিক মোটর যেকোনো ঘনত্বের লোম সহজেই কাটতে পারে এবং ব্লেড খুব দ্রুত ঘোরার কারণে ত্বক কেটে যাওয়ার ভয় থাকে না।
                     </p>
-                    
+
                     <a href="#order-form-section" class="btn btn-premium btn-lg">
                         এখনই অর্ডার করুন <i class="bi bi-chevron-right fs-6"></i>
                     </a>
@@ -1170,7 +1170,7 @@
                     <p class="text-muted mb-4">
                        ল্যাপটপ, পাওয়ার ব্যাংক বা মোবাইল চার্জার দিয়ে সহজেই চার্জ দিতে পারবেন। মাত্র ১ ঘণ্টার চার্জে দীর্ঘদিন ব্যবহার করুন নিশ্চিন্তে। USB Type-C চার্জিং পোর্টের কারণে এটিকে পাওয়ার ব্যাংক, ল্যাপটপ বা যেকোনো আধুনিক ডিভাইসের অ্যাডাপ্টার দিয়ে দ্রুত চার্জ করা যায়। এটি একবার পুরোপুরি চার্জ হতে প্রায় ১ ঘণ্টা সময় নেয় এবং फुल চার্জে প্রায় ৬০ মিনিট ব্যাকআপ দেয়, যা লম্বা সময়ের জন্য যথেষ্ট।
                     </p>
-                    
+
                     <a href="#order-form-section" class="btn btn-premium btn-lg">
                         এখনই অর্ডার করুন <i class="bi bi-chevron-right fs-6"></i>
                     </a>
@@ -1189,7 +1189,7 @@
                     <p class="text-muted mb-4">
                       ওজনে হালকা এবং সাইজে ছোট হওয়ায় অফিস, ভ্রমণ বা জরুরি প্রয়োজনে পকেটে বা ব্যাগে নিয়ে যেকোনো জায়গায় সাথে রাখা একদম সহজ। এক হাতে সহজেই ধরা যায়, এমন আকৃতির জন্য এটি যেকোনো পকেটে বা লাগেজে খুব সহজেই ফিট হয়ে যায়। ভ্রমণের সময় বা বাড়ির বাইরে যেকোনো জায়গায় ব্যবহারের জন্য পারফেক্ট। এর হালকা ওজন এবং ছোট আকারের কারণে ব্যবহারকারীর চলাফেরার জন্য কোনো অসুবিধা হয় না, বরং খুব সহজেই বহনযোগ্য হওয়ায় যেকোনো স্থানে তাৎক্ষণিক ব্যবহারের সুবিধা পাওয়া যায়।
                     </p>
-                    
+
                     <a href="#order-form-section" class="btn btn-premium btn-lg">
                         এখনই অর্ডার করুন <i class="bi bi-chevron-right fs-6"></i>
                     </a>
@@ -1207,11 +1207,11 @@
     <section class="reviews-section bg-light" id="testimonials">
         <div class="container text-center">
             <h2 class="mb-4 h1">আমাদের কাস্টমারদের মতামত</h2>
-            
+
             <!-- Customer Rating Stats -->
             <div class="ratings mb-5 d-flex flex-column align-items-center justify-content-center">
                 <h3 class="display-4 fw-extrabold text-dark mb-1" style="font-family: 'Outfit', sans-serif;">
-                    <span class="counter" data-target="15000">0</span>+ 
+                    <span class="counter" data-target="15000">0</span>+
                 </h3>
                 <p class="text-muted fw-medium fs-5 mb-2">সন্তুষ্ট কাস্টমার</p>
                 <div class="d-flex align-items-center justify-content-center gap-2">
@@ -1225,7 +1225,7 @@
                     <span class="fw-bold fs-5 text-dark">৪.৮ / ৫</span>
                 </div>
             </div>
-            
+
             <div id="reviewsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
                 <div class="carousel-inner">
                     <!-- Review 1 -->
@@ -1295,7 +1295,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Controls -->
                 <button class="carousel-control-prev d-none d-md-flex align-items-center justify-content-center" type="button" data-bs-target="#reviewsCarousel" data-bs-slide="prev" style="width: 50px;">
                     <span class="bg-white text-dark rounded-circle d-inline-flex p-2 shadow-sm border border-light"><i class="bi bi-arrow-left"></i></span>
@@ -1304,7 +1304,7 @@
                     <span class="bg-white text-dark rounded-circle d-inline-flex p-2 shadow-sm border border-light"><i class="bi bi-arrow-right"></i></span>
                 </button>
             </div>
-            
+
             <div class="mt-4">
                 <a href="#order-form-section" class="btn btn-premium">
                     আজই অর্ডার করুন <i class="bi bi-cart-plus me-1"></i>
@@ -1371,7 +1371,7 @@
                 <h2 class="h1 mb-2">আপনার প্রোডাক্ট নির্বাচন করুন</h2>
                 <p class="text-muted">অর্ডার করতে আপনার পছন্দের প্যাকেজটি নির্বাচন করুন</p>
             </div>
-            
+
             <div class="table-premium-container">
                 <div class="table-responsive">
                     <table class="table table-premium align-middle">
@@ -1426,10 +1426,10 @@
                             <h2 class="h1 mb-2">অর্ডার ফর্ম</h2>
                             <p class="text-muted">অর্ডারটি কনফার্ম করতে নিচের ফর্মটি পুরন করুন</p>
                         </div>
-                        
+
                         <form action="{{ route('orders.store') }}" method="post" id="checkout-form">
                             @csrf
-                            
+
                             <!-- Hidden inputs to submit selected product, price and quantity to backend -->
                             <input type="hidden" name="product_name" id="hidden_product_name" value="{{ $product ? $product->title : 'Skin Friendly Mini Shaver' }}">
                             <input type="hidden" name="product_price" id="hidden_product_price" value="{{ $product ? $product->discounted_price : '1299' }}">
@@ -1461,7 +1461,7 @@
                                 </div>
                                 <input type="hidden" name="city" value="বাংলাদেশ">
                             </div>
-                            
+
                             <!-- Billing Summary -->
                             <div class="billing-summary p-4 mb-4">
                                 <div class="d-flex justify-content-between mb-2">
@@ -1547,7 +1547,7 @@
 
     <!-- Select2 JS (CDN) -->
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    
+
     <!-- SweetAlert2 (CDN) -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -1575,7 +1575,7 @@
         // Set the deal target to 24 hours from the current time for demo/active urgency
         const countdownDuration = 24 * 60 * 60 * 1000; // 24 hours in ms
         let targetTime = localStorage.getItem('milbe_countdown_target');
-        
+
         if (!targetTime || (new Date().getTime() > targetTime)) {
             targetTime = new Date().getTime() + countdownDuration;
             localStorage.setItem('milbe_countdown_target', targetTime);
@@ -1624,7 +1624,7 @@
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
                 if (href === '#') return;
-                
+
                 const target = document.querySelector(href);
                 if (target) {
                     e.preventDefault();
@@ -1672,12 +1672,12 @@
             let price = parseFloat(activeRow.getAttribute('data-price')) || {{ $product ? floatval($product->discounted_price) : 1299 }};
             let name = activeRow.getAttribute('data-name') || {!! json_encode($product ? $product->title : 'Premium Skin Friendly Mini Shaver') !!};
             let color = activeRow.getAttribute('data-color') || {!! json_encode($product && $product->color ? $product->color : 'স্ট্যান্ডার্ড') !!};
-            
+
             let qtyInput = activeRow.querySelector('.product-qty-input');
             let qty = parseInt(qtyInput.value, 10) || 1;
 
             let subtotal = price * qty;
-            
+
             // Update row total display
             activeRow.querySelector('.row-total-price').textContent = `৳ ${subtotal.toFixed(2)}`;
 
@@ -1772,7 +1772,7 @@
 
         // Animated Counter
         const counters = document.querySelectorAll('.counter');
-        const speed = 50; 
+        const speed = 50;
         const counterObserver = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
